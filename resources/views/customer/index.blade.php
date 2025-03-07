@@ -19,8 +19,10 @@
                         data: {
                             headings: ["ID", "Nama", "Email", "Alamat", "Aksi"],
                             data: this.customers.map((customer, index) => {
-                                const editCustomer = customerEditUrl.replace(':id', customer.id);
-                                const deleteCustomer = customerDestroyUrl.replace(':id', customer.id);
+                                const editCustomer = customerEditUrl.replace(':id', customer
+                                    .id);
+                                const deleteCustomer = customerDestroyUrl.replace(':id',
+                                    customer.id);
                                 return [
                                     index + 1,
                                     customer.name,
@@ -66,8 +68,8 @@
                 async showConfirmDialog() {
                     return new window.Swal({
                         icon: 'warning',
-                        title: 'Yakin?',
-                        text: "Data tidak bisa dikembalikan",
+                        title: 'Anda Yakin?',
+                        text: " Data tidak bisa dikembalikan",
                         showCancelButton: true,
                         confirmButtonText: 'Hapus',
                         padding: '2em',
@@ -84,7 +86,8 @@
                 },
 
                 async deleteCustomer(customerId) {
-                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')
+                        .getAttribute('content');
                     const route = "{{ route('customer.destroy', ':id') }}";
                     const url = route.replace(':id', customerId);
 
@@ -98,7 +101,7 @@
                         });
                         if (response.ok) {
                             this.removeCustomerFromList(customerId);
-                            new window.Swal('Hapus!', 'Data kamu sudah terhapus.', 'success');
+                            new window.Swal('Hapus!', 'Data kamu berhasil terhapus.', 'success');
                         }
                     } catch (e) {
                         console.log('Terjadi kesalahan', e.message);

@@ -12,7 +12,7 @@ class Transaction extends Model
     protected $fillable = [
         'mechanic_id',
         'vehicle_id',
-        'chasier_id',
+        'cashier_id',
         'customer_id',
         'quantity',
         'date',
@@ -31,9 +31,9 @@ class Transaction extends Model
         return $this->belongsTo(Vehicle::class, 'vehicle_id');
     }
 
-    public function chasier()
+    public function cashier()
     {
-        return $this->belongsTo(User::class, 'chasier_id');
+        return $this->belongsTo(User::class, 'cashier_id');
     }
 
     public function sparePart()
@@ -45,4 +45,4 @@ class Transaction extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
-} 
+}

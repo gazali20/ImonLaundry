@@ -10,32 +10,33 @@
     </ul>
 
     <div class="pt-5" x-data="form">
-        <div class="panel" >
+        <div class="panel">
             <form @submit.prevent="submitForm()">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div :class="[isSubmitForm ? (form.name ? 'has-success' : 'has-error') : '']">
                         <label for="custoName">Nama</label>
-                        <input id="custoName" type="text" placeholder="Contoh: udin" class="form-input" x-model="form.name" />
+                        <input id="custoName" type="text" placeholder="Masukan Nama Pengguna!" class="form-input"
+                            x-model="form.name" />
                         <template x-if="isSubmitForm && form.name">
-                            <p class="text-success mt-1">Nama sudah sesuai</p>
+                            <p class="text-success mt-1">Nama pekerjan sudah terisi</p>
                         </template>
                         <template x-if="isSubmitForm && !form.name">
-                            <p class="text-danger mt-1">Harap isi nama yang sesuai</p>
+                            <p class="text-danger mt-1">Harap isi nama pekerja yang sesuai!</p>
                         </template>
                     </div>
                     <div :class="[isSubmitForm ? (form.role ? 'has-success' : 'has-error') : '']">
                         <label for="customRole">Pekerjaan</label>
                         <select id="customRole" class="form-select form-select-lg text-white-dark" x-model="form.role">
-                            <option>Pilih Pekerja</option>
-                            <option value="admin" >Admin</option>
-                            <option value="cashier" >Kasir</option>
-                            <option value="mechanic" >Mekanik</option>
+                            <option>Pilih Pekerjaan!</option>
+                            <option value="admin">Admin</option>
+                            <option value="cashier">Kasir</option>
+                            <option value="mechanic">Mekanik</option>
                         </select>
                         <template x-if="isSubmitForm && form.role">
-                            <p class="text-success mt-1">Pekerjaan sudah sesuai</p>
+                            <p class="text-success mt-1">Pekerjaan sudah terisi</p>
                         </template>
                         <template x-if="isSubmitForm && !form.role">
-                            <p class="text-danger mt-1">Harap pilih pekerjaan</p>
+                            <p class="text-danger mt-1">Harap pilih pekerjaan yang sesuai!</p>
                         </template>
                     </div>
                 </div>
@@ -55,11 +56,12 @@
                 submitForm() {
                     this.isSubmitForm = true;
                     if (this.form.name && this.form.role) {
-                       this.sendFormData();
+                        this.sendFormData();
                     }
                 },
                 sendFormData() {
-                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content');
                     const url = "{{ route('user.store') }}";
 
                     const formData = new FormData();
@@ -77,7 +79,7 @@
                         if (respone.ok) {
                             this.showMessage("Data berhasil di simpan");
                             window.location.href = "{{ route('user.index') }}";
-                        }else {
+                        } else {
                             this.showMessage("Data gagal disimpan");
                         }
                     }).catch(error => {
@@ -99,6 +101,5 @@
                 },
             }));
         });
-
-     </script>
+    </script>
 </x-layout.default>

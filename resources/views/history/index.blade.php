@@ -1,35 +1,59 @@
 <x-layout.default>
     <div x-data="striped" class="panel mt-6">
-        <h5 class="md:absolute md:top-[25px] md:mb-0 mb-5 font-semibold text-lg dark:text-white-light">Riwayat Transaksi</h5>
-        <table id="tableAll" class="table-striped table-hover table-bordered table-compact"></table>
+        <h5 class="md:absolute md:top-[25px] md:mb-0 mb-5 font-semibold text-lg dark:text-white-light">Riwayat Transaksi
+        </h5>
+        <div class="overflow-x-auto">
+            <table id="tableAll" class="table-striped table-hover table-bordered table-compact w-full"></table>
+        </div>
     </div>
 
     <script>
         document.addEventListener("alpine:init", () => {
             Alpine.data("striped", () => ({
                 transactions: @json($transactions->toArray()),
+                dataTable: null,
                 init() {
-                    console.log(this.transactions);
-                    const transactionDestroyUrl = "{{ route('transaction.destroy', ['transaction' => ':id']) }}";
+                    const transactionEditUrl =
+                        "{{ route('transaction.edit', ['transaction' => ':id']) }}";
+                    const transactionDestroyUrl =
+                        "{{ route('transaction.destroy', ['transaction' => ':id']) }}";
                     const tableOptions = {
                         data: {
-                            headings: ["ID", "Mekanik", "Kendaraan", "Nomor Plat", "Customer", "Kasir", "Suku Cadang", "Jumlah", "Tanggal", "Grand Total", "Deskripsi", "Aksi"],
+                            headings: ["ID", "Mekanik", "Kendaraan", "Nomor Plat", "Customer",
+                                "Kasir", "Suku Cadang", "Jumlah", "Tanggal", "Total Harga",
+                                "Deskripsi", "Aksi"
+                            ],
                             data: this.transactions.map((transaction, index) => {
-                                const destroyTransaction = transactionDestroyUrl.replace(':id', transaction.id);
+                                const editTransaction = transactionEditUrl.replace(':id',
+                                    transaction.id);
+                                const destroyTransaction = transactionDestroyUrl.replace(
+                                    ':id', transaction.id);
                                 return [
                                     index + 1,
-                                    transaction.mechanic ? transaction.mechanic.name : 'Tidak ada mekanik',
-                                    transaction.vehicle ? transaction.vehicle.brand : 'Tidak ada kendaraan',
-                                    transaction.vehicle ? transaction.vehicle.plat : 'Tidak ada plat',
-                                    transaction.customer ? transaction.customer.name : 'Tidak ada customer',
-                                    transaction.chasier ? transaction.chasier.name : 'Tidak ada kasir',
-                                    transaction.spare_part ? transaction.spare_part.name : 'Tidak ada suku cadang',
+                                    transaction.mechanic ? transaction.mechanic.name :
+                                    'Tidak ada mekanik',
+                                    transaction.vehicle ? transaction.vehicle.brand :
+                                    'Tidak ada kendaraan',
+                                    transaction.vehicle ? transaction.vehicle.plat :
+                                    'Tidak ada plat',
+                                    transaction.customer ? transaction.customer.name :
+                                    'Tidak ada customer',
+                                    transaction.cashier ? transaction.cashier.name :
+                                    'Tidak ada kasir',
+                                    transaction.spare_part ? transaction.spare_part
+                                    .name : 'Tidak ada suku cadang',
                                     transaction.quantity,
                                     transaction.date,
                                     transaction.grand_total,
                                     transaction.description,
                                     `<div class="flex items-center gap-2">
-                                        <form action="${destroyTransaction}" method="POST">
+                                        <a href="${editTransaction}">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.5" d="M20.8487 8.71306C22.3844 7.17735 22.3844 4.68748 20.8487 3.15178C19.313 1.61607 16.8231 1.61607 15.2874 3.15178L14.4004 4.03882C14.4125 4.0755 14.4251 4.11268 14.4382 4.15035C14.7633 5.0875 15.3768 6.31601 16.5308 7.47002C17.6848 8.62403 18.9133 9.23749 19.8505 9.56262C19.888 9.57563 19.925 9.58817 19.9615 9.60026L20.8487 8.71306Z" fill="#1C274C"/>
+                                                <path d="M14.4386 4L14.4004 4.03819C14.4125 4.07487 14.4251 4.11206 14.4382 4.14973C14.7633 5.08687 15.3768 6.31538 16.5308 7.4694C17.6848 8.62341 18.9133 9.23686 19.8505 9.56199C19.8876 9.57489 19.9243 9.58733 19.9606 9.59933L11.4001 18.1598C10.823 18.7369 10.5343 19.0255 10.2162 19.2737C9.84082 19.5665 9.43469 19.8175 9.00498 20.0223C8.6407 20.1959 8.25351 20.3249 7.47918 20.583L3.39584 21.9442C3.01478 22.0712 2.59466 21.972 2.31063 21.688C2.0266 21.4039 1.92743 20.9838 2.05445 20.6028L3.41556 16.5194C3.67368 15.7451 3.80273 15.3579 3.97634 14.9936C4.18114 14.5639 4.43213 14.1578 4.7249 13.7824C4.97307 13.4643 5.26165 13.1757 5.83874 12.5986L14.4386 4Z" fill="#1C274C"/>
+                                            </svg>
+                                        </a>
+                                        <form action="${destroyTransaction}" method="POST" @submit.prevent="confirmDelete(${transaction.id})">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">
@@ -61,7 +85,67 @@
                         },
                     };
 
-                    const datatable2 = new simpleDatatables.DataTable('#tableAll', tableOptions);
+                    this.dataTable = new simpleDatatables.DataTable('#tableAll', tableOptions);
+                },
+
+                async showConfirmDialog() {
+                    return new window.Swal({
+                        icon: 'warning',
+                        title: 'Yakin?',
+                        text: "Data tidak bisa dikembalikan",
+                        showCancelButton: true,
+                        confirmButtonText: 'Hapus',
+                        padding: '2em',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            new window.Swal('Hapus!', 'Data kamu sudah terhapus.',
+                                'success');
+                            return true;
+                        }
+                        return false;
+                    });
+                },
+
+                async confirmDelete(transactionId) {
+                    const isConfirmed = await this.showConfirmDialog();
+                    if (isConfirmed) {
+                        this.deleteTransaction(transactionId);
+                    }
+                },
+
+                async deleteTransaction(transactionId) {
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')
+                        .getAttribute('content');
+                    const route = "{{ route('transaction.destroy', ':id') }}";
+                    const url = route.replace(':id', transactionId);
+
+                    try {
+                        const response = await fetch(url, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken,
+                            },
+                        });
+                        if (response.ok) {
+                            this.removeTransactionFromList(transactionId);
+                        }
+                    } catch (e) {
+                        console.log('Terjadi kesalahan', e.message);
+                    }
+                },
+
+                removeTransactionFromList(transactionId) {
+                    const index = this.transactions.findIndex(data => data.id === transactionId);
+                    if (index !== -1) {
+                        this.transactions.splice(index, 1);
+                        this.updateTable();
+                    }
+                },
+
+                updateTable() {
+                    this.dataTable.destroy();
+                    this.init();
                 }
             }));
         });

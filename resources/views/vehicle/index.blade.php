@@ -13,17 +13,28 @@
                 vehicles: @json($vehicles->toArray()),
                 dataTable: null,
                 init() {
+                    console.log('Vehicles Data:', this
+                    .vehicles); // Tambahkan log ini untuk memeriksa data vehicles
+                    if (!this.vehicles || this.vehicles.length === 0) {
+                        console.error('No vehicles data found');
+                        return;
+                    }
+
                     const vehicleEditUrl = "{{ route('vehicle.edit', ['vehicle' => ':id']) }}";
                     const vehicleDestroyUrl = "{{ route('vehicle.destroy', ['vehicle' => ':id']) }}";
                     const tableOptions = {
                         data: {
-                            headings: ["ID", "Pelanggan", "Plat Kendaraan", "Merek", "Tahun", "Aksi"],
+                            headings: ["ID", "Pelanggan", "Nomor Kendaraan", "Merek", "Tahun",
+                                "Aksi"
+                            ],
                             data: this.vehicles.map((vehicle, index) => {
-                                const editVehicle = vehicleEditUrl.replace(':id', vehicle.id);
-                                const deleteVehicle = vehicleDestroyUrl.replace(':id', vehicle.id);
+                                const editVehicle = vehicleEditUrl.replace(':id', vehicle
+                                    .id);
+                                const deleteVehicle = vehicleDestroyUrl.replace(':id',
+                                    vehicle.id);
                                 return [
                                     index + 1,
-                                    vehicle.customer.name, // Assuming customer is a relation and has a name attribute
+                                    vehicle.customer ? vehicle.customer.name : 'N/A',
                                     vehicle.plat,
                                     vehicle.brand,
                                     vehicle.year,
@@ -64,14 +75,15 @@
                 async showConfirmDialog() {
                     return new window.Swal({
                         icon: 'warning',
-                        title: 'Yakinnn?',
-                        text: "Data tidak bisa di kembalikan ",
+                        title: 'Anda Yakin?',
+                        text: " Data tidak bisa di kembalikan ",
                         showCancelButton: true,
                         confirmButtonText: 'Hapus',
                         padding: '2em',
                     }).then((result) => {
                         if (result.value) {
-                            new window.Swal('Hapus!', 'Data kamu sudah terhapus.', 'success');
+                            new window.Swal('Hapus!', ' Data kamu sudah terhapus.',
+                                'success');
                             return result.isConfirmed;
                         }
                         return false;
@@ -103,9 +115,11 @@
                         });
                         if (response.ok) {
                             this.removeVehicleFromList(vehicleId);
+                        } else {
+                            console.error('Failed to delete vehicle', response.statusText);
                         }
                     } catch (e) {
-                        console.log('Terjadi kesalahan', e.message);
+                        console.error('Terjadi kesalahan', e.message);
                     }
 
                 },

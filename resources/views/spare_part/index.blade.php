@@ -68,14 +68,14 @@
                 async showConfirmDialog() {
                     return new window.Swal({
                         icon: 'warning',
-                        title: 'Yakin?',
-                        text: "Data tidak bisa dikembalikan",
+                        title: 'Anda Yakin?',
+                        text: " Data tidak bisa dikembalikan",
                         showCancelButton: true,
                         confirmButtonText: 'Hapus',
                         padding: '2em',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            new window.Swal('Hapus!', 'Data kamu sudah terhapus.',
+                            new window.Swal('Hapus!', ' Data kamu berhasil terhapus.',
                                 'success');
                             return true;
                         }

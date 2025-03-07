@@ -26,6 +26,18 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'role' => 'required',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('user.index')->with('success', 'Data Berhasil Di Perbarui');
+    }
+
     public function edit(User $user)
     {
         return view('user.edit', compact('user'));
