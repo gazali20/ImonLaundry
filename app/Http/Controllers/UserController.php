@@ -17,6 +17,7 @@ class UserController extends Controller
     {
         return view('user.create');
     }
+    
     public function store(Request $request) {
 
         $request->validate(['name' => 'required|string','role' => 'required']);

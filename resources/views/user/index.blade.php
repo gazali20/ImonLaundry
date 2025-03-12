@@ -12,6 +12,8 @@
                 users: @json($user->toArray()),
                 dataTable: null,
                 init() {
+                    console.log(this.users); // Log data pengguna untuk verifikasi
+
                     const userEditUrl = "{{ route('user.edit', ['user' => ':id']) }}";
                     const tableOptions = {
                         data: {
@@ -36,8 +38,8 @@
                                                 </svg>
                                             </button>
                                         </div>`,
-                                ]
-                            })
+                                ];
+                            }),
                         },
                         sortable: false,
                         searchable: true,
@@ -49,7 +51,7 @@
                         prevText: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>',
                         nextText: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>',
                         labels: {
-                            perPage: "{select}"
+                            perPage: "{select}",
                         },
                         layout: {
                             top: "{search}",
@@ -62,35 +64,30 @@
                     return new window.Swal({
                         icon: 'warning',
                         title: 'Anda Yakin?',
-                        text: " Data tidak bisa di kembalikan",
+                        text: "Data tidak bisa di kembalikan",
                         showCancelButton: true,
                         confirmButtonText: 'Hapus',
                         padding: '2em',
                     }).then((result) => {
                         if (result.value) {
-                            new window.Swal('Hapus!', ' Data kamu berhasil terhapus.',
-                                'success');
-
+                            new window.Swal('Hapus!', 'Data kamu berhasil terhapus.', 'success');
                             return result.isConfirmed;
                         }
                         return false;
                     });
                 },
-
                 async confirmDelete(userId) {
-                    const inConfirmed = await this.showConfirmDialog();
-                    console.log(inConfirmed);
+                    const isConfirmed = await this.showConfirmDialog();
+                    console.log(isConfirmed);
 
-                    if (inConfirmed) {
+                    if (isConfirmed) {
                         this.deleteUser(userId);
                     }
                 },
-
                 async deleteUser(userId) {
-                    const csrfToken = document.querySelector('meta[name="csrf-token"]')
-                        .getAttribute('content');
-                    const rute = "{{ route('user.destroy', ':id') }}";
-                    const url = rute.replace(':id', userId);
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    const route = "{{ route('user.destroy', ':id') }}";
+                    const url = route.replace(':id', userId);
 
                     try {
                         const response = await fetch(url, {
@@ -100,15 +97,16 @@
                                 'X-CSRF-TOKEN': csrfToken,
                             },
                         });
+
                         if (response.ok) {
                             this.removeUserFromList(userId);
+                        } else {
+                            console.error('Failed to delete user', response.statusText);
                         }
                     } catch (e) {
                         console.log('Terjadi kesalahan', e.message);
                     }
-
                 },
-
                 removeUserFromList(userId) {
                     const index = this.users.findIndex(data => data.id === userId);
                     if (index !== -1) {
@@ -119,7 +117,6 @@
                         }
                     }
                 },
-
             }));
         });
     </script>
