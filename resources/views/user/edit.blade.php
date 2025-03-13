@@ -28,7 +28,7 @@
                     </div>
                     <div :class="[isSubmitForm ? (form.role ? 'has-success' : 'has-error') : '']">
                         <label for="customRole">Pekerjaan</label>
-                        <select id="customRole" class="form-select form-select-lg text-white-dark" x-model="form.role"
+                        <select id="customRole" class="form-select  text-white-dark" x-model="form.role"
                             name="role">
                             <option value="">Pilih Pekerja!</option>
                             <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin
