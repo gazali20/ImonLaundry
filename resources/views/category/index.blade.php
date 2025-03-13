@@ -84,7 +84,7 @@
                 },
                 async deleteCategory(categoryId) {
                     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    const route = "{{ route('user.destroy', ':id') }}";
+                    const route = "{{ route('category.destroy', ':id') }}";
                     const url = route.replace(':id', categoryId);
 
                     try {

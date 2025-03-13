@@ -29,6 +29,7 @@ class CategoryController extends Controller
     }
     public function edit(Category $category)
     {
+        $category = Category::findOrFail($category->id);
         return view('category.create', compact('category'));
 
     }
@@ -40,5 +41,14 @@ class CategoryController extends Controller
         ]);
         $category->update($request->all());
         return redirect()->route('category.index');
+    }
+
+    public function destroy(Category $category)
+    {
+        $category->delete();
+
+        if(request()->header('Content-Type') === "application/json") {
+            return response()->json($category);
+        }
     }
 }

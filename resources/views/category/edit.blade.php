@@ -1,11 +1,14 @@
 <x-layout.default>
     <div class="pt-5" x-data="form">
         <div class="panel">
+            
+
             <form @submit.prevent="submitForm()" method="POST" action="{{ route('category.update', $category->id) }}"
                 x-ref="form">
                 @csrf
                 @method('PUT')
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <p>Category: {{ $category->name_category }}</p>
                     <div :class="[isSubmitForm ? (form.name_category ? 'has-success' : 'has-error') : '']">
                         <label for="custoName">Nama Kategori</label>
                         <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
@@ -26,7 +29,7 @@
         document.addEventListener("alpine:init", () => {
             Alpine.data("form", () => ({
                 form: {
-                    name_category: '{{ $category->name_category }}',
+                    name_category: @json($category->name_category),
                 },
                 isSubmitForm: false,
                 submitForm() {

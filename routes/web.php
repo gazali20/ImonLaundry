@@ -18,9 +18,11 @@ Route::resource('/user', UserController::class);
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create']);
 Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
-Route::get('category/{category}/edit', [UserController::class, 'edit'])->name('category.edit');
+Route::get('category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/category/{category}/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
+
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
