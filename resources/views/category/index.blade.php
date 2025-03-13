@@ -97,7 +97,7 @@
                         });
 
                         if (response.ok) {
-                            this.removeUserFromList(categoryId);
+                            this.removeCategoryFromList(categoryId);
                         } else {
                             console.error('Failed to delete user', response.statusText);
                         }
@@ -105,7 +105,7 @@
                         console.log('Terjadi kesalahan', e.message);
                     }
                 },
-                removeUserFromList(categoryId) {
+                removeCategoryFromList(categoryId) {
                     const index = this.categories.findIndex(data => data.id === categoryId);
                     if (index !== -1) {
                         this.categories.splice(index, 1);
