@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceController;
 
 
 
@@ -21,4 +22,7 @@ Route::get('category/{category}/edit', [UserController::class, 'edit'])->name('c
 Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
 Route::put('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
 
-
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
+Route::get('/services/{services}/edit', [ServiceController::class, 'edit'])->name('services.edit');

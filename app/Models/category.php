@@ -9,4 +9,10 @@ class category extends Model
     protected $fillable = [
         'name_category',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'id_category');
+    }
+
 }
