@@ -15,9 +15,9 @@
         <div class="panel">
             <form @submit.prevent="submitForm()">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <!-- Kolom Kiri: 4 Form Input -->
+                    
                     <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <!-- Nama Layanan -->
+                        
                         <div :class="[isSubmitForm ? (form.name_service ? 'has-success' : 'has-error') : '']">
                             <label for="name_service">Nama Layanan</label>
                             <input id="name_service" type="text" placeholder="Masukkan nama layanan" class="form-input" x-model="form.name_service" />
@@ -29,7 +29,7 @@
                             </template>
                         </div>
     
-                        <!-- Kategori -->
+                       
                         <div :class="[isSubmitForm ? (form.id_category ? 'has-success' : 'has-error') : '']">
                             <label for="id_category">Kategori</label>
                             <select id="id_category" name="id_category" class="form-input" x-model="form.id_category">
@@ -40,7 +40,7 @@
                             </select>
                         </div>
     
-                        <!-- Harga -->
+                       
                         <div :class="[isSubmitForm ? (form.price ? 'has-success' : 'has-error') : '']">
                             <label for="price">Harga/Kg</label>
                             <input id="price" type="number" step="0.01" placeholder="Masukkan harga per Kg" class="form-input" x-model="form.price" />
@@ -52,7 +52,7 @@
                             </template>
                         </div>
     
-                        <!-- Kode Layanan -->
+                       
                         <div :class="[isSubmitForm ? (form.code ? 'has-success' : 'has-error') : '']">
                             <label for="code">Kode Layanan</label>
                             <input id="code" type="text" placeholder="Masukkan Kode Layanan" class="form-input" x-model="form.code" />
@@ -65,7 +65,7 @@
                         </div>
                     </div>
     
-                    <!-- Kolom Kanan: Upload Gambar -->
+                  
                     <div>
                         <label for="image">Foto Layanan</label>
                         <input type="file" @change="previewImage($event)" class="form-input" />
@@ -75,7 +75,7 @@
                     </div>
                 </div>
     
-                <!-- Tombol Submit -->
+             
                 <div class="mt-6">
                     <button type="submit" class="btn btn-primary">Tambah Layanan</button>
                 </div>

@@ -17,15 +17,16 @@
                     const servicesEditUrl = "{{ route('services.edit', ['services' => ':id']) }}";
                     const tableOptions = {
                         data: {
-                            headings: ["ID", "Kode", "Jenis Layanan", "Harga", "Kategori", "Detail"],
+                            headings: ["ID", "Kode", "Jenis Layanan", "Kategori", "Harga", "Detail"],
                             data: this.services.map((services, index) => {
                                 const editServices = servicesEditUrl.replace(':id', services.id);
                                 return [
                                     index + 1,
                                     services.code,
                                     services.name_service,
-                                    services.price,
+                                    
                                     services.category?.name_category ?? '-',
+                                    services.price,
                                     '',
                                 ];
                             }),
