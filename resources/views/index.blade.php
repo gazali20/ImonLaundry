@@ -258,7 +258,7 @@
                         <div class="text-sm cursor-pointer">
                             <div class="flex items-center py-1.5 relative group">
                                 <div class="bg-primary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Updated Server Logs</div>
+                                <div class="flex-1">Updated gak Logs</div>
                                 <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">Just
                                     Now</div>
 
@@ -313,7 +313,7 @@
                             </div>
                             <div class="flex items-center py-1.5 relative group">
                                 <div class="bg-secondary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send contract details to Freelancer</div>
+                                <div class="flex-1">Send semoga details to Freelancer</div>
                                 <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">18:00
                                 </div>
 
@@ -377,7 +377,7 @@
                             </div>
                             <div class="flex items-center py-1.5 relative group">
                                 <div class="bg-secondary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send contract details to Freelancer</div>
+                                <div class="flex-1">Send contract ketemu to Freelancer</div>
                                 <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">18:00
                                 </div>
 
@@ -418,7 +418,7 @@
                                 class="ltr:right-0 rtl:left-0">
                                 <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                 <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                <li><a href="javascript:;" @click="toggle">Mark as Done</a></li>
+                                <li><a href="javascript:;" @click="toggle">Mark ga sama</a></li>
                             </ul>
                         </div>
                     </div>
@@ -520,7 +520,7 @@
                                     </svg>
                                 </span>
                                 <div class="px-3 flex-1">
-                                    <div>Electricity Bill</div>
+                                    <div>Electricity temen</div>
                                     <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
                                 </div>
                                 <span
@@ -599,7 +599,7 @@
                         </div>
                         <div class="text-center px-2 flex justify-around">
                             <button type="button" class="btn btn-secondary ltr:mr-2 rtl:ml-2">View Details</button>
-                            <button type="button" class="btn btn-success">Pay Now $29.51</button>
+                            <button type="button" class="btn btn-success">Pay kaya $29.51</button>
                         </div>
                     </div>
                 </div>
@@ -627,7 +627,7 @@
                                         <div class="flex items-center">
                                             <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
                                                 src="/assets/images/profile-6.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Luke Ivory</span>
+                                            <span class="whitespace-nowrap">Luke lagi</span>
                                         </div>
                                     </td>
                                     <td class="text-primary">Headphone</td>
@@ -642,7 +642,7 @@
                                         <div class="flex items-center">
                                             <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
                                                 src="/assets/images/profile-7.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Andy King</span>
+                                            <span class="whitespace-nowrap">Andy kamu</span>
                                         </div>
                                     </td>
                                     <td class="text-info">Nike Sport</td>
