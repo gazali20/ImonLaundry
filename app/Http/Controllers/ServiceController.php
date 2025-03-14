@@ -88,6 +88,10 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with('success', 'Layanan berhasil diperbarui!');
     }
 
+    public function detail()
+    {
+        return view('services.detail');
+    }
     // Hapus layanan
     public function destroy($id)
     {

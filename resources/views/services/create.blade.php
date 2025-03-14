@@ -3,7 +3,7 @@
 
     <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
         <li>
-            <a href="/service" class="text-primary hover:underline">Layanan</a>
+            <a href="/services" class="text-primary hover:underline">Layanan</a>
         </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>Tambah layanan</span>
@@ -15,7 +15,7 @@
         <div class="panel">
             <form @submit.prevent="submitForm()">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    
+   
                     <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
                         
                         <div :class="[isSubmitForm ? (form.name_service ? 'has-success' : 'has-error') : '']">

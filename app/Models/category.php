@@ -15,4 +15,5 @@ class category extends Model
         return $this->hasMany(Service::class, 'id_category');
     }
 
+
 }

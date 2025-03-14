@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         $category = Category::findOrFail($category->id);
-        return view('category.create', compact('category'));
+        return view('category.edit', compact('category'));
 
     }
 
@@ -43,6 +43,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index');
     }
 
+
     public function destroy(Category $category)
     {
         $category->delete();
@@ -51,4 +52,5 @@ class CategoryController extends Controller
             return response()->json($category);
         }
     }
+
 }

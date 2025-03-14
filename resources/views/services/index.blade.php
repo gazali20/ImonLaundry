@@ -17,7 +17,7 @@
                     const servicesEditUrl = "{{ route('services.edit', ['services' => ':id']) }}";
                     const tableOptions = {
                         data: {
-                            headings: ["ID", "Kode", "Jenis Layanan", "Kategori", "Harga",
+                            headings: ["ID", "Kode", "Jenis Layanan", "Kategori", "Harga/kg",
                                 "Detail"
                             ],
                             data: this.services.map((services, index) => {
