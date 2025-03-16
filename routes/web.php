@@ -34,3 +34,4 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services.ind
 Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
 Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
 Route::get('/services/{services}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+Route::get('/services/{id}/detail', [ServiceController::class, 'detail'])->name('services.detail');
