@@ -34,25 +34,21 @@
         document.addEventListener("alpine:init", () => {
             Alpine.data("form", () => ({
                 form: {
-<<<<<<< HEAD
                     name_category: @json($category->name_category),
-=======
                     name_category: '',
                     
->>>>>>> 7b76f6b2053cbd718665c58134f853e94b2848a3
                 },
                 isSubmitForm: false,
                 submitForm() {
                     this.isSubmitForm = true;
                     if (this.form.name_category) {
-<<<<<<< HEAD
+
                         this.$refs.form.submit();
                         this.showMessage('Data berhasil disimpan', 'success');
                     } else {
                         this.showMessage('Harap isi semua form', 'error');
                     }
                 },
-=======
                         this.sendFormData();
                     }
                 },
@@ -83,7 +79,6 @@
                         this.showMessage("Terjadi kesalahan :" + error.message, "error");
                     });
                 },
->>>>>>> 7b76f6b2053cbd718665c58134f853e94b2848a3
                 showMessage(msg = '', type = 'success') {
                     const toast = window.Swal.mixin({
                         toast: true,
@@ -99,5 +94,6 @@
                 },
             }));
         });
+    
     </script>
 </x-layout.default>

@@ -35,3 +35,4 @@ Route::get('/services/create', [ServiceController::class, 'create'])->name('serv
 Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
 Route::get('/services/{services}/edit', [ServiceController::class, 'edit'])->name('services.edit');
 Route::get('/services/{id}/detail', [ServiceController::class, 'detail'])->name('services.detail');
+Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');

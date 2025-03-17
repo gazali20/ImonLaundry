@@ -92,7 +92,7 @@ class ServiceController extends Controller
     {
         $service = Service::findOrFail($id);
         $categories = Category::all();
-        return redirect()->route('services.detail', compact('service', 'categories'));
+        return view('services.detail', compact('service', 'categories'));
     }
     // Hapus layanan
     public function destroy($id)
@@ -105,6 +105,8 @@ class ServiceController extends Controller
 
         $service->delete();
 
-        return redirect()->route('services.index')->with('success', 'Layanan berhasil dihapus!');
+        if(request()->header('Content-Type') === "application/json") {
+            return response()->json($services);
+        }
     }
 }
