@@ -94,6 +94,14 @@ class ServiceController extends Controller
         $categories = Category::all();
         return view('services.detail', compact('service', 'categories'));
     }
+
+    public function show($id)
+{
+    $service = Service::with('category')->findOrFail($id);
+                return view('services.detail', compact('service'));
+}
+
+
     // Hapus layanan
     public function destroy($id)
     {

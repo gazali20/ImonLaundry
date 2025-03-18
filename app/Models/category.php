@@ -8,11 +8,17 @@ class category extends Model
 {
     protected $fillable = [
         'name_category',
+        'requirement_category',
     ];
 
     public function services()
     {
         return $this->hasMany(Service::class, 'id_category');
+    }
+
+    public function requirement()
+    {
+        return $this->hasMany(Requirement::class, 'id_category');
     }
 
 

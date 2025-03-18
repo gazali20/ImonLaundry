@@ -2,7 +2,7 @@
     <div x-data="striped" class="panel">
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg dark:text-white-light">Kategori</h5>
-            <a href="/category/create" class="btn btn-primary">Tambah</a>
+            <a href="/category/create" class="bg-purple-200 p-2 rounded-md inline-block">Tambah</a>
         </div>
         <table id="tableHover" class="table-hover"></table>
     </div>

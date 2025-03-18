@@ -8,7 +8,7 @@
                         <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
                             x-model="form.name_category" />
                         <template x-if="isSubmitForm && form.name_category">
-                            <p class="text-success mt-1">Nama pekerjan sudah terisi</p>
+                            <p class="text-success mt-1">Kategori terisi</p>
                         </template>
                         <template x-if="isSubmitForm && !form.name_category">
                             <p class="text-danger mt-1">Harap isi nama pekerja yang sesuai!</p>
