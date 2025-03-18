@@ -16,10 +16,5 @@ class category extends Model
         return $this->hasMany(Service::class, 'id_category');
     }
 
-    public function requirement()
-    {
-        return $this->hasMany(Requirement::class, 'id_category');
-    }
-
 
 }

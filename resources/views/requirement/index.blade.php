@@ -2,7 +2,7 @@
     <div x-data="striped" class="panel">
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg dark:text-white-light">List Kebutuhan</h5>
-            <a href="/services/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
+            <a href="/requirement/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
         </div>
         <table id="tableHover" class="table-hover"></table>
     </div>
@@ -25,7 +25,7 @@
                                     .id);
                                 return [
                                     index + 1,
-                                    requirement.code,
+                                    
                                     requirement.stock,
                                     requirement.name_service,
 

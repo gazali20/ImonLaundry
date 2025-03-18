@@ -36,6 +36,7 @@ Route::get('/services/{id}/detail', [ServiceController::class, 'show'])->name('s
 Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');
 
 Route::get('/requirement', [RequirementController::class, 'index'])->name('requirement.index');
+Route::get('/requirement/create', [RequirementController::class, 'create'])->name('requirement.create');
 Route::get('/requirement/{requirement}/edit', [RequirementController::class, 'edit'])->name('requirement.edit');
 
 
