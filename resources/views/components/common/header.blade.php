@@ -1,16 +1,16 @@
 <header class="z-40" :class="{ 'dark': $store.app.semidark && $store.app.menu === 'horizontal' }">
     <div class="shadow-sm">
-        <div class="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-[#0e1726]">
+        <div class="relative bg-white flex w-full items-center px-5 py-2.5">
             <div class="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
                 <a href="/" class="main-logo flex items-center shrink-0">
                     <img class="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/logo.svg"
                         alt="image" />
                     <span
-                        class="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">VRISTO</span>
+                        class="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline transition-all duration-300">VRISTO</span>
                 </a>
 
                 <a href="javascript:;"
-                    class="collapse-icon flex-none dark:text-[#d0d2d6] hover:text-primary dark:hover:text-primary flex lg:hidden ltr:ml-2 rtl:mr-2 p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
+                    class="collapse-icon flex-none hover:text-primary flex lg:hidden ltr:ml-2 rtl:mr-2 p-2 rounded-full bg-white-light/40 hover:bg-white-light/90"
                     @click="$store.app.toggleSidebar()">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -22,10 +22,10 @@
                 </a>
             </div>
             <div class="ltr:mr-2 rtl:ml-2 hidden sm:block">
-                <ul class="flex items-center space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
+                <ul class="flex items-center space-x-2 rtl:space-x-reverse">
                     <li>
                         <a href="/apps/calendar"
-                            class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
+                            class="block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -42,7 +42,7 @@
                     </li>
                     <li>
                         <a href="/apps/todolist"
-                            class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
+                            class="block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.5"
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li><a href="/apps/chat"
-                            class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
+                            class="block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle r="3" transform="matrix(-1 0 0 1 19 5)" stroke="currentColor"
@@ -72,7 +72,7 @@
                 </ul>
             </div>
             <div x-data="header"
-                class="sm:flex-1 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
+                class="sm:flex-1 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse">
                 <div class="sm:ltr:mr-auto sm:rtl:ml-auto" x-data="{ search: false }" @click.outside="search = false">
                     <form
                         class="sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 sm:block hidden"
@@ -106,9 +106,9 @@
                         </div>
                     </form>
                     <button type="button"
-                        class="search_btn sm:hidden p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="search_btn sm:hidden p-2 rounded-full bg-white-light/40 hover:bg-white-light/90"
                         @click="search = ! search">
-                        <svg class="w-4.5 h-4.5 mx-auto dark:text-[#d0d2d6]" width="20" height="20"
+                        <svg class="w-4.5 h-4.5 mx-auto" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor"
                                 stroke-width="1.5" opacity="0.5" />
@@ -119,7 +119,7 @@
                 </div>
                 <div>
                     <a href="javascript:;" x-cloak x-show="$store.app.theme === 'light'" href="javascript:;"
-                        class="flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="flex items-center p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="$store.app.toggleTheme('dark')">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@
                         </svg>
                     </a>
                     <a href="javascript:;" x-cloak x-show="$store.app.theme === 'dark'" href="javascript:;"
-                        class="flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="flex items-center p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="$store.app.toggleTheme('system')">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +151,7 @@
                         </svg>
                     </a>
                     <a href="javascript:;" x-cloak x-show="$store.app.theme === 'system'" href="javascript:;"
-                        class="flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="flex items-center p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="$store.app.toggleTheme('light')">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -168,13 +168,13 @@
 
                 <div class="dropdown shrink-0" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;"
-                        class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="toggle">
                         <img :src="`/assets/images/flags/${$store.app.locale.toUpperCase()}.svg`" alt="image"
                             class="w-5 h-5 object-cover rounded-full" />
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                        class="ltr:-right-14 sm:ltr:-right-2 rtl:-left-14 sm:rtl:-left-2 top-11 !px-2 text-dark dark:text-white-dark grid grid-cols-2 gap-y-2 font-semibold dark:text-white-light/90 w-[280px]">
+                        class="ltr:-right-14 sm:ltr:-right-2 rtl:-left-14 sm:rtl:-left-2 top-11 !px-2 text-dark grid grid-cols-2 gap-y-2 font-semibold w-[280px]">
                         <template x-for="item in languages">
                             <li>
                                 <a href="javascript:;" class="hover:text-primary"
@@ -191,7 +191,7 @@
 
                 <div class="dropdown" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;"
-                        class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="toggle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -206,7 +206,7 @@
                         </svg>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                        class="top-11 !py-0 text-dark dark:text-white-dark w-[300px] ltr:-right-16 sm:ltr:-right-2 rtl:-left-16 sm:rtl:-left-2 sm:w-[375px] text-xs">
+                        class="top-11 !py-0 text-dark w-[300px] ltr:-right-16 sm:ltr:-right-2 rtl:-left-16 sm:rtl:-left-2 sm:w-[375px] text-xs">
                         <li class="mb-5">
                             <div class="overflow-hidden relative rounded-t-md !p-5 text-white">
                                 <div
@@ -219,13 +219,13 @@
                             <li>
                                 <div class="flex items-center px-5 py-3" @click.self="toggle">
                                     <div x-html="msg.image"></div>
-                                    <span class="px-3 dark:text-gray-500">
-                                        <div class="font-semibold text-sm dark:text-white-light/90"
+                                    <span class="px-3">
+                                        <div class="font-semibold text-sm"
                                             x-text="msg.title"></div>
                                         <div x-text="msg.message"></div>
                                     </span>
                                     <span
-                                        class="font-semibold bg-white-dark/20 rounded text-dark/60 px-1 ltr:ml-auto rtl:mr-auto whitespace-pre dark:text-white-dark ltr:mr-2 rtl:ml-2"
+                                        class="font-semibold bg-white-dark/20 rounded text-dark/60 px-1 ltr:ml-auto rtl:mr-auto whitespace-pre ltr:mr-2 rtl:ml-2"
                                         x-text="msg.time"></span>
                                     <span class="text-neutral-300 hover:text-danger" @click="removeMessage(msg.id)">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -240,8 +240,8 @@
                             </li>
                         </template>
                         <template x-if="messages.length">
-                            <li class="border-t border-white-light text-center dark:border-white/10 mt-5 ">
-                                <div class="flex items-center px-4 py-4 text-primary font-semibold group dark:text-gray-400  justify-center cursor-pointer"
+                            <li class="border-t border-white-light text-center mt-5 ">
+                                <div class="flex items-center px-4 py-4 text-primary font-semibold group  justify-center cursor-pointer"
                                     @click="toggle">
                                     <span class="group-hover:underline ltr:mr-1 rtl:ml-1">VIEW ALL ACTIVITIES</span>
                                     <svg class="w-4 h-4 group-hover:translate-x-1 transition duration-300 ltr:ml-1 rtl:mr-1"
@@ -277,7 +277,7 @@
                 </div>
                 <div class="dropdown" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;"
-                        class="relative block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
+                        class="relative block p-2 rounded-full bg-white-light/40 hover:text-primary hover:bg-white-light/90"
                         @click="toggle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +296,7 @@
                         </span>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                        class="ltr:-right-2 rtl:-left-2 top-11 !py-0 text-dark dark:text-white-dark w-[300px] sm:w-[350px] divide-y dark:divide-white/10">
+                        class="ltr:-right-2 rtl:-left-2 top-11 !py-0 text-dark w-[300px] sm:w-[350px] divide-y">
                         <li>
                             <div
                                 class="flex items-center px-4 py-2 justify-between font-semibold hover:!bg-transparent">
@@ -307,7 +307,7 @@
                             </div>
                         </li>
                         <template x-for="notification in notifications">
-                            <li class=" dark:text-white-light/90 ">
+                            <li class=" ">
                                 <div class="flex items-center px-4 py-2 group" @click.self="toggle">
                                     <div class="grid place-content-center rounded">
                                         <div class="w-12 h-12 relative">
@@ -321,7 +321,7 @@
                                     <div class="ltr:pl-3 rtl:pr-3 flex flex-auto">
                                         <div class="ltr:pr-3 rtl:pl-3">
                                             <h6 x-html="notification.message"></h6>
-                                            <span class="text-xs block font-normal dark:text-gray-500"
+                                            <span class="text-xs block font-normal"
                                                 x-text="notification.time"></span>
                                         </div>
                                         <button type="button"
@@ -377,7 +377,7 @@
                                 src="/assets/images/user-profile.jpeg" alt="image" /></span>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                        class="ltr:right-0 rtl:left-0 text-dark dark:text-white-dark top-11 !py-0 w-[230px] font-semibold dark:text-white-light/90">
+                        class="ltr:right-0 rtl:left-0 text-dark top-11 !py-0 w-[230px] font-semibold">
                         <li>
                             <div class="flex items-center px-4 py-4">
                                 <div class="flex-none">
@@ -386,11 +386,11 @@
                                         alt="image" />
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
-                                    <h4 class="text-base">John Doe<span
+                                    <h4 class="text-base">
+                                        <span
                                             class="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
                                     </h4>
-                                    <a class="text-black/60  hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
-                                        href="javascript:;">johndoe@gmail.com</a>
+                                    <a class="text-black/60 hover:text-primary" href="javascript:;"></a>
                                 </div>
                             </div>
                         </li>
@@ -443,18 +443,22 @@
                                 </svg>
                                 Lock Screen</a>
                         </li>
-                        <li class="border-t border-white-light dark:border-white-light/10">
-                            <a href="/auth/boxed-signin" class=" text-danger !py-3" @click="toggle">
-                                <svg class="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0 rotate-90" width="18" height="18"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.5"
-                                        d="M17 9.00195C19.175 9.01406 20.3529 9.11051 21.1213 9.8789C22 10.7576 22 12.1718 22 15.0002V16.0002C22 18.8286 22 20.2429 21.1213 21.1215C20.2426 22.0002 18.8284 22.0002 16 22.0002H8C5.17157 22.0002 3.75736 22.0002 2.87868 21.1215C2 20.2429 2 18.8286 2 16.0002L2 15.0002C2 12.1718 2 10.7576 2.87868 9.87889C3.64706 9.11051 4.82497 9.01406 7 9.00195"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5" stroke="currentColor"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                Sign Out
-                            </a>
+                        <li class="border-t border-white-light">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}" class="text-danger flex items-center pl-4 py-3 hover:text-red-700"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <svg class="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0 rotate-90" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.5"
+                                            d="M17 9.00195C19.175 9.01406 20.3529 9.11051 21.1213 9.8789C22 10.7576 22 12.1718 22 15.0002V16.0002C22 18.8286 22 20.2429 21.1213 21.1215C20.2426 22.0002 18.8284 22.0002 16 22.0002H8C5.17157 22.0002 3.75736 22.0002 2.87868 21.1215C2 20.2429 2 18.8286 2 16.0002L2 15.0002C2 12.1718 2 10.7576 2.87868 9.87889C3.64706 9.11051 4.82497 9.01406 7 9.00195"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5" stroke="currentColor"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    Sign Out
+                                </a>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -463,7 +467,7 @@
 
         <!-- horizontal menu -->
         <ul
-            class="horizontal-menu hidden py-1.5 font-semibold px-6 lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse bg-white border-t border-[#ebedf2] dark:border-[#191e3a] dark:bg-[#0e1726] text-black dark:text-white-dark">
+            class="horizontal-menu hidden py-1.5 font-semibold px-6 lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse bg-white border-t border-[#ebedf2] text-black">
             <li class="menu nav-item relative">
                 <a href="javascript:;" class="nav-link">
                     <div class="flex items-center">
@@ -573,7 +577,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/apps/invoice/list">List</a>
                             </li>
@@ -785,7 +789,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/datatables/basic">Basic</a>
                             </li>
@@ -945,7 +949,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/users/profile">Profile</a>
                             </li>
@@ -986,7 +990,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/pages/error404" target="_blank">404</a>
                             </li>
@@ -1009,7 +1013,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/auth/cover-login" target="_blank">Login Cover</a>
                             </li>
@@ -1029,7 +1033,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/auth/cover-register" target="_blank">Register Cover</a>
                             </li>
@@ -1049,7 +1053,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/auth/cover-password-reset" target="_blank">Recover ID Cover</a>
                             </li>
@@ -1069,7 +1073,7 @@
                             </div>
                         </a>
                         <ul
-                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark dark:text-white-dark dark:bg-[#1b2e4b] shadow p-0 py-2 hidden">
+                            class="rounded absolute top-0 ltr:left-[95%] rtl:right-[95%] min-w-[180px] bg-white z-[10] text-dark shadow p-0 py-2 hidden">
                             <li>
                                 <a href="/auth/cover-lockscreen" target="_blank">Unlock Cover</a>
                             </li>
@@ -1166,28 +1170,28 @@
 
             messages: [{
                     id: 1,
-                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-success-light dark:bg-success text-success dark:text-success-light"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>',
+                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-success-light text-success"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>',
                     title: 'Congratulations!',
                     message: 'Your OS has been updated.',
                     time: '1hr',
                 },
                 {
                     id: 2,
-                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-info-light dark:bg-info text-info dark:text-info-light"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>',
+                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-info-light text-info"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>',
                     title: 'Did you know?',
                     message: 'You can switch between artboards.',
                     time: '2hr',
                 },
                 {
                     id: 3,
-                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-danger-light dark:bg-danger text-danger dark:text-danger-light"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>',
+                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-danger-light text-danger"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>',
                     title: 'Something went wrong!',
                     message: 'Send Reposrt',
                     time: '2days',
                 },
                 {
                     id: 4,
-                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-warning-light dark:bg-warning text-warning dark:text-warning-light"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">    <circle cx="12" cy="12" r="10"></circle>    <line x1="12" y1="8" x2="12" y2="12"></line>    <line x1="12" y1="16" x2="12.01" y2="16"></line></svg></span>',
+                    image: '<span class="grid place-content-center w-9 h-9 rounded-full bg-warning-light text-warning"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">    <circle cx="12" cy="12" r="10"></circle>    <line x1="12" y1="8" x2="12" y2="12"></line>    <line x1="12" y1="16" x2="12.01" y2="16"></line></svg></span>',
                     title: 'Warning',
                     message: 'Your password strength is low.',
                     time: '5days',

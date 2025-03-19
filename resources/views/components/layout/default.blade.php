@@ -33,7 +33,7 @@
 
     <!-- screen loader -->
     <div
-        class="screen_loader fixed inset-0 bg-[#fafafa] dark:bg-[#060818] z-[60] grid place-content-center animate__animated">
+        class="screen_loader fixed inset-0 bg-[#fafafa] z-[60] grid place-content-center animate__animated">
         <svg width="64" height="64" viewBox="0 0 135 135" xmlns="http://www.w3.org/2000/svg" fill="#4361ee">
             <path
                 d="M67.447 58c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm9.448 9.447c0 5.523 4.477 10 10 10 5.522 0 10-4.477 10-10s-4.478-10-10-10c-5.523 0-10 4.477-10 10zm-9.448 9.448c-5.523 0-10 4.477-10 10 0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zM58 67.447c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10z">
@@ -51,7 +51,7 @@
     <div class="fixed bottom-6 ltr:right-6 rtl:left-6 z-50" x-data="scrollToTop">
         <template x-if="showTopButton">
             <button type="button"
-                class="btn btn-outline-primary rounded-full p-2 animate-pulse bg-[#fafafa] dark:bg-[#060818] dark:hover:bg-primary"
+                class="btn btn-outline-primary rounded-full p-2 animate-pulse bg-[#fafafa]"
                 @click="goToTop">
                 <svg width="24" height="24" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@
 
     <x-common.theme-customiser />
 
-    <div class="main-container text-black dark:text-white-dark min-h-screen" :class="[$store.app.navbar]">
+    <div class="main-container text-black min-h-screen" :class="[$store.app.navbar]">
 
         <x-common.sidebar />
 
