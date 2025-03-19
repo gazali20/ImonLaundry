@@ -374,7 +374,7 @@
                 <div class="dropdown flex-shrink-0" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;" class="relative group" @click="toggle()">
                         <span><img class="w-9 h-9 rounded-full object-cover saturate-50 group-hover:saturate-100"
-                                src="/assets/images/user-profile.jpeg" alt="image" /></span>
+                                src="{{ asset('assets/images/png-clipart-computer-icons-user-silhouette-drawing-silhouette-cdr-animals_prev_ui.png')}}" alt="image" /></span>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                         class="ltr:right-0 rtl:left-0 text-dark top-11 !py-0 w-[230px] font-semibold">
@@ -382,13 +382,12 @@
                             <div class="flex items-center px-4 py-4">
                                 <div class="flex-none">
                                     <img class="rounded-md w-10 h-10 object-cover"
-                                        src="/assets/images/user-profile.jpeg"
+                                        src="{{ asset('assets/images/png-clipart-computer-icons-user-silhouette-drawing-silhouette-cdr-animals_prev_ui.png')}}"
                                         alt="image" />
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
                                     <h4 class="text-base">
-                                        <span
-                                            class="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
+                                        User
                                     </h4>
                                     <a class="text-black/60 hover:text-primary" href="javascript:;"></a>
                                 </div>
