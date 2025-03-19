@@ -36,10 +36,10 @@
                                 @endforeach
                             </select>
                             <template x-if="isSubmitted && form.id_need">
-                                <p class="text-success mt-1">Nama kebutuhan sudah diisi</p>
+                                <p class="text-success mt-1">Nama kategori sudah diisi</p>
                             </template>
                             <template x-if="isSubmitted && !form.id_need">
-                                <p class="text-danger mt-1">Harap isi nama kebutuhan!</p>
+                                <p class="text-danger mt-1">Harap isi nama kategori!</p>
                             </template>
                         </div>
 
@@ -47,10 +47,10 @@
                             <label for="stock">Stok</label>
                             <input id="stock" type="number" placeholder="Masukkan jumlah stok" class="form-input" x-model="form.stock" />
                             <template x-if="isSubmitted && form.stock">
-                                <p class="text-success mt-1">Nama kebutuhan sudah diisi</p>
+                                <p class="text-success mt-1">stock sudah diisi</p>
                             </template>
                             <template x-if="isSubmitted && !form.stock">
-                                <p class="text-danger mt-1">Harap isi nama kebutuhan!</p>
+                                <p class="text-danger mt-1">Harap isi stock!</p>
                             </template>
                         </div>
 
@@ -58,10 +58,10 @@
                             <label for="price">Harga/item</label>
                             <input id="price" type="number" placeholder="Masukkan harga" class="form-input" x-model="form.price" />
                             <template x-if="isSubmitted && form.price">
-                                <p class="text-success mt-1">Nama kebutuhan sudah diisi</p>
+                                <p class="text-success mt-1">harga sudah diisi</p>
                             </template>
                             <template x-if="isSubmitted && !form.requirement_name">
-                                <p class="text-danger mt-1">Harap isi nama kebutuhan!</p>
+                                <p class="text-danger mt-1">Harap isi harga!</p>
                             </template>
                         </div>
 

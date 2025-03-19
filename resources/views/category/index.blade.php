@@ -1,8 +1,8 @@
 <x-layout.default>
 
     <ul class="flex space-x-2 rtl:space-x-reverse">
-        <li>
-            <a href="#" class="text-primary hover:underline">Kategori</a>
+        <li class="ltr:before:mr-1 rtl:before:ml-1">
+            <span>Layanan</span>
         </li>
         <li>
             <a href="/need" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Kebutuhan</a>
@@ -15,7 +15,7 @@
         
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg dark:text-white-light">Kategori layanann</h5>
-            <a href="/category/create" class="bg-purple-200 p-2 rounded-md inline-block">Tambah</a>
+            <a href="/category/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
         </div>
         <table id="tableHover" class="table-hover"></table>
     </div>

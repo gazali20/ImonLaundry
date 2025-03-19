@@ -1,7 +1,10 @@
 <x-layout.default>
     <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li class="ltr:before:mr-1 rtl:before:ml-1">
+            <span>Kebutuhan</span>
+        </li>
         <li>
-            <a href="/category" class="text-primary hover:underline">Kebutuhan</a>
+            <a href="/category" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Layanan</a>
         </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>List Kebutuhan</span>
@@ -10,7 +13,7 @@
     <div x-data="striped" class="panel">
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg dark:text-white-light">Kategori Kebutuhan</h5>
-            <a href="/need/create" class="bg-purple-200 p-2 rounded-md inline-block">Tambah</a>
+            <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
         </div>
         <table id="tableHover" class="table-hover"></table>
     </div>
