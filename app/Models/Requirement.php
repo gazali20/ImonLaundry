@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Requirement extends Model
 {
     protected $fillable = [
-        'id_category',
+        'id_need',
         'requirement_name',
         'stock',
         'price',

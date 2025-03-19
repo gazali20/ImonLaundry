@@ -7,16 +7,16 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                     <div :class="[isSubmitForm ? (form.name_category ? 'has-success' : 'has-error') : '']">
-                        <label for="custoName">Nama Kategori Layanan</label>
+                        <label for="custoName">Nama Kategori Kebutuhan</label>
                         <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
                             x-model="form.name_category" />
                         
                         <template x-if="isSubmitForm && form.name_category">
-                            <p class="text-success mt-1">Nama kategori layanan sudah terisi</p>
+                            <p class="text-success mt-1">Nama kategori kebutuhan sudah terisi</p>
                         </template>
 
                         <template x-if="isSubmitForm && !form.name_category">
-                            <p class="text-danger mt-1">Harap isi nama kategori layanan</p>
+                            <p class="text-danger mt-1">Harap isi nama kategori kebutuhan</p>
                         </template>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
         document.addEventListener("alpine:init", () => {
             Alpine.data("form", () => ({
                 form: {
-                    name_category: @json($category->name_category),
+                    name_category: @json($need->name_category),
                 },
                 isSubmitForm: false,
                 
@@ -45,7 +45,7 @@
 
                 sendFormData() {
                     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    const url = "{{ route('category.update', $category->id) }}";
+                    const url = "{{ route('need.update', $need->id) }}";
 
                     const formData = new FormData();
                     formData.append('_token', csrfToken);
@@ -62,7 +62,7 @@
                         if (response.ok) {
                             this.showMessage("Data berhasil disimpan", "success");
                             setTimeout(() => {
-                                window.location.href = "{{ route('category.index') }}";
+                                window.location.href = "{{ route('need.index') }}";
                             }, 1000); 
                         } else {
                             this.showMessage("Data gagal disimpan", "error");

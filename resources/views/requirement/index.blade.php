@@ -17,20 +17,19 @@
                     const requirementsEditUrl = "{{ route('requirement.edit', ['requirement' => ':id']) }}";
                     const tableOptions = {
                         data: {
-                            headings: ["ID", "Kode", "Jenis kebutuhan", "Kategori", "Harga/kg",
+                            headings: ["ID", "Jenis kebutuhan", "Stock", "Kategori", "Harga/item", "Harga total",
                                 "Detail"
                             ],
                             data: this.requirements.map((requirement, index) => {
-                                const editServices = requirementEditUrl.replace(':id', requirement
+                                const editRequirement = requirementEditUrl.replace(':id', requirement
                                     .id);
                                 return [
                                     index + 1,
-                                    
+                                    requirement.requirement_name,
                                     requirement.stock,
-                                    requirement.name_service,
-
-                                    requirement.category?.requirement_name ?? '-',
+                                    requirement.need?.name_category ?? '_',
                                     requirement.price,
+                                    requirement.grand_total,
                                     `<div>
                                         <a href="/services/${requirement.id}/detail">
                                             <div class="bg-purple-200 p-2 rounded-md inline-block">

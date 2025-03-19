@@ -6,12 +6,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RequirementController;
+use App\Http\Controllers\NeedController;
 
 
 Route::get('/', function () {
     return view('index');
 });
-
 
 
 Route::resource('/user', UserController::class);
@@ -32,14 +32,20 @@ Route::post('/services/store', [ServiceController::class, 'store'])->name('servi
 Route::get('/services/{services}/edit', [ServiceController::class, 'edit'])->name('services.edit');
 Route::get('/services/{id}/detail', [ServiceController::class, 'detail'])->name('services.detail');
 Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
-Route::get('/services/{id}/detail', [ServiceController::class, 'show'])->name('services.show');
 Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');
 
 Route::get('/requirement', [RequirementController::class, 'index'])->name('requirement.index');
 Route::get('/requirement/create', [RequirementController::class, 'create'])->name('requirement.create');
+Route::post('/requirement/store', [RequirementController::class, 'store'])->name('requirement.store');
 Route::get('/requirement/{requirement}/edit', [RequirementController::class, 'edit'])->name('requirement.edit');
 
 
+Route::get('/need', [NeedController::class, 'index'])->name('need.index');
+Route::get('/need/create', [NeedController::class, 'create']);
+Route::get('/need/{need}/edit', [NeedController::class, 'edit'])->name('need.edit');
+Route::post('/need/store', [NeedController::class, 'store'])->name('need.store');
+Route::put('/need/{need}', [NeedController::class, 'update'])->name('need.update');
+Route::delete('/need/{id}/destroy', [NeedController::class, 'destroy'])->name('need.destroy');
 
 
 

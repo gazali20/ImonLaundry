@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class Need extends Model
 {
     protected $fillable = [
         'name_category',
     ];
 
-    public function services()
+    public function requirement()
     {
-        return $this->hasMany(Service::class, 'id_category');
+        return $this->hasMany(Requirement::class, 'id_need');
     }
-
-
 }

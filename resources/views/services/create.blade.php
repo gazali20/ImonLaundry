@@ -73,7 +73,7 @@
                             <img :src="'/images/services/' + form.image" class="w-32 h-32 mt-4 object-cover rounded-xl shadow" />
                         </template>
                         
-                        <!-- Tampilkan gambar preview kalau sudah pilih gambar baru -->
+                        
                         <template x-if="imagePreview">
                             <img :src="imagePreview" class="w-32 h-32 mt-4 object-cover rounded-xl shadow" />
                         </template>
