@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_category')->constrained('categories')->onDelete('cascade');            
+            $table->foreignId('id_need')->constrained('needs')->onDelete('cascade');            
             $table->string('requirement_name');
             $table->string('stock')->nullable();
             $table->decimal('price');

@@ -45,6 +45,10 @@ Route::get('/requirement', [RequirementController::class, 'index'])->name('requi
 Route::get('/requirement/create', [RequirementController::class, 'create'])->name('requirement.create');
 Route::post('/requirement/store', [RequirementController::class, 'store'])->name('requirement.store');
 Route::get('/requirement/{requirement}/edit', [RequirementController::class, 'edit'])->name('requirement.edit');
+Route::get('/requirement/{requirement}/detail', [RequirementController::class, 'detail'])->name('requirement.detail');
+Route::put('/requirement/{requirement}', [RequirementController::class, 'update'])->name('requirement.update');
+Route::delete('/requirement/{requirement}/destroy', [RequirementController::class, 'destroy'])->name('requirement.destroy');
+
 
 
 Route::get('/need', [NeedController::class, 'index'])->name('need.index');

@@ -15,4 +15,9 @@ class Requirement extends Model
         'image',
 
     ];
+
+    public function need()
+    {
+        return $this->belongsTo(Need::class, 'id_need');
+    }
 }
