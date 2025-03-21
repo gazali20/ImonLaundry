@@ -1,4 +1,15 @@
 <x-layout.default>
+
+    <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
+        <li>
+            <a href="/need" class="text-primary hover:underline">list kategori kebutuhan</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
+            <span>Tambah Kategori Kebutuhan</span>
+        </li>
+    </ul>
+
+
     <div class="pt-5" x-data="form">
         <div class="panel">
             <form @submit.prevent="submitForm()">

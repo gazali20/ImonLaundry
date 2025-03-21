@@ -1,4 +1,13 @@
 <x-layout.default>
+    <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
+        <li>
+            <a href="/need" class="text-primary hover:underline">list kategori layanan</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
+            <span>Edit Kategori Layanan</span>
+        </li>
+    </ul>
+
     <div class="pt-5" x-data="form">
         <div class="panel">
 
