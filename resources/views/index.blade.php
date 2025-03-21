@@ -10,11 +10,83 @@
             </li>
         </ul>
 
-        <div class="pt-5">
+
+
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6 pt-5">
+            {{-- i --}}
+            <div class="panel h-36 bg-gradient-to-t from-blue-200 via-blue-400 to-blue-400">
+                <div class="grid sm:grid-cols-1 xl:grid-cols-2">
+                    <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
+                        <div>
+                            <h1 class="text-xl font-semibold">Total Pendapatan</h1>
+                            <h1 class="text-2xl font-extrabold py-1 font">Rp6.000.000</h1>
+                            <h1>Pertahun 25%</h1>
+                        </div>
+                    </div>
+                    <div class=" flex justify-center items-center ">
+                        <a href="">
+                            <svg class="pt-3" width="112" height="92" viewBox="0 0 102 82" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M83.6668 40.9998C83.6668 43.5772 81.5775 45.6665 79.0002 45.6665C76.4228 45.6665 74.3335 43.5772 74.3335 40.9998C74.3335 38.4225 76.4228 36.3332 79.0002 36.3332C81.5775 36.3332 83.6668 38.4225 83.6668 40.9998Z"
+                                    fill="#213A7E" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M41.4036 0.166505H55.9301C64.5063 0.166431 71.2993 0.166372 76.6156 0.881135C82.0869 1.61673 86.5153 3.16661 90.0077 6.65897C94.3215 10.9728 95.6962 16.7501 96.1953 24.2469C98.8892 25.4323 100.923 27.9392 101.147 31.1149C101.167 31.3958 101.167 31.6986 101.167 31.9792C101.167 32.0048 101.167 32.0302 101.167 32.0554V49.9443C101.167 49.9695 101.167 49.9949 101.167 50.0205C101.167 50.3011 101.167 50.6039 101.147 50.8848C100.923 54.0604 98.8892 56.5674 96.1953 57.7528C95.6962 65.2496 94.3215 71.0269 90.0077 75.3407C86.5153 78.8331 82.0869 80.3829 76.6156 81.1185C71.2993 81.8333 64.5063 81.8332 55.9301 81.8332H41.4036C32.8274 81.8332 26.0344 81.8333 20.7181 81.1185C15.2468 80.3829 10.8183 78.8331 7.32597 75.3407C3.8336 71.8483 2.28372 67.4199 1.54813 61.9486C0.833365 56.6323 0.833424 49.8393 0.833498 41.2631V40.7366C0.833424 32.1604 0.833365 25.3674 1.54813 20.0511C2.28372 14.5798 3.8336 10.1513 7.32596 6.65898C10.8183 3.16661 15.2468 1.61673 20.7181 0.881135C26.0344 0.166372 32.8273 0.166431 41.4036 0.166505ZM89.1171 58.4998H80.0771C70.0661 58.4998 61.5002 50.9046 61.5002 40.9998C61.5002 31.0951 70.0661 23.4998 80.0771 23.4998H89.1171C88.5859 17.2397 87.3844 13.9352 85.0579 11.6087C83.083 9.63374 80.378 8.44995 75.6829 7.81871C70.8871 7.17394 64.5653 7.16651 55.6668 7.16651H41.6668C32.7683 7.16651 26.4466 7.17394 21.6508 7.81871C16.9557 8.44995 14.2507 9.63374 12.2757 11.6087C10.3007 13.5837 9.11694 16.2887 8.48571 20.9838C7.84093 25.7796 7.8335 32.1013 7.8335 40.9998C7.8335 49.8983 7.84093 56.2201 8.48571 61.0159C9.11694 65.711 10.3007 68.416 12.2757 70.391C14.2507 72.3659 16.9557 73.5497 21.6508 74.181C26.4466 74.8257 32.7683 74.8332 41.6668 74.8332H55.6668C64.5653 74.8332 70.8871 74.8257 75.6829 74.181C80.3779 73.5497 83.083 72.3659 85.0579 70.391C87.3844 68.0645 88.5859 64.76 89.1171 58.4998ZM19.5002 22.3332C19.5002 20.4002 21.0672 18.8332 23.0002 18.8332H41.6668C43.5998 18.8332 45.1668 20.4002 45.1668 22.3332C45.1668 24.2662 43.5998 25.8332 41.6668 25.8332H23.0002C21.0672 25.8332 19.5002 24.2662 19.5002 22.3332ZM92.6433 30.5009C92.5484 30.4999 92.4242 30.4998 92.2224 30.4998H80.0771C73.4345 30.4998 68.5002 35.4406 68.5002 40.9998C68.5002 46.5591 73.4345 51.4998 80.0771 51.4998H92.2224C92.4242 51.4998 92.5484 51.4998 92.6433 51.4988C92.7014 51.4982 92.7323 51.4973 92.7467 51.4968L92.7573 51.4963C93.7192 51.4378 94.133 50.7885 94.1643 50.398C94.1643 50.398 94.1652 50.3686 94.1657 50.3265C94.1668 50.2437 94.1668 50.1333 94.1668 49.9443V32.0554C94.1668 31.8664 94.1668 31.756 94.1657 31.6732C94.1652 31.631 94.1643 31.6016 94.1643 31.6016C94.1329 31.2111 93.7191 30.5619 92.7573 30.5034C92.7573 30.5034 92.7342 30.5019 92.6433 30.5009Z"
+                                    fill="#213A7E" />
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            {{-- o --}}
+            <div class="panel h-36 bg-gradient-to-t from-purple-200 via-purple-400 to-purple-400">
+                <div class="grid sm:grid-cols-1 xl:grid-cols-2">
+                    <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
+                        <div>
+                            <h1 class="text-xl font-semibold">Total Pengeluaran</h1>
+                            <h1 class="text-2xl font-extrabold py-1">Rp6.000.000</h1>
+                            <h1>Pertahun 25%</h1>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <a href=""><svg class="pt-2" width="100" height="100" viewBox="0 0 96 95"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M48.0002 6.646C25.437 6.646 7.146 24.937 7.146 47.5002C7.146 70.0633 25.437 88.3543 48.0002 88.3543C70.5633 88.3543 88.8543 70.0633 88.8543 47.5002C88.8543 24.937 70.5633 6.646 48.0002 6.646ZM0.520996 47.5002C0.520996 21.2781 21.7781 0.0209961 48.0002 0.0209961C74.2222 0.0209961 95.4793 21.2781 95.4793 47.5002C95.4793 73.7222 74.2222 94.9793 48.0002 94.9793C21.7781 94.9793 0.520996 73.7222 0.520996 47.5002ZM48.0002 17.6877C49.8296 17.6877 51.3127 19.1707 51.3127 21.0002V22.3991C58.5137 23.6884 64.5627 29.0986 64.5627 36.4585C64.5627 38.2879 63.0796 39.771 61.2502 39.771C59.4207 39.771 57.9377 38.2879 57.9377 36.4585C57.9377 33.462 55.4462 30.2901 51.3127 29.1599V44.4824C58.5137 45.7718 64.5627 51.1819 64.5627 58.5418C64.5627 65.9017 58.5137 71.3119 51.3127 72.6013V74.0002C51.3127 75.8296 49.8296 77.3127 48.0002 77.3127C46.1707 77.3127 44.6877 75.8296 44.6877 74.0002V72.6013C37.4866 71.3119 31.4377 65.9017 31.4377 58.5418C31.4377 56.7124 32.9207 55.2293 34.7502 55.2293C36.5796 55.2293 38.0627 56.7124 38.0627 58.5418C38.0627 61.5384 40.5541 64.7102 44.6877 65.8405V50.5179C37.4866 49.2285 31.4377 43.8184 31.4377 36.4585C31.4377 29.0986 37.4866 23.6884 44.6877 22.3991V21.0002C44.6877 19.1707 46.1707 17.6877 48.0002 17.6877ZM44.6877 29.1599C40.5541 30.2901 38.0627 33.462 38.0627 36.4585C38.0627 39.455 40.5541 42.6268 44.6877 43.7571V29.1599ZM51.3127 51.2432V65.8405C55.4462 64.7102 57.9377 61.5384 57.9377 58.5418C57.9377 55.5453 55.4462 52.3735 51.3127 51.2432Z"
+                                    fill="#52266E" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{-- p --}}
+            <div class="panel h-36 bg-gradient-to-t from-green-200 via-green-400 to-green-400">
+                <div class="grid sm:grid-cols-1 xl:grid-cols-2">
+                    <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
+                        <div>
+                            <h1 class="text-xl font-semibold">Total Pencucian</h1>
+                            <h1 class="text-2xl font-extrabold py-1">2.000 Pesanan</h1>
+                            <h1>Pertahun 25%</h1>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <a href=""><svg class="pt-3" width="111" height="94" viewBox="0 0 105 82"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M32.7325 0.718753H57.6425C64.3095 0.718652 69.6833 0.718571 73.9098 1.2868C78.2978 1.87676 81.9925 3.13887 84.9268 6.07321C87.6296 8.776 88.9137 12.1238 89.5605 16.0644C93.5016 16.711 96.8499 17.9953 99.5531 20.6985C102.487 23.6328 103.75 27.3274 104.339 31.7155C104.908 35.9419 104.908 41.3158 104.908 47.9828V48.5177C104.908 55.1848 104.908 60.5586 104.339 64.785C103.75 69.1731 102.487 72.8677 99.5531 75.8021C96.6187 78.7364 92.9241 79.9985 88.536 80.5885C84.3096 81.1567 78.9357 81.1566 72.2687 81.1565H47.3588C40.6918 81.1566 35.3179 81.1567 31.0915 80.5885C26.7034 79.9985 23.0088 78.7364 20.0744 75.8021C17.3716 73.0992 16.0873 69.7513 15.4406 65.8107C11.4995 65.1639 8.15127 63.8799 5.44821 61.1768C2.51387 58.2425 1.25176 54.5478 0.661804 50.1598C0.093571 45.9333 0.0936521 40.5595 0.0937527 33.8925V33.3575C0.0936521 26.6905 0.093571 21.3167 0.661804 17.0902C1.25176 12.7022 2.51387 9.00755 5.44821 6.07321C8.38255 3.13887 12.0772 1.87676 16.4652 1.2868C20.6917 0.718571 26.0655 0.718652 32.7325 0.718753ZM23.0341 66.4417C23.5454 68.4056 24.2737 69.6599 25.2452 70.6313C26.5944 71.9806 28.4887 72.8602 32.0658 73.3412C35.7482 73.8362 40.6286 73.844 47.6262 73.844H72.0012C78.9989 73.844 83.8793 73.8362 87.5617 73.3412C91.1388 72.8602 93.0331 71.9806 94.3823 70.6313C95.7316 69.2821 96.6112 67.3878 97.0922 63.8107C97.5872 60.1283 97.595 55.2479 97.595 48.2503C97.595 41.2526 97.5872 36.3722 97.0922 32.6898C96.6112 29.1127 95.7316 27.2184 94.3823 25.8692C93.4107 24.8976 92.1561 24.1692 90.1917 23.6578C90.2814 26.5287 90.2813 29.7542 90.2813 33.3575V33.8925C90.2814 40.5595 90.2815 45.9333 89.7132 50.1598C89.1233 54.5478 87.8612 58.2425 84.9268 61.1768C81.9925 64.1111 78.2978 65.3733 73.9098 65.9632C69.6833 66.5314 64.3095 66.5314 57.6425 66.5313H32.7325C29.1297 66.5313 25.9046 66.5314 23.0341 66.4417ZM17.4396 8.5341C13.8624 9.01503 11.9681 9.89471 10.6189 11.2439C9.26971 12.5931 8.39003 14.4874 7.9091 18.0646C7.41402 21.7469 7.40626 26.6274 7.40626 33.625C7.40626 40.6227 7.41402 45.5031 7.9091 49.1854C8.39003 52.7626 9.26971 54.6569 10.6189 56.0061C11.9681 57.3553 13.8624 58.235 17.4396 58.7159C21.1219 59.211 26.0024 59.2188 33 59.2188H57.375C64.3727 59.2188 69.2531 59.211 72.9354 58.7159C76.5126 58.235 78.4069 57.3553 79.7561 56.0061C81.1053 54.6569 81.985 52.7626 82.4659 49.1854C82.961 45.5031 82.9688 40.6227 82.9688 33.625C82.9688 26.6274 82.961 21.7469 82.4659 18.0646C81.985 14.4874 81.1053 12.5931 79.7561 11.2439C78.4069 9.89471 76.5126 9.01503 72.9354 8.5341C69.2531 8.03902 64.3727 8.03126 57.375 8.03126H33C26.0024 8.03126 21.1219 8.03902 17.4396 8.5341ZM45.1875 25.0938C40.4758 25.0938 36.6563 28.9133 36.6563 33.625C36.6563 38.3367 40.4758 42.1563 45.1875 42.1563C49.8992 42.1563 53.7188 38.3367 53.7188 33.625C53.7188 28.9133 49.8992 25.0938 45.1875 25.0938ZM29.3438 33.625C29.3438 24.8747 36.4372 17.7813 45.1875 17.7813C53.9378 17.7813 61.0313 24.8747 61.0313 33.625C61.0313 42.3753 53.9378 49.4688 45.1875 49.4688C36.4372 49.4688 29.3438 42.3753 29.3438 33.625ZM18.375 20.2188C20.3943 20.2188 22.0313 21.8557 22.0313 23.875V43.375C22.0313 45.3943 20.3943 47.0313 18.375 47.0313C16.3557 47.0313 14.7188 45.3943 14.7188 43.375L14.7188 23.875C14.7188 21.8557 16.3557 20.2188 18.375 20.2188ZM72 20.2188C74.0193 20.2188 75.6563 21.8557 75.6563 23.875V43.375C75.6563 45.3943 74.0193 47.0313 72 47.0313C69.9807 47.0313 68.3438 45.3943 68.3438 43.375V23.875C68.3438 21.8557 69.9807 20.2188 72 20.2188Z"
+                                    fill="#184C38" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
             <div class="grid xl:grid-cols-3 gap-6 mb-6">
                 <div class="panel h-full xl:col-span-2">
                     <div class="flex items-center dark:text-white-light mb-5">
-                        <h5 class="font-semibold text-lg">Revenue</h5>
+                        <h5 class="font-semibold text-lg">Pendapatan</h5>
                         <div x-data="dropdown" @click.outside="open = false"
                             class="dropdown ltr:ml-auto rtl:mr-auto">
                             <a href="javascript:;" @click="toggle">
@@ -22,22 +94,22 @@
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="5" cy="12" r="2" stroke="currentColor"
                                         stroke-width="1.5" />
-                                    <circle opacity="0.5" cx="12" cy="12" r="2"
-                                        stroke="currentColor" stroke-width="1.5" />
+                                    <circle opacity="0.5" cx="12" cy="12" r="2" stroke="currentColor"
+                                        stroke-width="1.5" />
                                     <circle cx="19" cy="12" r="2" stroke="currentColor"
                                         stroke-width="1.5" />
                                 </svg>
                             </a>
                             <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                 class="ltr:right-0 rtl:left-0">
-                                <li><a href="javascript:;" @click="toggle">Weekly</a></li>
-                                <li><a href="javascript:;" @click="toggle">Monthly</a></li>
-                                <li><a href="javascript:;" @click="toggle">Yearly</a></li>
+                                <li><a href="javascript:;" @click="toggle">Perminggu</a></li>
+                                <li><a href="javascript:;" @click="toggle">Perbulan</a></li>
+                                <li><a href="javascript:;" @click="toggle">Pertahun</a></li>
                             </ul>
                         </div>
                     </div>
-                    <p class="text-lg dark:text-white-light/90">Total Profit <span
-                            class="text-primary ml-2">$10,840</span></p>
+                    <p class="text-lg dark:text-white-light/90">Total Keuntungan <span
+                            class="text-primary ml-2">Rp.16.000.000</span></p>
                     <div class="relative overflow-hidden">
                         <div x-ref="revenueChart" class="bg-white dark:bg-black rounded-lg">
                             <!-- loader -->
@@ -51,8 +123,9 @@
                 </div>
 
                 <div class="panel h-full">
-                    <div class="flex items-center mb-5">
-                        <h5 class="font-semibold text-lg dark:text-white-light">Sales By Category</h5>
+                    <div class="flex flex-col items-start mb-5">
+                        <h5 class="font-semibold text-lg dark:text-white-light">Penjualan Berdasarkan</h5>
+                        <h5 class="font-semibold text-lg  dark:text-white-light">Kategori</h5>
                     </div>
                     <div class="overflow-hidden">
                         <div x-ref="salesByCategory" class="bg-white dark:bg-black rounded-lg">
@@ -67,635 +140,60 @@
                 </div>
             </div>
 
-            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6">
-                <div class="panel h-full sm:col-span-2 xl:col-span-1">
-                    <div class="flex items-center mb-5">
-                        <h5 class="font-semibold text-lg dark:text-white-light">Daily Sales <span
-                                class="block text-white-dark text-sm font-normal">Go to columns for details.</span></h5>
-                        <div class="ltr:ml-auto rtl:mr-auto relative">
-                            <div
-                                class="w-11 h-11 text-warning bg-[#ffeccb] dark:bg-warning dark:text-[#ffeccb] grid place-content-center rounded-full">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 6V18" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                    <path
-                                        d="M15 9.5C15 8.11929 13.6569 7 12 7C10.3431 7 9 8.11929 9 9.5C9 10.8807 10.3431 12 12 12C13.6569 12 15 13.1193 15 14.5C15 15.8807 13.6569 17 12 17C10.3431 17 9 15.8807 9 14.5"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div x-ref="dailySales" class="bg-white dark:bg-black rounded-lg">
-                            <!-- loader -->
-                            <div
-                                class="min-h-[175px] grid place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] ">
-                                <span
-                                    class="animate-spin border-2 border-black dark:border-white !border-l-transparent  rounded-full w-5 h-5 inline-flex"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="panel h-full">
-                    <div class="flex items-center dark:text-white-light mb-5">
-                        <h5 class="font-semibold text-lg">Summary</h5>
-                        <div x-data="dropdown" @click.outside="open = false"
-                            class="dropdown ltr:ml-auto rtl:mr-auto">
-                            <a href="javascript:;" @click="toggle">
-                                <svg class="w-5 h-5 text-black/70 dark:text-white/70 hover:!text-primary"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                    <circle opacity="0.5" cx="12" cy="12" r="2"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                    <circle cx="19" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </a>
-                            <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                                class="ltr:right-0 rtl:left-0">
-                                <li><a href="javascript:;" @click="toggle">View Report</a></li>
-                                <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                <li><a href="javascript:;" @click="toggle">Mark as Done</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="space-y-9">
-                        <div class="flex items-center">
-                            <div class="w-9 h-9 ltr:mr-3 rtl:ml-3">
-                                <div
-                                    class="bg-secondary-light dark:bg-secondary text-secondary dark:text-secondary-light  rounded-full w-9 h-9 grid place-content-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M3.74157 18.5545C4.94119 20 7.17389 20 11.6393 20H12.3605C16.8259 20 19.0586 20 20.2582 18.5545M3.74157 18.5545C2.54194 17.1091 2.9534 14.9146 3.77633 10.5257C4.36155 7.40452 4.65416 5.84393 5.76506 4.92196M3.74157 18.5545C3.74156 18.5545 3.74157 18.5545 3.74157 18.5545ZM20.2582 18.5545C21.4578 17.1091 21.0464 14.9146 20.2235 10.5257C19.6382 7.40452 19.3456 5.84393 18.2347 4.92196M20.2582 18.5545C20.2582 18.5545 20.2582 18.5545 20.2582 18.5545ZM18.2347 4.92196C17.1238 4 15.5361 4 12.3605 4H11.6393C8.46374 4 6.87596 4 5.76506 4.92196M18.2347 4.92196C18.2347 4.92196 18.2347 4.92196 18.2347 4.92196ZM5.76506 4.92196C5.76506 4.92196 5.76506 4.92196 5.76506 4.92196Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path opacity="0.5"
-                                            d="M9.1709 8C9.58273 9.16519 10.694 10 12.0002 10C13.3064 10 14.4177 9.16519 14.8295 8"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex font-semibold text-white-dark mb-2">
-                                    <h6>Income</h6>
-                                    <p class="ltr:ml-auto rtl:mr-auto">$92,600</p>
-                                </div>
-                                <div class="rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
-                                    <div
-                                        class="bg-gradient-to-r from-[#7579ff] to-[#b224ef] w-11/12 h-full rounded-full">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-9 h-9 ltr:mr-3 rtl:ml-3">
-                                <div
-                                    class="bg-success-light dark:bg-success text-success dark:text-success-light rounded-full w-9 h-9 grid place-content-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4.72848 16.1369C3.18295 14.5914 2.41018 13.8186 2.12264 12.816C1.83509 11.8134 2.08083 10.7485 2.57231 8.61875L2.85574 7.39057C3.26922 5.59881 3.47597 4.70292 4.08944 4.08944C4.70292 3.47597 5.59881 3.26922 7.39057 2.85574L8.61875 2.57231C10.7485 2.08083 11.8134 1.83509 12.816 2.12264C13.8186 2.41018 14.5914 3.18295 16.1369 4.72848L17.9665 6.55812C20.6555 9.24711 22 10.5916 22 12.2623C22 13.933 20.6555 15.2775 17.9665 17.9665C15.2775 20.6555 13.933 22 12.2623 22C10.5916 22 9.24711 20.6555 6.55812 17.9665L4.72848 16.1369Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <circle opacity="0.5" cx="8.60699" cy="8.87891" r="2"
-                                            transform="rotate(-45 8.60699 8.87891)" stroke="currentColor"
-                                            stroke-width="1.5" />
-                                        <path opacity="0.5" d="M11.5417 18.5L18.5208 11.5208" stroke="currentColor"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex font-semibold text-white-dark mb-2">
-                                    <h6>Profit</h6>
-                                    <p class="ltr:ml-auto rtl:mr-auto">$37,515</p>
-                                </div>
-                                <div class="w-full rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
-                                    <div class="bg-gradient-to-r from-[#3cba92] to-[#0ba360] w-full h-full rounded-full"
-                                        style="width: 65%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-9 h-9 ltr:mr-3 rtl:ml-3">
-                                <div
-                                    class="bg-warning-light dark:bg-warning text-warning dark:text-warning-light rounded-full w-9 h-9 grid place-content-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path opacity="0.5" d="M10 16H6" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                        <path opacity="0.5" d="M14 16H12.5" stroke="currentColor"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                        <path opacity="0.5" d="M2 10L22 10" stroke="currentColor"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex font-semibold text-white-dark mb-2">
-                                    <h6>Expenses</h6>
-                                    <p class="ltr:ml-auto rtl:mr-auto">$55,085</p>
-                                </div>
-                                <div class="w-full rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
-                                    <div class="bg-gradient-to-r from-[#f09819] to-[#ff5858] w-full h-full rounded-full"
-                                        style="width: 80%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="panel h-full p-0">
-                    <div class="flex items-center justify-between w-full p-5 absolute">
-                        <div class="relative">
-                            <div
-                                class="text-success dark:text-success-light bg-success-light dark:bg-success w-11 h-11 rounded-lg flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19"
-                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                                    <path opacity="0.5"
-                                        d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                    <path opacity="0.5"
-                                        d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                    <path opacity="0.5" d="M11 9H8" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                    <path
-                                        d="M5 6H16.4504C18.5054 6 19.5328 6 19.9775 6.67426C20.4221 7.34853 20.0173 8.29294 19.2078 10.1818L18.7792 11.1818C18.4013 12.0636 18.2123 12.5045 17.8366 12.7523C17.4609 13 16.9812 13 16.0218 13H5"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                </svg>
-                            </div>
-                        </div>
-                        <h5 class="font-semibold text-2xl ltr:text-right rtl:text-left dark:text-white-light">
-                            3,192
-                            <span class="block text-sm font-normal">Total Orders</span>
-                        </h5>
-                    </div>
-                    <div x-ref="totalOrders" class="bg-transparent rounded-lg overflow-hidden">
-                        <!-- loader -->
-                        <div
-                            class="min-h-[290px] grid place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] ">
-                            <span
-                                class="animate-spin border-2 border-black dark:border-white !border-l-transparent  rounded-full w-5 h-5 inline-flex"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6">
-                <div class="panel h-full sm:col-span-2 xl:col-span-1 pb-0">
-                    <h5 class="font-semibold text-lg dark:text-white-light mb-5">Recent Activities</h5>
-
-                    <div class="perfect-scrollbar relative mb-4 h-[290px] pr-3 -mr-3">
-                        <div class="text-sm cursor-pointer">
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-primary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Updated gak Logs</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">Just
-                                    Now</div>
-
-                                <span
-                                    class="badge badge-outline-primary absolute ltr:right-0 rtl:left-0 text-xs bg-primary-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-success w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send Mail to HR and Admin</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">2 min
-                                    ago</div>
-
-                                <span
-                                    class="badge badge-outline-success absolute ltr:right-0 rtl:left-0 text-xs bg-success-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-danger w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Backup Files EOD</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">14:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-danger absolute ltr:right-0 rtl:left-0 text-xs bg-danger-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-black w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Collect documents from Sara</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">16:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-dark absolute ltr:right-0 rtl:left-0 text-xs bg-dark-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-warning w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Conference call with Marketing Manager.</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">17:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-warning absolute ltr:right-0 rtl:left-0 text-xs bg-warning-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">In
-                                    progress</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-info w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Rebooted Server</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">17:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-info absolute ltr:right-0 rtl:left-0 text-xs bg-info-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-secondary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send semoga details to Freelancer</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">18:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-secondary absolute ltr:right-0 rtl:left-0 text-xs bg-secondary-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-primary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Updated Server Logs</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">Just
-                                    Now</div>
-
-                                <span
-                                    class="badge badge-outline-primary absolute ltr:right-0 rtl:left-0 text-xs bg-primary-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-success w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send Mail to HR and Admin</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">2 min
-                                    ago</div>
-
-                                <span
-                                    class="badge badge-outline-success absolute ltr:right-0 rtl:left-0 text-xs bg-success-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-danger w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Backup Files EOD</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">14:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-danger absolute ltr:right-0 rtl:left-0 text-xs bg-danger-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-black w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Collect documents from Sara</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">16:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-dark absolute ltr:right-0 rtl:left-0 text-xs bg-dark-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-warning w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Conference call with Marketing Manager.</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">17:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-warning absolute ltr:right-0 rtl:left-0 text-xs bg-warning-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">In
-                                    progress</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-info w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Rebooted Server</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">17:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-info absolute ltr:right-0 rtl:left-0 text-xs bg-info-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Completed</span>
-                            </div>
-                            <div class="flex items-center py-1.5 relative group">
-                                <div class="bg-secondary w-1.5 h-1.5 rounded-full ltr:mr-1 rtl:ml-1.5"></div>
-                                <div class="flex-1">Send contract ketemu to Freelancer</div>
-                                <div class="ltr:ml-auto rtl:mr-auto text-xs text-white-dark dark:text-gray-500">18:00
-                                </div>
-
-                                <span
-                                    class="badge badge-outline-secondary absolute ltr:right-0 rtl:left-0 text-xs bg-secondary-light dark:bg-[#0e1726] opacity-0 group-hover:opacity-100">Pending</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-t border-white-light dark:border-white/10">
-                        <a href="javascript:;"
-                            class=" font-semibold group hover:text-primary p-4 flex items-center justify-center group">
-                            View All
-                            <svg class="w-4 h-4 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition duration-300 ltr:ml-1 rtl:mr-1"
-                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="panel h-full">
-                    <div class="flex items-center justify-between dark:text-white-light mb-5">
-                        <h5 class="font-semibold text-lg">Transactions</h5>
-                        <div x-data="dropdown" @click.outside="open = false" class="dropdown">
-                            <a href="javascript:;" @click="toggle">
-                                <svg class="w-5 h-5 text-black/70 dark:text-white/70 hover:!text-primary"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                    <circle opacity="0.5" cx="12" cy="12" r="2"
-                                        stroke="currentColor" stroke-width="1.5" />
-                                    <circle cx="19" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </a>
-                            <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                                class="ltr:right-0 rtl:left-0">
-                                <li><a href="javascript:;" @click="toggle">View Report</a></li>
-                                <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                <li><a href="javascript:;" @click="toggle">Mark ga sama</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="space-y-6">
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center text-base w-9 h-9 rounded-md bg-success-light dark:bg-success text-success dark:text-success-light">SP</span>
-                                <div class="px-3 flex-1">
-                                    <div>Shaun Park</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-success text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">+$36.11</span>
-                            </div>
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center w-9 h-9 rounded-md bg-warning-light dark:bg-warning text-warning dark:text-warning-light">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg" class="h-6 w-6">
-                                        <path
-                                            d="M2 10C2 7.17157 2 5.75736 2.87868 4.87868C3.75736 4 5.17157 4 8 4H13C15.8284 4 17.2426 4 18.1213 4.87868C19 5.75736 19 7.17157 19 10C19 12.8284 19 14.2426 18.1213 15.1213C17.2426 16 15.8284 16 13 16H8C5.17157 16 3.75736 16 2.87868 15.1213C2 14.2426 2 12.8284 2 10Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path opacity="0.5"
-                                            d="M19.0003 7.07617C19.9754 7.17208 20.6317 7.38885 21.1216 7.87873C22.0003 8.75741 22.0003 10.1716 22.0003 13.0001C22.0003 15.8285 22.0003 17.2427 21.1216 18.1214C20.2429 19.0001 18.8287 19.0001 16.0003 19.0001H11.0003C8.17187 19.0001 6.75766 19.0001 5.87898 18.1214C5.38909 17.6315 5.17233 16.9751 5.07642 16"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path
-                                            d="M13 10C13 11.3807 11.8807 12.5 10.5 12.5C9.11929 12.5 8 11.3807 8 10C8 8.61929 9.11929 7.5 10.5 7.5C11.8807 7.5 13 8.61929 13 10Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path opacity="0.5" d="M16 12L16 8" stroke="currentColor"
-                                            stroke-width="1.5" stroke-linecap="round" />
-                                        <path opacity="0.5" d="M5 12L5 8" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <div class="px-3 flex-1">
-                                    <div>Cash withdrawal</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-danger text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">-$16.44</span>
-                            </div>
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center w-9 h-9 rounded-md bg-danger-light dark:bg-danger text-danger dark:text-danger-light">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="6" r="4" stroke="currentColor"
-                                            stroke-width="1.5" />
-                                        <path opacity="0.5"
-                                            d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                    </svg>
-                                </span>
-                                <div class="px-3 flex-1">
-                                    <div>Amy Diaz</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-success text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">+$66.44</span>
-                            </div>
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center w-9 h-9 rounded-md bg-secondary-light dark:bg-secondary text-secondary dark:text-secondary-light">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596c2.344.058 4.85.398 4.854.398c-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.913.002-22.95zM5.398 1.05V24c1.873-.225 2.81-.312 4.715-.398v-9.22z" />
-                                    </svg>
-                                </span>
-                                <div class="px-3 flex-1">
-                                    <div>Netflix</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-danger text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">-$32.00</span>
-                            </div>
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center text-base w-9 h-9 rounded-md bg-info-light dark:bg-info text-info dark:text-info-light">DA</span>
-                                <div class="px-3 flex-1">
-                                    <div>Daisy Anderson</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-success text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">+$10.08</span>
-                            </div>
-                            <div class="flex">
-                                <span
-                                    class="shrink-0 grid place-content-center w-9 h-9 rounded-md bg-primary-light dark:bg-primary text-primary dark:text-primary-light">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M13.926 9.70541C13.5474 9.33386 13.5474 8.74151 13.5474 7.55682V7.24712C13.5474 3.96249 13.5474 2.32018 12.6241 2.03721C11.7007 1.75425 10.711 3.09327 8.73167 5.77133L5.66953 9.91436C4.3848 11.6526 3.74244 12.5217 4.09639 13.205C4.10225 13.2164 4.10829 13.2276 4.1145 13.2387C4.48945 13.9117 5.59888 13.9117 7.81775 13.9117C9.05079 13.9117 9.6673 13.9117 10.054 14.2754"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path opacity="0.5"
-                                            d="M13.9259 9.70557L13.9459 9.72481C14.3326 10.0885 14.9492 10.0885 16.1822 10.0885C18.4011 10.0885 19.5105 10.0885 19.8854 10.7615C19.8917 10.7726 19.8977 10.7838 19.9036 10.7951C20.2575 11.4785 19.6151 12.3476 18.3304 14.0858L15.2682 18.2288C13.2888 20.9069 12.2991 22.2459 11.3758 21.9629C10.4524 21.68 10.4524 20.0376 10.4525 16.753L10.4525 16.4434C10.4525 15.2587 10.4525 14.6663 10.074 14.2948L10.054 14.2755"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                    </svg>
-                                </span>
-                                <div class="px-3 flex-1">
-                                    <div>Electricity temen</div>
-                                    <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
-                                </div>
-                                <span
-                                    class="text-danger text-base px-1 ltr:ml-auto rtl:mr-auto whitespace-pre">-$22.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel h-full p-0 border-0 overflow-hidden">
-                    <div class="p-6 bg-gradient-to-r from-[#4361ee] to-[#160f6b] min-h-[190px]">
-                        <div class="flex justify-between items-center mb-6">
-                            <div
-                                class="bg-black/50 rounded-full p-1 ltr:pr-3 rtl:pl-3 flex items-center text-white font-semibold">
-                                <img class="w-8 h-8 rounded-full border-2 border-white/50 block object-cover ltr:mr-1 rtl:ml-1"
-                                    src="/assets/images/profile-34.jpeg" alt="image" />
-                                Alan Green
-                            </div>
-                            <button type="button"
-                                class="ltr:ml-auto rtl:mr-auto flex items-center justify-between w-9 h-9 bg-black text-white rounded-md hover:opacity-80">
-                                <svg class="w-6 h-6 m-auto" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="1.5" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="text-white flex justify-between items-center">
-                            <p class="text-xl">Wallet Balance</p>
-                            <h5 class="ltr:ml-auto rtl:mr-auto text-2xl">
-                                <span class="text-white-light">$</span>2953
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="-mt-12 px-8 grid grid-cols-2 gap-2">
-                        <div class="bg-white rounded-md shadow px-4 py-2.5 dark:bg-[#060818]">
-                            <span class="flex justify-between items-center mb-4 dark:text-white">Received
-                                <svg class="w-4 h-4 text-success" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 15L12 9L5 15" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                            <div
-                                class="btn w-full  py-1 text-base shadow-none border-0 bg-[#ebedf2] dark:bg-black text-[#515365] dark:text-[#bfc9d4]">
-                                $97.99</div>
-                        </div>
-                        <div class="bg-white rounded-md shadow px-4 py-2.5 dark:bg-[#060818]">
-                            <span class="flex justify-between items-center mb-4 dark:text-white">Spent
-                                <svg class="w-4 h-4 text-danger" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 9L12 15L5 9" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                            <div
-                                class="btn w-full  py-1 text-base shadow-none border-0 bg-[#ebedf2] dark:bg-black text-[#515365] dark:text-[#bfc9d4]">
-                                $53.00</div>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="mb-5">
-                            <span
-                                class="bg-[#1b2e4b] text-white text-xs rounded-full px-4 py-1.5 before:bg-white before:w-1.5 before:h-1.5 before:rounded-full ltr:before:mr-2 rtl:before:ml-2 before:inline-block">Pending</span>
-                        </div>
-                        <div class="mb-5 space-y-1">
-                            <div class="flex items-center justify-between">
-                                <p class="text-[#515365] font-semibold">Netflix</p>
-                                <p class="text-base"><span>$</span> <span class="font-semibold">13.85</span></p>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <p class="text-[#515365] font-semibold">BlueHost VPN</p>
-                                <p class="text-base"><span>$</span> <span class="font-semibold ">15.66</span></p>
-                            </div>
-                        </div>
-                        <div class="text-center px-2 flex justify-around">
-                            <button type="button" class="btn btn-secondary ltr:mr-2 rtl:ml-2">View Details</button>
-                            <button type="button" class="btn btn-success">Pay kaya $29.51</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-6">
                 <div class="panel h-full w-full">
                     <div class="flex items-center justify-between mb-5">
-                        <h5 class="font-semibold text-lg dark:text-white-light">Recent Orders</h5>
+                        <h5 class="font-semibold text-lg dark:text-white-light">Top 5 Pesanan Jasa</h5>
                     </div>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="ltr:rounded-l-md rtl:rounded-r-md">Customer</th>
-                                    <th>Product</th>
-                                    <th>Invoice</th>
-                                    <th>Price</th>
-                                    <th class="ltr:rounded-r-md rtl:rounded-l-md">Status</th>
+                                    <th class="ltr:rounded-l-md rtl:rounded-r-md text-white bg-purple-500">No</th>
+                                    <th class="text-white bg-purple-500">Jasa</th>
+                                    <th class="text-white bg-purple-500">Kategori</th>
+                                    <th class="text-white bg-purple-500">Pesanan</th>
+                                    <th class="ltr:rounded-r-md rtl:rounded-l-md text-white bg-purple-500">Keuntungan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="min-w-[150px] text-black dark:text-white">
-                                        <div class="flex items-center">
-                                            <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/profile-6.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Luke lagi</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-primary">Headphone</td>
-                                    <td><a href="/apps/invoice/preview">#46894</a></td>
-                                    <td>$56.07</td>
-                                    <td><span
-                                            class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">1</td>
+                                    <td>Cuci Kering</td>
+                                    <td>Cuci Baju</td>
+                                    <td>60</td>
+                                    <td>Rp1.000.000</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex items-center">
-                                            <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/profile-7.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Andy kamu</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-info">Nike Sport</td>
-                                    <td><a href="/apps/invoice/preview">#76894</a></td>
-                                    <td>$126.04</td>
-                                    <td><span
-                                            class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">2</td>
+                                    <td>Cuci Kering</td>
+                                    <td>Cuci Baju</td>
+                                    <td>60</td>
+                                    <td>Rp1.000.000</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex items-center">
-                                            <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/profile-8.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Laurie Fox</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-warning">Sunglasses</td>
-                                    <td><a href="/apps/invoice/preview">#66894</a></td>
-                                    <td>$56.07</td>
-                                    <td><span
-                                            class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">3</td>
+                                    <td>Cuci Kering</td>
+                                    <td>Cuci Baju</td>
+                                    <td>60</td>
+                                    <td>Rp1.000.000</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex items-center">
-                                            <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/profile-9.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Ryan Collins</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-danger">Sport</td>
-                                    <td><a href="/apps/invoice/preview">#75844</a></td>
-                                    <td>$110.00</td>
-                                    <td><span
-                                            class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">4</td>
+                                    <td>Cuci Kering</td>
+                                    <td>Cuci Baju</td>
+                                    <td>60</td>
+                                    <td>Rp1.000.000</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex items-center">
-                                            <img class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/profile-10.jpeg" alt="avatar" />
-                                            <span class="whitespace-nowrap">Irene Collins</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-secondary">Speakers</td>
-                                    <td><a href="/apps/invoice/preview">#46894</a></td>
-                                    <td>$56.07</td>
-                                    <td><span
-                                            class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">5</td>
+                                    <td>Cuci Kering</td>
+                                    <td>Cuci Baju</td>
+                                    <td>60</td>
+                                    <td>Rp1.000.000</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -704,170 +202,54 @@
 
                 <div class="panel h-full w-full">
                     <div class="flex items-center justify-between mb-5">
-                        <h5 class="font-semibold text-lg dark:text-white-light">Top Selling Product</h5>
+                        <h5 class="font-semibold text-lg dark:text-white-light">Top 5 Pelanggan Teratas Tahun ini</h5>
                     </div>
                     <div class="table-responsive">
                         <table>
                             <thead>
-                                <tr class="border-b-0">
-                                    <th class="ltr:rounded-l-md rtl:rounded-r-md">Product</th>
-                                    <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>Sold</th>
-                                    <th class="ltr:rounded-r-md rtl:rounded-l-md">Source</th>
+                                <tr class="border-b-0 text-white">
+                                    <th class="ltr:rounded-l rtl:rounded-r bg-purple-500">No</th>
+                                    <th class="bg-purple-500">Pelanggan</th>
+                                    <th class="bg-purple-500">Terakhir Order</th>
+                                    <th class="bg-purple-500">Total Harga</th>
+                                    <th class="ltr:rounded-r-md rtl:rounded-l-md bg-purple-500 ">Transaksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="min-w-[150px] text-black dark:text-white">
-                                        <div class="flex"><img
-                                                class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/product-headphones.jpg" alt="avatar" />
-                                            <p class="whitespace-nowrap">Headphone <span
-                                                    class="text-primary block text-xs">Digital</span></p>
-                                        </div>
-                                    </td>
-                                    <td>$168.09</td>
-                                    <td>$60.09</td>
-                                    <td>170</td>
-                                    <td>
-                                        <a class="text-danger flex items-center" href="javascript:;">
-                                            <svg class="w-3.5 h-3.5 rtl:rotate-180 ltr:mr-1 rtl:ml-1"
-                                                viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6644 5.47875L16.6367 9.00968C18.2053 10.404 18.9896 11.1012 18.9896 11.9993C18.9896 12.8975 18.2053 13.5946 16.6367 14.989L12.6644 18.5199C11.9484 19.1563 11.5903 19.4746 11.2952 19.342C11 19.2095 11 18.7305 11 17.7725V15.4279C7.4 15.4279 3.5 17.1422 2 19.9993C2 10.8565 7.33333 8.57075 11 8.57075V6.22616C11 5.26817 11 4.78917 11.2952 4.65662C11.5903 4.52407 11.9484 4.8423 12.6644 5.47875Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path opacity="0.5"
-                                                    d="M15.5386 4.5L20.7548 9.34362C21.5489 10.081 22.0001 11.1158 22.0001 12.1994C22.0001 13.3418 21.4989 14.4266 20.629 15.1671L15.5386 19.5"
-                                                    stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-
-                                            Direct
-                                        </a>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">1</td>
+                                    <td>Wahyu</td>
+                                    <td>20-01-2025</td>
+                                    <td>Rp1.000.000</td>
+                                    <td>30x</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex"><img
-                                                class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/product-shoes.jpg" alt="avatar" />
-                                            <p class="whitespace-nowrap">Shoes <span
-                                                    class="text-warning block text-xs">Faishon</span></p>
-                                        </div>
-                                    </td>
-                                    <td>$126.04</td>
-                                    <td>$47.09</td>
-                                    <td>130</td>
-                                    <td>
-                                        <a class="text-success flex items-center" href="javascript:;">
-                                            <svg class="w-3.5 h-3.5 rtl:rotate-180 ltr:mr-1 rtl:ml-1"
-                                                viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6644 5.47875L16.6367 9.00968C18.2053 10.404 18.9896 11.1012 18.9896 11.9993C18.9896 12.8975 18.2053 13.5946 16.6367 14.989L12.6644 18.5199C11.9484 19.1563 11.5903 19.4746 11.2952 19.342C11 19.2095 11 18.7305 11 17.7725V15.4279C7.4 15.4279 3.5 17.1422 2 19.9993C2 10.8565 7.33333 8.57075 11 8.57075V6.22616C11 5.26817 11 4.78917 11.2952 4.65662C11.5903 4.52407 11.9484 4.8423 12.6644 5.47875Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path opacity="0.5"
-                                                    d="M15.5386 4.5L20.7548 9.34362C21.5489 10.081 22.0001 11.1158 22.0001 12.1994C22.0001 13.3418 21.4989 14.4266 20.629 15.1671L15.5386 19.5"
-                                                    stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-                                            Google
-                                        </a>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">2</td>
+                                    <td>Ramosudin</td>
+                                    <td>30-01-2025</td>
+                                    <td>Rp950.000</td>
+                                    <td>28x</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex"><img
-                                                class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/product-watch.jpg" alt="avatar" />
-                                            <p class="whitespace-nowrap">Watch <span
-                                                    class="text-danger block text-xs">Accessories</span></p>
-                                        </div>
-                                    </td>
-                                    <td>$56.07</td>
-                                    <td>$20.00</td>
-                                    <td>66</td>
-                                    <td>
-                                        <a class="text-warning flex items-center" href="javascript:;">
-                                            <svg class="w-3.5 h-3.5 rtl:rotate-180 ltr:mr-1 rtl:ml-1"
-                                                viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6644 5.47875L16.6367 9.00968C18.2053 10.404 18.9896 11.1012 18.9896 11.9993C18.9896 12.8975 18.2053 13.5946 16.6367 14.989L12.6644 18.5199C11.9484 19.1563 11.5903 19.4746 11.2952 19.342C11 19.2095 11 18.7305 11 17.7725V15.4279C7.4 15.4279 3.5 17.1422 2 19.9993C2 10.8565 7.33333 8.57075 11 8.57075V6.22616C11 5.26817 11 4.78917 11.2952 4.65662C11.5903 4.52407 11.9484 4.8423 12.6644 5.47875Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path opacity="0.5"
-                                                    d="M15.5386 4.5L20.7548 9.34362C21.5489 10.081 22.0001 11.1158 22.0001 12.1994C22.0001 13.3418 21.4989 14.4266 20.629 15.1671L15.5386 19.5"
-                                                    stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-                                            Ads
-                                        </a>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">3</td>
+                                    <td>Randawir</td>
+                                    <td>20-02-2025</td>
+                                    <td>Rp900.000</td>
+                                    <td>21x</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex"><img
-                                                class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/product-laptop.jpg" alt="avatar" />
-                                            <p class="whitespace-nowrap">Laptop <span
-                                                    class="text-primary block text-xs">Digital</span></p>
-                                        </div>
-                                    </td>
-                                    <td>$110.00</td>
-                                    <td>$33.00</td>
-                                    <td>35</td>
-                                    <td>
-                                        <a class="text-secondary flex items-center" href="javascript:;">
-                                            <svg class="w-3.5 h-3.5 rtl:rotate-180 ltr:mr-1 rtl:ml-1"
-                                                viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6644 5.47875L16.6367 9.00968C18.2053 10.404 18.9896 11.1012 18.9896 11.9993C18.9896 12.8975 18.2053 13.5946 16.6367 14.989L12.6644 18.5199C11.9484 19.1563 11.5903 19.4746 11.2952 19.342C11 19.2095 11 18.7305 11 17.7725V15.4279C7.4 15.4279 3.5 17.1422 2 19.9993C2 10.8565 7.33333 8.57075 11 8.57075V6.22616C11 5.26817 11 4.78917 11.2952 4.65662C11.5903 4.52407 11.9484 4.8423 12.6644 5.47875Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path opacity="0.5"
-                                                    d="M15.5386 4.5L20.7548 9.34362C21.5489 10.081 22.0001 11.1158 22.0001 12.1994C22.0001 13.3418 21.4989 14.4266 20.629 15.1671L15.5386 19.5"
-                                                    stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-                                            Email
-                                        </a>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">4</td>
+                                    <td>EWijaya</td>
+                                    <td>21-02-2025</td>
+                                    <td>Rp800.000</td>
+                                    <td>18x</td>
                                 </tr>
-                                <tr class="text-white-dark hover:text-black dark:hover:text-white-light/90 group">
-                                    <td class="text-black dark:text-white">
-                                        <div class="flex"><img
-                                                class="w-8 h-8 rounded-md ltr:mr-3 rtl:ml-3 object-cover"
-                                                src="/assets/images/product-camera.jpg" alt="avatar" />
-                                            <p class="whitespace-nowrap">Camera <span
-                                                    class="text-primary block text-xs">Digital</span></p>
-                                        </div>
-                                    </td>
-                                    <td>$56.07</td>
-                                    <td>$26.04</td>
-                                    <td>30</td>
-                                    <td>
-                                        <a class="text-primary flex items-center" href="javascript:;">
-                                            <svg class="w-3.5 h-3.5 rtl:rotate-180 ltr:mr-1 rtl:ml-1"
-                                                viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6644 5.47875L16.6367 9.00968C18.2053 10.404 18.9896 11.1012 18.9896 11.9993C18.9896 12.8975 18.2053 13.5946 16.6367 14.989L12.6644 18.5199C11.9484 19.1563 11.5903 19.4746 11.2952 19.342C11 19.2095 11 18.7305 11 17.7725V15.4279C7.4 15.4279 3.5 17.1422 2 19.9993C2 10.8565 7.33333 8.57075 11 8.57075V6.22616C11 5.26817 11 4.78917 11.2952 4.65662C11.5903 4.52407 11.9484 4.8423 12.6644 5.47875Z"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path opacity="0.5"
-                                                    d="M15.5386 4.5L20.7548 9.34362C21.5489 10.081 22.0001 11.1158 22.0001 12.1994C22.0001 13.3418 21.4989 14.4266 20.629 15.1671L15.5386 19.5"
-                                                    stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" />
-                                            </svg>
-                                            Referral
-                                        </a>
-                                    </td>
+                                <tr class="text-black ">
+                                    <td class=" text-black dark:text-white">5</td>
+                                    <td>Gayus</td>
+                                    <td>30-02-2025</td>
+                                    <td>Rp700.000</td>
+                                    <td>14x</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -936,13 +318,13 @@
                 get revenueChartOptions() {
                     return {
                         series: [{
-                                name: 'Income',
+                                name: 'Pendapatan',
                                 data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000,
                                     15000, 17000, 14000, 17000
                                 ]
                             },
                             {
-                                name: 'Expenses',
+                                name: 'Pengeluaran',
                                 data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000,
                                     16000, 19000, 18000, 19000
                                 ]
@@ -993,8 +375,8 @@
                                 },
                             ],
                         },
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-                            'Oct', 'Nov', 'Dec'
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep',
+                            'Okt', 'Nov', 'Des'
                         ],
                         xaxis: {
                             axisBorder: {
@@ -1154,7 +536,7 @@
                                 },
                             },
                         },
-                        labels: ['Apparel', 'Sports', 'Others'],
+                        labels: ['Cuci Baju', 'Cuci Karpet', 'Cuci Gorden'],
                         states: {
                             hover: {
                                 filter: {

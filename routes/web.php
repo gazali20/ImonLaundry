@@ -13,12 +13,12 @@ use App\Http\Controllers\NeedController;
 
 
 Route::get('/', function () {
-    return view('login');
-});
-
-Route::get('/dashboard', function () {
     return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 
 Route::resource('/user', UserController::class);
