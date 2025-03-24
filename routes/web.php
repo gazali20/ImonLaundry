@@ -119,3 +119,4 @@ Route::get('register', [RegisteredUserController::class, 'create'])->name('regis
 Route::post('register', [RegisteredUserController::class, 'store']);
 
 require __DIR__.'/auth.php';
+});
