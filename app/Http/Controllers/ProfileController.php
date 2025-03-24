@@ -14,29 +14,41 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function index(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.index', [
             'user' => $request->user(),
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function edit()
     {
-        $request->user()->fill($request->validated());
+        $user = Auth::user();
+        $dataIncomplete = empty($user->name) || empty($user->email) || empty($user->no_handphone) || empty($user->address);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return view('profile.edit', compact('user', 'dataIncomplete'));
     }
 
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email|unique:users,email,' . Auth::id(),
+            'no_handphone' => 'required|string|max:15',
+            'address'      => 'required|string|max:255',
+        ]);
+
+        $user = Auth::user();
+        $user->update([
+            'name'         => $request->name,
+            'email'        => $request->email,
+            'no_handphone' => $request->no_handphone,
+            'address'      => $request->address,
+        ]);
+
+        return redirect()->route('profile.index')->with('success', 'Profil berhasil diperbarui!');
+    }
     /**
      * Delete the user's account.
      */
