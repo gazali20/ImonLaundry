@@ -130,8 +130,12 @@
                                         src="{{ asset('assets/images/user.png') }}" alt="image" />
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
-                                    <h4 class="text-base ">
+                                    <h4 class="text-lgzzzzzzzzzzz font-bold ">
+                                        @empty(Auth::user()->name)
                                         User
+                                        @else
+                                            {{ Auth::user()->name }}
+                                        @endempty
                                     </h4>
                                     <a class="text-purple-800 hover:text-primary" href="javascript:;">
                                         {{ Auth::user()->email }}</a>

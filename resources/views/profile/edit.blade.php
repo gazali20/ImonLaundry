@@ -3,7 +3,7 @@
         <div class="table-responsive">
             <div class="flex items-center justify-between mb-5">
                 <h5 class="flex items-center font-semibold text-xl dark:text-white-light gap-x-2">
-                    <a href="">
+                    <a href="/profile">
                         <svg class="mr-2" width="10" height="21" viewBox="0 0 12 23" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -30,47 +30,50 @@
         <form action="{{ route('profile.update') }}" method="POST" class="space-y-4">
             @csrf
             @method('PUT')
-            <div class="grid lg:grid-cols-2 grid-cols-1">
-                <div class="flex justify-start">
-                <img src="{{ asset('assets/images/user.png') }}" width="470" class="ml-20" alt="">
+        
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
+                <div class="flex items-center lg:justify-start">
+                    <img src="{{ asset('assets/images/user.png') }}" 
+                         class="object-cover rounded-full border-gray-300 w-96 h-96 ml-32">
+                </div>
+        
+                <!-- Bagian Form -->
+                <div class="mr-32">
+                    <!-- Name -->
+                    <div class="mt-4">
+                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nama</label>
+                        <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}"
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                    </div>
+        
+                    <!-- Email -->
+                    <div class="mt-4">
+                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Email</label>
+                        <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}"
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                    </div>
+        
+                    <!-- Nomor Handphone -->
+                    <div class="mt-4">
+                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nomor Handphone</label>
+                        <input type="text" name="no_handphone"
+                            value="{{ old('no_handphone', Auth::user()->no_handphone) }}"
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                    </div>
+        
+                    <!-- Alamat -->
+                    <div class="mt-4">
+                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Alamat</label>
+                        <textarea name="address" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            required>{{ old('address', Auth::user()->address) }}</textarea>
+                    </div>
+        
+                    <div class="flex justify-start items-center mt-4">
+                        <button type="submit"
+                            class="btn bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">Simpan</button>
+                    </div>
+                </div>
             </div>
-                <div class="mr-20">
-                <!-- Name -->
-                <div class="mt-4">
-                    <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nama</label>
-                    <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}"
-                        class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
-                </div>
-
-                <!-- Email -->
-                <div class="mt-4">
-                    <label class="block text-lg font-semibold text-gray-700 dark:text-white">Email</label>
-                    <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}"
-                        class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
-                </div>
-
-                <!-- Nomor Handphone -->
-                <div class="mt-4">
-                    <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nomor Handphone</label>
-                    <input type="text" name="no_handphone"
-                        value="{{ old('no_handphone', Auth::user()->no_handphone) }}"
-                        class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
-                </div>
-
-                <!-- Alamat -->
-                <div class="mt-4">
-                    <label class="block text-lg font-semibold text-gray-700 dark:text-white">Alamat</label>
-                    <textarea name="address" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
-                        required>{{ old('address', Auth::user()->address) }}</textarea>
-                </div>
-
-                <div class="flex justify-start items-center mt-4">
-
-                    <button type="submit"
-                        class="btn bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">Simpan</button>
-                </div>
-            </div>
-        </div>
-        </form>
+        </form>        
     </div>
 </x-layout.default>

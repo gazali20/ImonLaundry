@@ -29,7 +29,9 @@
 
         <div class="grid lg:grid-cols-2 grid-cols-1">
             <div class="flex justify-center">
-                <img src="{{ asset('assets/images/user.png') }}" class="w-60" alt="">
+                <img src="{{ asset('assets/images/user.png') }}" 
+                class="w-60 h-60 object-cover rounded-full border-gray-300" 
+                alt="Profile Picture">
             </div>
             <div class="justify-start relative right-28">
                 <p class="text-4xl justify-center font-bold pt-4"> {{ $user->name ?? 'Data Tidak Lengkap!!' }} </p>
