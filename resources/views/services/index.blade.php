@@ -1,4 +1,14 @@
 <x-layout.default>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li class="ltr:before:mr-1 rtl:before:ml-1">
+            <span>Gudang</span>
+        </li>
+        <li>
+            <a href="/kasir" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">List layanan</a>
+        </li>
+        
+    </ul>
+
     <div x-data="striped" class="panel">
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg dark:text-white-light">List Layanan</h5>

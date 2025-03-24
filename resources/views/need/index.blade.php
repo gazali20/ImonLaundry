@@ -3,12 +3,13 @@
         <li class="ltr:before:mr-1 rtl:before:ml-1">
             <span>Kebutuhan</span>
         </li>
-        <li>
-            <a href="/category" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Layanan</a>
-        </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>List Kebutuhan</span>
         </li>
+        <li>
+            <a href="/category" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Layanan</a>
+        </li>
+        
     </ul>
     <div x-data="striped" class="panel">
         <div class="flex justify-between mb-6">

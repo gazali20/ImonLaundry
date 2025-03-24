@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RequirementController;
 use App\Http\Controllers\NeedController;
+use App\Http\Controllers\KasirController;
 
 
 
@@ -59,6 +60,7 @@ Route::put('/need/{need}', [NeedController::class, 'update'])->name('need.update
 Route::delete('/need/{id}/destroy', [NeedController::class, 'destroy'])->name('need.destroy');
 
 
+Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
 
 
 

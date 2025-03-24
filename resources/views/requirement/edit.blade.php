@@ -2,7 +2,7 @@
 
     <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
         <li>
-            <a href="/requirement" class="text-primary hover:underline">Kebutuhan</a>
+            <a href="/requirement/detail" class="text-primary hover:underline">Kebutuhan</a>
         </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>Edit Kebutuhan</span>

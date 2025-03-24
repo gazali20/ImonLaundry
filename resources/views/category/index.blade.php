@@ -4,12 +4,13 @@
         <li class="ltr:before:mr-1 rtl:before:ml-1">
             <span>Layanan</span>
         </li>
-        <li>
-            <a href="/need" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Kebutuhan</a>
-        </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>List layanan</span>
         </li>
+        <li>
+            <a href="/need" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Kebutuhan</a>
+        </li>
+        
     </ul>
     <div x-data="striped" class="panel">
         
