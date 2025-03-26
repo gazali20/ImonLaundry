@@ -114,25 +114,43 @@
                     </a>
                 </div>
 
-              
-             
+
+
                 <div class="dropdown flex-shrink-0" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;" class="relative group" @click="toggle()">
-                        <span><img class="w-9 h-9 rounded-full object-cover saturate-50 group-hover:saturate-100"
-                                src="{{ asset('assets/images/user.png') }}" alt="image" /></span>
+                        <span>
+                            @php
+                                $user = Auth::user();
+                            @endphp
+                            @if ($user->photo)
+                                <img src="{{ asset($user->photo) }}" class="rounded-full w-10 h-10 object-cover"
+                                    alt="User Photo">
+                            @else
+                                <img src="{{ asset('assets/images/user.png') }}" alt="Default User Photo"
+                                    class="rounded-full w-10 h-10 object-cover">
+                            @endif
+                        </span>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                         class="ltr:right-0 rtl:left-0 text-dark top-11 !py-0 w-[230px] font-semibold">
                         <li>
                             <div class="flex items-center px-4 py-4">
                                 <div class="flex-none">
-                                    <img class="rounded-md w-10 h-10 object-cover"
-                                        src="{{ asset('assets/images/user.png') }}" alt="image" />
+                                    @php
+                                        $user = Auth::user();
+                                    @endphp
+                                    @if ($user->photo)
+                                        <img src="{{ asset($user->photo) }}" class="rounded-md w-10 h-10 object-cover"
+                                            alt="User Photo">
+                                    @else
+                                        <img src="{{ asset('assets/images/user.png') }}" alt="Default User Photo"
+                                            class="rounded-md w-10 h-10 object-cover">
+                                    @endif
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
                                     <h4 class="text-lgzzzzzzzzzzz font-bold ">
                                         @empty(Auth::user()->name)
-                                        User
+                                            User
                                         @else
                                             {{ Auth::user()->name }}
                                         @endempty

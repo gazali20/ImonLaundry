@@ -1,16 +1,27 @@
 <x-layout.default>
 
-    <ul class="flex space-x-2 rtl:space-x-reverse mb-4">
-        <li><span>Layanan</span></li>
-        <li>
-            <a href="/kasir" class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">
-                Kasir
-            </a>
-        </li>
-    </ul>
+    <div class="flex justify-between items-center ps w-full">
+        <div>
+            <ul class="flex space-x-2 rtl:space-x-reverse mb-4">
+                <li><span>Layanan</span></li>
+                <li>
+                    <a href="/kasir"
+                        class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">
+                        Kasir
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex "> 
+            
+            <a href="" class="btn mr-3 bg-purple-600 hover:bg-purple-700  text-white">Kasir</a>
+            <a href="/kasir/detail" class="btn  bg-white font-semibold hover:bg-purple-500 hover:text-white text-black shadow-none">Pesanan</a>
+        </div>
+    </div>
 
- 
-    <div x-data="kasirApp()" x-init="init()">
+    <!-- AlpineJS App -->
+    <div x-data="kasirApp()" x-init="init()" class="pt-5">
+
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <!-- KIRI - KERANJANG + FORM -->
             <div class="space-y-4">

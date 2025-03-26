@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('role', ['mechanic', 'cashier', 'admin'])->default('cashier');
             $table->string('no_handphone')->nullable();
             $table->text('address')->nullable();
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
