@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RequirementController;
 use App\Http\Controllers\NeedController;
 use App\Http\Controllers\KasirController;
+use App\Http\Controllers\AccountingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -74,6 +75,7 @@ Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
 Route::get('/kasir/detail', [KasirController::class, 'detail'])->name('kasir.detail');
 Route::get('/kasir/rincian', [KasirController::class, 'rincian'])->name('kasir.rincian');
 
+Route::get('/Accounting', [AccountingController::class, 'index'])->name('accounting.index');
 
 Route::middleware('auth')->prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
