@@ -15,4 +15,14 @@ class KasirController extends Controller
     return view('kasir.index', compact('services', 'categories'));
 }
 
+public function detail()
+{
+    return view('kasir.detail');
+}
+
+public function rincian()
+{
+    return view('kasir.rincian');
+}
+
 }

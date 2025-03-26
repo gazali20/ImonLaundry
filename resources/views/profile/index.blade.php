@@ -18,7 +18,8 @@
 
         @php
             $user = Auth::user();
-            $isProfileIncomplete = empty($user->name) || empty($user->email) || empty($user->no_handphone) || empty($user->address);
+            $isProfileIncomplete =
+                empty($user->name) || empty($user->email) || empty($user->no_handphone) || empty($user->address);
         @endphp
 
         @if ($isProfileIncomplete)
@@ -29,13 +30,17 @@
 
         <div class="grid lg:grid-cols-2 grid-cols-1">
             <div class="flex justify-center">
-                <img src="{{ asset('assets/images/user.png') }}" 
-                class="w-60 h-60 object-cover rounded-full border-gray-300" 
-                alt="Profile Picture">
+                @if ($user->photo)
+                <img src="{{ asset($user->photo) }}" alt="User Photo" class="w-60 h-60 object-cover rounded-full border-gray-300">
+            @else
+                <img src="{{ asset('assets/images/user.png') }}" alt="Default User Photo" class="w-60 h-60 object-cover rounded-full border-gray-300">
+            @endif
             </div>
+
             <div class="justify-start relative right-28">
                 <p class="text-4xl justify-center font-bold pt-4"> {{ $user->name ?? 'Data Tidak Lengkap!!' }} </p>
-                <h1 class="text-3xl ml-2 font-bold grid relative pt-8 bottom-7 text-gray-600">Status: Cashier</h1>
+                <h1 class="text-3xl ml-2 font-bold grid relative pt-8 bottom-7 text-gray-600">Status:
+                    {{ $user->role }}</h1>
                 <h1 class="text-xl ml-2 justify-bottom grid relative pt-7 bottom-12 text-gray-600">
                     Alamat: {{ $user->address ?? 'Data Tidak Lengkap!!' }}
                 </h1>
@@ -53,45 +58,45 @@
                 <label class="block text-xl font-semibold text-gray-700 dark:text-white">Nama</label>
                 <div class="mt-0 p-2 bg-gray-100 border rounded-lg dark:bg-gray-700 dark:text-white text-base">
                     @empty(Auth::user()->name)
-                      Data belum lengkap!
+                        Data belum lengkap!
                     @else
                         {{ Auth::user()->name }}
                     @endempty
                 </div>
-                
+
             </div>
             <div>
                 <label class="block text-xl font-semibold text-gray-700 dark:text-white">Email</label>
                 <div class="mt-0 p-2 bg-gray-100 border rounded-lg dark:bg-gray-700 dark:text-white text-base">
                     @empty(Auth::user()->email)
-                      Data belum lengkap!
+                        Data belum lengkap!
                     @else
                         {{ Auth::user()->email }}
                     @endempty
                 </div>
-                
+
             </div>
             <div>
                 <label class="block text-xl font-semibold text-gray-700 dark:text-white">Nomor Handphone</label>
                 <div class="mt-0 p-2 bg-gray-100 border rounded-lg dark:bg-gray-700 dark:text-white text-base">
                     @empty(Auth::user()->no_handphone)
-                      Data belum lengkap!
+                        Data belum lengkap!
                     @else
                         {{ Auth::user()->no_handphone }}
                     @endempty
                 </div>
-                
+
             </div>
             <div class="pb-7">
                 <label class="block text-xl font-semibold text-gray-700 dark:text-white">Alamat</label>
                 <div class="mt-0 p-2 bg-gray-100 border rounded-lg dark:bg-gray-700 dark:text-white text-base">
                     @empty(Auth::user()->address)
-                       Data belum lengkap!
+                        Data belum lengkap!
                     @else
                         {{ Auth::user()->address }}
                     @endempty
                 </div>
-                
+
             </div>
         </div>
     </div>

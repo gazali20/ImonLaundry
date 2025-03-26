@@ -27,53 +27,83 @@
             </div>
         @endif
 
-        <form action="{{ route('profile.update') }}" method="POST" class="space-y-4">
+        <form action="{{ route('profile.update') }}" method="POST" class="space-y-4" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-        
+
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
                 <div class="flex items-center lg:justify-start">
-                    <img src="{{ asset('assets/images/user.png') }}" 
-                         class="object-cover rounded-full border-gray-300 w-96 h-96 ml-32">
+                    <a href="#">
+                        <img src="{{ $user->photo ? asset($user->photo) : asset('assets/images/user.png') }}"
+                            class="object-cover rounded-full border-gray-300 w-96 h-96 ml-32" id="profile-img">
+                    </a>
+
+                    <!-- Tombol Edit Foto di Kiri Bawah -->
+                    <label for="photo-upload"
+                        class="absolute bottom-4 left-4 bg-white p-2 rounded-full border border-gray-300 shadow-md cursor-pointer hover:bg-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-600" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M5 16.59V19h2.41l9.13-9.13-2.41-2.41L5 16.59zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0L15 3.46l3.75 3.75 1.96-1.97z" />
+                        </svg>
+                    </label>
+
+                    <!-- Input File (Hidden) -->
+                    <input type="file" id="photo-upload" name="photo" class="hidden" accept="image/*"
+                        onchange="previewImage(event)">
                 </div>
-        
+
                 <!-- Bagian Form -->
                 <div class="mr-32">
                     <!-- Name -->
                     <div class="mt-4">
                         <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nama</label>
                         <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            required>
                     </div>
-        
+
                     <!-- Email -->
                     <div class="mt-4">
                         <label class="block text-lg font-semibold text-gray-700 dark:text-white">Email</label>
                         <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            required>
                     </div>
-        
+
                     <!-- Nomor Handphone -->
                     <div class="mt-4">
                         <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nomor Handphone</label>
                         <input type="text" name="no_handphone"
                             value="{{ old('no_handphone', Auth::user()->no_handphone) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white" required>
+                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            required>
                     </div>
-        
+
                     <!-- Alamat -->
                     <div class="mt-4">
                         <label class="block text-lg font-semibold text-gray-700 dark:text-white">Alamat</label>
                         <textarea name="address" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
                             required>{{ old('address', Auth::user()->address) }}</textarea>
                     </div>
-        
+
                     <div class="flex justify-start items-center mt-4">
                         <button type="submit"
                             class="btn bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">Simpan</button>
                     </div>
                 </div>
             </div>
-        </form>        
+        </form>
     </div>
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('profile-img');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
 </x-layout.default>
