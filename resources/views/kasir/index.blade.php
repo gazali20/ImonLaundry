@@ -1,5 +1,5 @@
 <x-layout.default>
-    <!-- Breadcrumb -->
+
     <ul class="flex space-x-2 rtl:space-x-reverse mb-4">
         <li><span>Layanan</span></li>
         <li>
@@ -9,7 +9,7 @@
         </li>
     </ul>
 
-    <!-- AlpineJS App -->
+ 
     <div x-data="kasirApp()" x-init="init()">
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <!-- KIRI - KERANJANG + FORM -->
@@ -17,15 +17,13 @@
                 <!-- TABEL KERANJANG -->
                 <div class="panel">
                     <h2 class="text-lg font-semibold mb-4">Keranjang Transaksi</h2>
-                    <!-- filepath: d:\Blocdev\ImonLaundry\resources\views\kasir\index.blade.php -->
                     <table class="w-full table-auto border border-gray-200">
                         <thead class="border bg-gray-300">
                             <tr>
                                 <th class="px-4 py-2 text-left">Layanan</th>
-                                <th class="px-4 py-2 text-left">Kategori</th> <!-- Harga per Kg -->
+                                <th class="px-4 py-2 text-left">Kategori</th> 
                                 <th class="px-4 py-2 text-left">Berat</th>
                                 <th class="px-4 py-2 text-left">Harga/Kg</th>
-                                {{-- <th class="px-4 py-2 text-left">Subtotal</th> <!-- Subtotal --> --}}
                                 <th class="px-4 py-2 text-left">Aksi</th>
                             </tr>
                         </thead>
@@ -60,17 +58,8 @@
                                             </button>
                                         </div>
                                     </td>
-
-
-
-
-
-
                                     <!-- Harga per Kg -->
                                     <td class="px-4 py-2" x-text="formatRupiah(item.price)"></td>
-                                    <!-- Subtotal -->
-                                    {{-- <td class="px-4 py-2" x-text="'Rp ' + formatRupiah(item.subtotal)"></td> --}}
-
                                     <!-- Aksi -->
                                     <td class="px-4 py-2">
                                         <button @click="hapusLayanan(index)"
@@ -109,14 +98,18 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-4 mb-4">
-                            {{-- <div>
-                                <label for="berat">Berat/Kg</label>
-                                <input type="text" class="form-input" x-model.number="berat" placeholder="1.5kg" />
-                            </div> --}}
+                            <div>
+                                <label for="berat">Total Berat/kg</label>
+                                <input id="berat" type="text" class="form-input bg-gray-100"
+                                    :value="totalBerat.toFixed(1) + ' Kg'" readonly />
+                            </div>
                             <div>
                                 <label for="no_handphone">No. HP</label>
-                                <input type="text" class="form-input" placeholder="08xxxxxx" />
+                                <input id="no_handphone" type="text" class="form-input" placeholder="08xxxxxx" />
                             </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label>Pembayaran</label>
                                 <select class="form-input" x-model="pembayaran">
@@ -125,10 +118,6 @@
                                     <option value="debit">Debit</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-
                             <div x-show="pembayaran === 'cash'">
                                 <label>Uang Tunai</label>
                                 <input type="number" class="form-input" x-model.number="hargaTunai" />
@@ -257,6 +246,7 @@
                 customer: '',
                 hargaTunai: 0,
                 grandTotal: 0,
+                totalBerat: 0, 
                 searchQuery: '',
 
                 init() {
@@ -342,10 +332,9 @@
                 },
 
                 tambahLayanan(layanan) {
-                    // Cek apakah layanan sudah ada di keranjang
                     const found = this.cart.find(item => item.id === layanan.id);
                     if (found) {
-                        found.berat += 1.0; // tambah berat default
+                        found.berat += 1.0;
                         found.subtotal = found.price * found.berat;
                     } else {
                         this.cart.push({
@@ -355,23 +344,31 @@
                         });
                     }
                     this.hitungTotal();
+                    this.hitungTotalBerat(); 
                 },
 
                 updateBerat(index, beratBaru) {
                     const item = this.cart[index];
-                    item.weight = parseFloat(beratBaru); // Perbarui berat
-                    item.subtotal = item.price * item.weight; // Hitung subtotal
-                    this.hitungTotal(); // Hitung total harga
+                    item.berat = parseFloat(beratBaru); 
+                    item.subtotal = item.price * item.berat;
+                    this.hitungTotal(); 
+                    this.hitungTotalBerat(); 
                 },
 
                 hapusLayanan(index) {
                     this.cart.splice(index, 1);
                     this.hitungTotal();
+                    this.hitungTotalBerat(); 
                 },
 
                 hitungTotal() {
-                    this.grandTotal = this.cart.reduce((sum, item) => sum + item.subtotal, 0); // Total semua subtotal
+                    this.grandTotal = this.cart.reduce((sum, item) => sum + item.subtotal, 0); 
                 },
+
+                hitungTotalBerat() {
+                    this.totalBerat = this.cart.reduce((sum, item) => sum + item.berat, 0);
+                },
+
                 formatRupiah(value) {
                     return new Intl.NumberFormat('id-ID', {
                         style: 'currency',

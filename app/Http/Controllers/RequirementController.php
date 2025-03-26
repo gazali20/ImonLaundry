@@ -105,5 +105,22 @@ public function destroy(Requirement $requirement)
 
 }
 
+// public function saveToAccounting($id)
+// {
+//     // Ambil data requirement berdasarkan ID
+//     $requirement = Requirement::findOrFail($id);
+
+//     // Proses data untuk disimpan ke pengeluaran (contoh: simpan ke tabel lain atau update status)
+//     // Misalnya, tambahkan data ke tabel pengeluaran
+//     \DB::table('`expenses`')->insert([
+//         'requirement_id' => $requirement->id,
+//         'amount' => $requirement->price * $requirement->stock,
+//         'created_at' => now(),
+//         'updated_at' => now(),
+//     ]);
+
+//     // Redirect ke halaman Accounting.index dengan pesan sukses
+//     return redirect()->route('accounting.index')->with('success', 'Data berhasil disimpan ke pengeluaran.');
+// }
 
 }

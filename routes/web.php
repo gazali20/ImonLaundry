@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RequirementController;
 use App\Http\Controllers\NeedController;
 use App\Http\Controllers\KasirController;
+use App\Http\Controllers\AccountingController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,7 @@ Route::prefix('requirement')->name('requirement.')->group(function () {
     Route::get('/{requirement}/detail', [RequirementController::class, 'detail'])->name('detail');
     Route::put('/{requirement}', [RequirementController::class, 'update'])->name('update');
     Route::delete('/{requirement}/destroy', [RequirementController::class, 'destroy'])->name('destroy');
+    Route::post('/requirement/{id}/save-to-accounting', [RequirementController::class, 'saveToAccounting'])->name('requirement.saveToAccounting');
 });
 
 // Route untuk Need
@@ -92,19 +94,21 @@ Route::put('/need/{need}', [NeedController::class, 'update'])->name('need.update
 Route::delete('/need/{id}/destroy', [NeedController::class, 'destroy'])->name('need.destroy');
 
 
+
 Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
 
+Route::get('/Accounting', [AccountingController::class, 'index'])->name('Accounting.index');
+Route::get('/Accounting/{id}/masuk', [RequirementController::class, 'saveToAccounting'])->name('Accounting.index');
 
 
 
+// Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+// Route::post('register', [RegisteredUserController::class, 'store']);
 
-Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-Route::post('register', [RegisteredUserController::class, 'store']);
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 Route::middleware(['auth'])->prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index'); // Tambahkan ini
@@ -119,4 +123,3 @@ Route::get('register', [RegisteredUserController::class, 'create'])->name('regis
 Route::post('register', [RegisteredUserController::class, 'store']);
 
 require __DIR__.'/auth.php';
-});
