@@ -116,7 +116,7 @@
                             <td class="p-3">31-01-2025</td>
                             <td class="p-3">{{ $requirement->requirement_name }}</td>
                             <td class="p-3">{{ $requirement->need->name_category }}</td>
-                            <td class="p-3">{{ $requirement->grand_total }}</td>
+                            <td class="p-3">Rp {{ $requirement->grand_total }}</td>
                         </tr>
                     @endforeach
                     {{-- <tr class="bg-gray-100 text-left ">
