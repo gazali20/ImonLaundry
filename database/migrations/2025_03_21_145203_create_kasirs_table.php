@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('payment')->nullable(); // Metode pembayaran
             $table->string('no_handphone');
             $table->decimal('grand_total', 10, 2); // Total harga
-            $table->date('date')->useCurrent(); // Tanggal transaksi otomatis
+            $table->date('date')->default(now()); // Tanggal transaksi otomatis
             $table->enum('status', ['sedang_dicuci', 'siap_diambil', 'selesai'])->default('sedang_dicuci'); // Status transaksi
             $table->string('code_invoice')->unique(); // Kode invoice unik
             $table->timestamps();

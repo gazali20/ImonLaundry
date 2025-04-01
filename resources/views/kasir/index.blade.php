@@ -266,31 +266,37 @@
                         cart: this.cart, 
                     };
                     fetch('/kasir', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                                    'content'),
-                            },
-                            body: JSON.stringify(payload),
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            alert(`Transaksi berhasil! Kode Invoice: ${data.code_invoice}`);
-                            // Reset data
-                            this.cart = [];
-                            this.customer = '';
-                            this.noHandphone = ''; // Reset nomor HP
-                            this.pembayaran = '';
-                            this.hargaTunai = 0;
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    },
+    body: JSON.stringify(payload),
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Response dari server:', data); // Tambahkan ini untuk debugging
 
-                            // Redirect ke halaman detail
-                            window.location.href = `/kasir/detail`;
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('Terjadi kesalahan saat menyimpan transaksi.');
-                        });
+    if (data.code_invoice) {
+        alert(`Transaksi berhasil! Kode Invoice: ${data.code_invoice}`);
+        // Reset data
+        this.cart = [];
+        this.customer = '';
+        this.noHandphone = '';
+        this.pembayaran = '';
+        this.hargaTunai = 0;
+
+        // Redirect ke halaman detail
+        window.location.href = `/kasir/detail`;
+    } else {
+        alert('Terjadi kesalahan: kode invoice tidak ditemukan.');
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('Terjadi kesalahan saat menyimpan transaksi.');
+});
+
                 }
             };
         }

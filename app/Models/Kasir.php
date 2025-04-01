@@ -15,6 +15,7 @@ class Kasir extends Model
         'payment',
         'grand_total',
         'status',
+        'date',
         'code_invoice',
     ];
 
