@@ -111,13 +111,13 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     @foreach ($expenses as $expense)
                         <tr>
                             <td>{{ $expense->date }}</td>
                             <td>{{ $expense->requirement->requirement_name }}</td>
                             <td>{{ $expense->requirement->need->name_category }}</td> <!-- Kategori dari tabel needs -->
                             <td>Rp {{ number_format($expense->grand_total, 2, ',', '.') }}</td>
-                        </tr>
                     @endforeach
                 </tbody>
                     
