@@ -101,6 +101,12 @@ class ServiceController extends Controller
 //                 return view('services.detail', compact('service'));
 // }
 
+public function getServices()
+{
+     $services = Service::with('category')->get();
+    return response()->json($services);
+}
+
 
     // Hapus layanan
     public function destroy($id)

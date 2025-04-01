@@ -16,7 +16,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div :class="[isSubmitForm ? (form.name_category ? 'has-success' : 'has-error') : '']">
                         <label for="custoName">Nama Kategori</label>
-                        <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
+                        <input id="custoName" type="text" placeholder="Masukan Kategori Kebutuhan" class="form-input"
                             x-model="form.name_category" />
                         <template x-if="isSubmitForm && form.name_category">
                             <p class="text-success mt-1">Kategori terisi</p>
@@ -26,7 +26,7 @@
                         </template>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-6">Simpan</button>
+                <button type="submit" class=" bg-purple-600 hover:bg-purple-700 mt-6 rounded-lg font-semibold text-white w-[100px] h-[40px]">Simpan</button>
             </form>
         </div>
     </div>

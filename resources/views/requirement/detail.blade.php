@@ -72,11 +72,10 @@
                 {{-- <a href="{{ route('services.index') }}" class="btn btn-secondary mr-2">Kembali</a> --}}
                 <a href="{{ route('requirement.edit', $requirement->id) }}"
                     class="btn bg-purple-600 hover:bg-purple-700 text-white">Edit kebutuhan</a>
-                <form action="{{ route('requirement.saveToAccounting', $requirement->id) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn bg-purple-600 hover:bg-purple-700 text-white">Simpan ke
-                        pengeluaran</button>
-                </form>
+                    <form action="{{ route('expenses.store', $requirement->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn bg-purple-600 hover:bg-purple-700 text-white">Simpan ke Pengeluaran</button>
+                    </form>                    
             </div>
         </div>
     </div>

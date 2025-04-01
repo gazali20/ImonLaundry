@@ -111,39 +111,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($requirements as $requirement)
-                        <tr class="border-t">
-                            <td class="p-3">31-01-2025</td>
-                            <td class="p-3">{{ $requirement->requirement_name }}</td>
-                            <td class="p-3">{{ $requirement->need->name_category }}</td>
-                            <td class="p-3">{{ $requirement->grand_total }}</td>
+                    @foreach ($expenses as $expense)
+                        <tr>
+                            <td>{{ $expense->date }}</td>
+                            <td>{{ $expense->requirement->requirement_name }}</td>
+                            <td>{{ $expense->requirement->need->name_category }}</td> <!-- Kategori dari tabel needs -->
+                            <td>Rp {{ number_format($expense->grand_total, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
-                    {{-- <tr class="bg-gray-100 text-left ">
-                        <td class="p-3">31-01-2025</td>
-                        <td class="p-3">Pewangi</td>
-                        <td class="p-3">Kebutuhan operasional</td>
-                        <td class="p-3">1.000.000</td>
-                    </tr>
-                    <tr class="border-t">
-                        <td class="p-3">31-01-2025</td>
-                        <td class="p-3">Listrik & air</td>
-                        <td class="p-3">Tagihan bulanan</td>
-                        <td class="p-3">Rp 1.000.000</td>
-                    </tr>
-                    <tr class="bg-gray-100 text-left ">
-                        <td class="p-3">31-01-2025</td>
-                        <td class="p-3">Servis Mesin Cuci</td>
-                        <td class="p-3">Perawatan</td>
-                        <td class="p-3">Rp 1.000.000</td>
-                    </tr>
-                    <tr class="border-t">
-                        <td class="p-3">31-01-2025</td>
-                        <td class="p-3">Gaji karyawan</td>
-                        <td class="p-3">Tagihan bulanan</td>
-                        <td class="p-3">Rp 1.000.000</td>
-                    </tr> --}}
                 </tbody>
+                    
             </table>
         </div>
 

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accountings', function (Blueprint $table) {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->date();
-            $table->string();
+            $table->foreignId('id_requirement')->constrained('requirements');
+            $table->date('date')->default(now());
+            $table->decimal('grand_total', 10, 2);
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accountings');
+        Schema::dropIfExists('expenses');
     }
 };

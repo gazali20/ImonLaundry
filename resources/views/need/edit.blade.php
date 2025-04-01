@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-6">Simpan</button>
+                <button type="submit" class=" bg-purple-600 hover:bg-purple-700 mt-6 rounded-lg font-semibold text-white w-[100px] h-[40px]">Simpan</button>
             </form>
         </div>
     </div>

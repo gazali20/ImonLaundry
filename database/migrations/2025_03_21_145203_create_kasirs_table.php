@@ -13,9 +13,16 @@ return new class extends Migration
     {
         Schema::create('kasirs', function (Blueprint $table) {
             $table->id();
-            $table->f('customers');
+            $table->string('customer'); // Nama pelanggan
+            $table->string('payment')->nullable(); // Metode pembayaran
+            $table->string('no_handphone');
+            $table->decimal('grand_total', 10, 2); // Total harga
+            $table->date('date')->useCurrent(); // Tanggal transaksi otomatis
+            $table->enum('status', ['sedang_dicuci', 'siap_diambil', 'selesai'])->default('sedang_dicuci'); // Status transaksi
+            $table->string('code_invoice')->unique(); // Kode invoice unik
             $table->timestamps();
         });
+        
     }
 
     /**

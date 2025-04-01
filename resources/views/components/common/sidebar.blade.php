@@ -95,7 +95,7 @@
 
 
                     <li class="nav-item">
-                        <a href="/spare_part" class="group">
+                        <a href="/Invoice" class="group">
                             <div class="flex items-center">
 
                                 <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">

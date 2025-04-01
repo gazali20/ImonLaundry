@@ -8,7 +8,8 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RequirementController;
 use App\Http\Controllers\NeedController;
 use App\Http\Controllers\KasirController;
-use App\Http\Controllers\AccountingController;
+use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,10 +44,10 @@ Route::prefix('services')->name('services.')->group(function () {
     Route::get('/', [ServiceController::class, 'index'])->name('index');
     Route::get('/create', [ServiceController::class, 'create'])->name('create');
     Route::post('/store', [ServiceController::class, 'store'])->name('store');
-    Route::get('/{service}/edit', [ServiceController::class, 'edit'])->name('edit');
-    Route::get('/{service}/detail', [ServiceController::class, 'detail'])->name('detail');
-    Route::put('/{service}', [ServiceController::class, 'update'])->name('update');
-    Route::delete('/{service}', [ServiceController::class, 'destroy'])->name('destroy');
+    Route::get('/{services}/edit', [ServiceController::class, 'edit'])->name('edit');
+    Route::get('/{services}/detail', [ServiceController::class, 'detail'])->name('detail');
+    Route::put('/{services}', [ServiceController::class, 'update'])->name('update');
+    Route::delete('/{services}', [ServiceController::class, 'destroy'])->name('destroy');
 });
 
 
@@ -71,11 +72,36 @@ Route::prefix('need')->name('need.')->group(function () {
 });
 
 
-Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
-Route::get('/kasir/detail', [KasirController::class, 'detail'])->name('kasir.detail');
-Route::get('/kasir/rincian', [KasirController::class, 'rincian'])->name('kasir.rincian');
+// Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index');
+// Route::get('/kasir/detail', [KasirController::class, 'detail'])->name('kasir.detail');
+// Route::get('/kasir/rincian', [KasirController::class, 'rincian'])->name('kasir.rincian');
 
-Route::get('/Accounting', [AccountingController::class, 'index'])->name('accounting.index');
+// Route::resource('kasir', KasirController::class);
+// Route::patch('kasir/{kasir}/status', [KasirController::class, 'updateStatus'])->name('kasir.updateStatus');
+
+
+
+// Route::get('/kasir', [KasirController::class, 'index']);
+Route::post('/kasir', [KasirController::class, 'store']);
+Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index'); // Halaman utama kasir
+Route::get('/kasir/detail', [KasirController::class, 'show'])->name('kasir.detail'); // Halaman daftar transaksi
+Route::get('/rincian/{id}', [KasirController::class, 'rincian'])->name('kasir.rincian'); // Halaman rincian transaksi
+
+Route::put('/kasir/{id}', [KasirController::class, 'update']);
+Route::delete('/kasir/{id}', [KasirController::class, 'destroy']);
+
+Route::patch('/kasir/{id}/status', [KasirController::class, 'updateStatus'])->name('kasir.updateStatus'); // Update status transaksi
+
+
+
+Route::get('/api/services', [ServiceController::class, 'getServices']);
+
+
+Route::get('/Accounting', [ExpensesController::class, 'index'])->name('accounting.index');
+Route::post('/expenses/store/{id}', [ExpensesController::class, 'store'])->name('expenses.store');
+
+Route::get('/Invoice', [InvoiceController::class, 'index'])->name('Invoice.index');
+Route::get('/Invoice/detail', [InvoiceController::class, 'detail'])->name('Invoice.detail');
 
 Route::middleware('auth')->prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
