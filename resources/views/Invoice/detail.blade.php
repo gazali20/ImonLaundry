@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="mt-6">
-                    <p class="text-center text-white-dark">Catatan: Pembayaran dilakukan secara tunai (cash) </p>
+                    <p class="text-center text-white-dark">Catatan: Pembayaran dilakukan secara tunai ({{ $kasir->payment }} ) </p>
                     <p class="text-center text-white-dark">Terimakasih telah menggunakan layanan iMon laundry</p>
                 </div>
             </div>
