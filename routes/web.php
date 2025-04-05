@@ -86,11 +86,11 @@ Route::post('/kasir', [KasirController::class, 'store']);
 Route::get('/kasir', [KasirController::class, 'index'])->name('kasir.index'); // Halaman utama kasir
 Route::get('/kasir/detail', [KasirController::class, 'show'])->name('kasir.detail'); // Halaman daftar transaksi
 Route::get('/rincian/{id}', [KasirController::class, 'rincian'])->name('kasir.rincian'); // Halaman rincian transaksi
-
 Route::put('/kasir/{id}', [KasirController::class, 'update']);
 Route::delete('/kasir/{id}', [KasirController::class, 'destroy']);
+Route::put('/kasir/{id}/status', [KasirController::class, 'updateStatus'])->name('kasir.updateStatus');
+Route::get('/kasir/{id}/rincian', [KasirController::class, 'rincian'])->name('kasir.rincian');
 
-Route::patch('/kasir/{id}/status', [KasirController::class, 'updateStatus'])->name('kasir.updateStatus'); // Update status transaksi
 
 
 

@@ -1,57 +1,42 @@
 <x-layout.default>
+<div class="bg-white p-4 rounded-lg shadow mt-6">
+    <h3 class="text-lg font-semibold mb-4">Rincian Pesanan</h3>
 
-        <div class="flex justify-between items-center w-full">
+    <form action="{{ route('kasir.updateStatus', $kasir->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
-                <ul class="flex space-x-2 rtl:space-x-reverse mb-4">
-                    <li><span>Layanan</span></li>
-                    <li>
-                        <a href="/kasir"
-                            class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">
-                            Kasir
-                        </a>
-                    </li>
-                </ul>
+                <label class="block font-medium">Nama Pelanggan</label>
+                <p>{{ $kasir->customer }}</p>
             </div>
-            <div class="flex">
-                <a href="/kasir"
-                    class="btn mr-3 bg-white font-semibold hover:bg-purple-500 hover:text-white text-black shadow-none">Kasir</a>
-                <a href="#" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
+            <div>
+                <label class="block font-medium">No HP</label>
+                <p>{{ $kasir->no_handphone }}</p>
+            </div>
+            <div>
+                <label class="block font-medium">Tanggal</label>
+                <p>{{ $kasir->date }}</p>
+            </div>
+            <div>
+                <label class="block font-medium">Pembayaran</label>
+                <p>{{ $kasir->payment }}</p>
             </div>
         </div>
 
-        <div x-data="{ activeTab: 'dicuci' }" class="pt-5">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                <div class="panel h-36 bg-cover bg-center bg-no-repeat flex flex-col justify-end p-4"
-                    style="background-image: url('{{ asset('assets/images/1742552634.png') }}');">
-                    <div class="flex justify-end">
-                        <a href="#" @click="activeTab = 'dicuci'" class="btn border-none"
-                            :class="activeTab === 'dicuci' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
-                                'bg-white font-semibold hover:bg-purple-500 hover:text-white text-black'">
-                            Sedang Dicuci
-                        </a>
-                    </div>
-                </div>
+        <div class="mb-4">
+            <label for="status" class="block font-medium mb-1">Status Pesanan</label>
+            <select name="status" id="status" class="w-full border rounded p-2">
+                <option value="sedang_dicuci" {{ $kasir->status == 'sedang_dicuci' ? 'selected' : '' }}>Dicuci</option>
+                <option value="siap_diambil" {{ $kasir->status == 'siap_diambil' ? 'selected' : '' }}>Siap Diambil</option>
+                <option value="selesai" {{ $kasir->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
+            </select>
+        </div>
 
-                <div class="panel h-36 bg-cover bg-center bg-no-repeat flex flex-col justify-end p-4"
-                    style="background-image: url('{{ asset('assets/images/1742251719.jpg') }}');">
-                    <div class="flex justify-end">
-                        <a href="#" @click="activeTab = 'siap'" class="btn border-none"
-                            :class="activeTab === 'siap' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
-                                'bg-white font-semibold hover:bg-purple-500 hover:text-white text-black'">
-                            Siap Diambil
-                        </a>
-                    </div>
-                </div>
-
-                <div class="panel h-36 bg-cover bg-center bg-no-repeat flex flex-col justify-end p-4"
-                    style="background-image: url('{{ asset('assets/images/1741861594.jpg') }}');">
-                    <div class="flex justify-end">
-                        <a href="#" @click="activeTab = 'selesai'" class="btn border-none"
-                            :class="activeTab === 'selesai' ? 'bg-purple-600 hover:bg-purple-700 text-white' :
-                                'bg-white font-semibold hover:bg-purple-500 hover:text-white text-black'">
-                            Selesai
-                        </a>
-                    </div>
-                </div>
-            </div>
-    </x-layout.default>
+        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded">
+            Simpan Perubahan
+        </button>
+    </form>
+</div>
+</x-layout.default>
