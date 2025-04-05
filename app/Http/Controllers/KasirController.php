@@ -129,5 +129,5 @@ public function updateStatus(Request $request, $id)
     $kasir->save();
 
     return redirect()->back()->with('success', 'Status berhasil diperbarui.');
-}  
+}
 }

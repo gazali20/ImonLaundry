@@ -25,7 +25,7 @@
                     <td class="p-3">{{ $kasir->payment }}</td>
                     <td class="p-3">{{ $kasir->date }}</td>
                     <td class="p-3">
-                        <a href="">
+                        <a href="{{ route('kasir.rincian', $kasir->id) }}">
                             <div class="p-2 hover:bg-purple-200 rounded-md inline-block">
                                 {{-- SVG icon --}}
                                 <svg width="20" height="23" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
