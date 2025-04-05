@@ -1,5 +1,5 @@
 <div class="bg-white p-4 rounded-lg shadow mt-6">
-    <h3 class="text-lg font-semibold mb-2">Siap Diambil</h3>
+    <h3 class="text-lg font-semibold mb-2">Selesai</h3>
     <table class="w-full border-collapse">
         <thead>
             <tr class="bg-gray-100 text-left font-bold">

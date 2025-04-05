@@ -82,33 +82,41 @@ class KasirController extends Controller
     }
 
     public function show()
-    {
-        $kasir = Kasir::with('kasirService.service.category')->get();
-        return view('kasir.detail', compact('kasir'));
-    }
+{
+    $kasir = Kasir::with('kasirService.service.category')->get();
+    $dicuci = Kasir::where('status', 'sedang_dicuci')->with('kasirService')->get();
+    $siap = Kasir::where('status', 'siap_diambil')->with('kasirService')->get();
+    $selesai = Kasir::where('status', 'selesai')->with('kasirService')->get();
+
+    return view('kasir.detail', compact('kasir', 'dicuci', 'siap', 'selesai'));
+}
     
-    public function rincian($id)
-    {
-        // $kasir = Kasir::with('kasirService.service.category')->find($id);
-        
-        return view('kasir.rincian');
+public function rincian($id)
+{
+    $kasir = Kasir::with('kasirService.service.category')->find($id);
+
+    if (!$kasir) {
+        return redirect()->back()->with('error', 'Data transaksi tidak ditemukan.');
     }
+
+    return view('kasir.rincian', compact('kasir'));
+}
+    
     
 
-    // Mengubah status transaksi
-    public function updateStatus(Request $request, Kasir $kasir)
-    {
-        // ✅ Validasi agar hanya menerima status yang valid
-        $request->validate([
-            'status' => 'required|in:sedang_dicuci,siap_diambil,selesai',
-        ]);
-    
-        $kasir = Kasir::findOrFail($id);
-        $kasir->status = $request->status;
-        $kasir->save();
-    
-        return redirect()->back()->with('success', 'Status berhasil diperbarui.');
-    }
+public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:sedang_dicuci,siap_diambil,selesai',
+    ]);
+
+    $kasir = Kasir::findOrFail($id); // 100% hanya update data yang ada
+    $kasir->status = $request->status;
+    $kasir->save();
+
+    return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+}
+
     
     
     
