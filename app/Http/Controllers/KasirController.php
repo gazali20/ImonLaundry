@@ -82,14 +82,28 @@ class KasirController extends Controller
     }
 
     public function show()
-{
-    $kasir = Kasir::with('kasirService.service.category')->get();
-    $dicuci = Kasir::where('status', 'sedang_dicuci')->with('kasirService')->get();
-    $siap = Kasir::where('status', 'siap_diambil')->with('kasirService')->get();
-    $selesai = Kasir::where('status', 'selesai')->with('kasirService')->get();
-
-    return view('kasir.detail', compact('kasir', 'dicuci', 'siap', 'selesai'));
-}
+    {
+        // Ambil semua transaksi
+        $kasirs = Kasir::with('kasirService.service.category')->get();
+    
+        // Kosongkan koleksi
+        $dicuci = collect();
+        $siap = collect();
+        $selesai = collect();
+    
+        // Loop satu per satu dan masukkan ke kategori pertama yang cocok
+        foreach ($kasirs as $kasir) {
+            if ($kasir->status === 'selesai') {
+                $selesai->push($kasir);
+            } elseif ($kasir->status === 'siap_diambil' && !$selesai->contains('id', $kasir->id)) {
+                $siap->push($kasir);
+            } elseif ($kasir->status === 'sedang_dicuci' && !$selesai->contains('id', $kasir->id) && !$siap->contains('id', $kasir->id)) {
+                $dicuci->push($kasir);
+            }
+        }
+    
+        return view('kasir.detail', compact('dicuci', 'siap', 'selesai'));
+    }
     
 public function rincian($id)
 {
@@ -115,10 +129,5 @@ public function updateStatus(Request $request, $id)
     $kasir->save();
 
     return redirect()->back()->with('success', 'Status berhasil diperbarui.');
-}
-
-    
-    
-    
-    
+}  
 }
