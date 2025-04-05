@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 dark:text-white">Stock</label>
-                        <div class=" p-2 bg-gray-100 rounded dark:bg-ray-700 dark:text-white">{{ $requirement->stock }}
+                        <div class=" p-2 bg-gray-100 rounded dark:bg-gray-700 dark:text-white">{{ $requirement->stock }}
                         </div>
                     </div>
 

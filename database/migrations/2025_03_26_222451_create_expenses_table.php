@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_requirement')->constrained('requirements');
-            $table->date('date')->default(now());
-            $table->decimal('grand_total', 10, 2);
+            $table->string('requirement_name');
+            $table->integer('stock');
+            $table->string('category')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->decimal('grand_total', 12, 2);
+            $table->date('date');
             $table->timestamps();
         });
     }

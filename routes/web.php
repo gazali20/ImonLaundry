@@ -8,7 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RequirementController;
 use App\Http\Controllers\NeedController;
 use App\Http\Controllers\KasirController;
-use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -97,11 +97,14 @@ Route::patch('/kasir/{id}/status', [KasirController::class, 'updateStatus'])->na
 Route::get('/api/services', [ServiceController::class, 'getServices']);
 
 
-Route::get('/Accounting', [ExpensesController::class, 'index'])->name('accounting.index');
-Route::post('/expenses/store/{id}', [ExpensesController::class, 'store'])->name('expenses.store');
+Route::get('/Accounting', [AccountingController::class, 'index'])->name('accounting.index');
+Route::post('/expenses/store/{id}', [AccountingController::class, 'store'])->name('expenses.store');
 
 Route::get('/Invoice', [InvoiceController::class, 'index'])->name('Invoice.index');
-Route::get('/Invoice/detail', [InvoiceController::class, 'detail'])->name('Invoice.detail');
+Route::get('/Invoice/{id}', [InvoiceController::class, 'detail'])->name('Invoice.detail');
+Route::post('/Invoice/update-status/{id}', [InvoiceController::class, 'updateStatus'])->name('Invoice.updateStatus');
+
+
 
 Route::middleware('auth')->prefix('profile')->name('profile.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');

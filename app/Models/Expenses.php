@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Expenses extends Model
 {
     protected $fillable = [
-        'id_requirement',
-        'date',
+        'requirement_name',
+        'stock',
+        'price',
+        'category',
         'grand_total',
+        'date',
     ];
 
     public function requirement()

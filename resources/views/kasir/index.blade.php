@@ -189,7 +189,7 @@
         function kasirApp() {
             return {
                 customer: '',
-                noHandphone: '', 
+                noHandphone: '',
                 cart: [],
                 pembayaran: '',
                 hargaTunai: 0,
@@ -263,39 +263,40 @@
                         no_handphone: this.noHandphone,
                         payment: this.pembayaran,
                         grand_total: this.grandTotal,
-                        cart: this.cart, 
+                        cart: this.cart,
                     };
                     fetch('/kasir', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-    },
-    body: JSON.stringify(payload),
-})
-.then(response => response.json())
-.then(data => {
-    console.log('Response dari server:', data); // Tambahkan ini untuk debugging
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                    'content'),
+                            },
+                            body: JSON.stringify(payload),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Response dari server:', data); // Tambahkan ini untuk debugging
 
-    if (data.code_invoice) {
-        alert(`Transaksi berhasil! Kode Invoice: ${data.code_invoice}`);
-        // Reset data
-        this.cart = [];
-        this.customer = '';
-        this.noHandphone = '';
-        this.pembayaran = '';
-        this.hargaTunai = 0;
+                            if (data.code_invoice) {
+                                alert(`Transaksi berhasil! Kode Invoice: ${data.code_invoice}`);
+                                // Reset data
+                                this.cart = [];
+                                this.customer = '';
+                                this.noHandphone = '';
+                                this.pembayaran = '';
+                                this.hargaTunai = 0;
 
-        // Redirect ke halaman detail
-        window.location.href = `/kasir/detail`;
-    } else {
-        alert('Terjadi kesalahan: kode invoice tidak ditemukan.');
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    alert('Terjadi kesalahan saat menyimpan transaksi.');
-});
+                                // Redirect ke halaman detail
+                                window.location.href = `/kasir/detail`;
+                            } else {
+                                alert('Terjadi kesalahan: kode invoice tidak ditemukan.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Terjadi kesalahan saat menyimpan transaksi.');
+                        });
 
                 }
             };

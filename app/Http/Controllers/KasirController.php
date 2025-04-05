@@ -35,7 +35,7 @@ class KasirController extends Controller
         ]);
 
         try {
-            $codeInvoice = 'INV-' . strtoupper(Str::random(8));
+            $codeInvoice = 'INV-' . mt_rand(1000000, 99999999);
 
             $kasir = Kasir::create([
                 'customer' => $request->customer,
@@ -58,10 +58,6 @@ class KasirController extends Controller
                 ];
             }
 
-            // Log::info('Data kasir:', $kasir->toArray());
-
-            // Tambahkan log untuk memeriksa data yang dikirim ke sync()
-            // Log::info('Data yang dikirim ke sync:', $data);
 
             // Sinkronisasi data ke tabel pivot
             $kasir->services()->sync($data);
@@ -82,18 +78,17 @@ class KasirController extends Controller
     // Menampilkan detail transaksi
     public function show()
     {
-        $kasir = Kasir::with('kasirService.service.category')->get();
-        return view('kasir.detail', compact('kasir'));
+        // $kasir = Kasir::with('kasirService.service.category')->get();
+        return view('kasir.detail');
     }
     
     public function rincian($id)
     {
-        $kasir = Kasir::with('kasirService.service.category')->find($id);
+        // $kasir = Kasir::with('kasirService.service.category')->find($id);
         
-        return view('kasir.rincian', compact('kasir'));
+        return view('kasir.rincian');
     }
     
-
     // Mengubah status transaksi
     public function updateStatus(Request $request, Kasir $kasir)
     {

@@ -2,14 +2,14 @@
     <div class="p-6">
         <ul>
         <li>
-            <a href="/requirement" class="text-primary hover:underline">Akutansi</a>
+            <h5 class="font-semibold text-lg dark:text-white-light">Akutansi</h5>
         </li>
     </ul>
         <div class="grid grid-cols-3 gap-4 my-4">
             <div class="p-4 bg-white rounded-lg shadow flex justify-between items-center">
                 <div class="flex flex-col justify-center items-center">
                     <p class="text-2x1 font-bold mb-2 ml-2">Jumlah pesanan sedang dicuci</p>
-                    <p class="text-gray-400">100 pesanan</p>
+                    <p class="text-gray-400">{{ $jumlahPesananCuci }} pesanan</p>
                 </div>
                 <svg width="44" height="42" viewBox="0 0 44 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.5" d="M9.5 15.75H17.8333" stroke="#A20AFF" stroke-width="1.5"
@@ -30,7 +30,7 @@
             <div class="p-4 bg-white rounded-lg shadow flex justify-between items-center">
                 <div class="flex flex-col justify-center items-center">
                     <p class="text-2x1 font-bold">Jumlah pesanan selesai hari ini</p>
-                    <p class="text-gray-400 mt-1 ml-2">150 pesanan</p>
+                    <p class="text-gray-400 mt-1 ml-2">{{ $jumlahPesananSelesai }} pesanan</p>
                 </div>
                 <svg width="46" height="38" viewBox="0 0 46 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
             <div class="p-4 bg-white rounded-lg shadow flex justify-between items-center">
                 <div class="flex flex-col justify-center items-center">
                     <p class="text-2x1 font-bold mb-2 ml-2">Jumlah pelanggan bulan ini</p>
-                    <p class="text-gray-400">100 pelanggan</p>
+                    <p class="text-gray-400">{{ $jumlahPelangganBulanIni }} pelanggan</p>
                 </div>
                 <svg width="46" height="38" viewBox="0 0 46 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -67,36 +67,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-t">
-                        <td class="p-3">31-01-2025</td>
-                        <td class="p-3">Fitri</td>
-                        <td class="p-3">Komplit</td>
-                        <td class="p-3">Cuci Baju</td>
-                        <td class="p-3">Rp 25.000</td>
-                    </tr>
-                    <tr class="bg-gray-100 text-left ">
-                        <td class="p-3">01-02-2025</td>
-                        <td class="p-3">Maya</td>
-                        <td class="p-3">Cuci Setrika</td>
-                        <td class="p-3">Cuci Baju</td>
-                        <td class="p-3">Rp 10.000</td>
-                    </tr>
-                    <tr class="border-t">
-                        <td class="p-3">02-02-2025</td>
-                        <td class="p-3">Dian</td>
-                        <td class="p-3">Cuci + Parfum</td>
-                        <td class="p-3">Cuci Baju</td>
-                        <td class="p-3">Rp 10.000</td>
-                    </tr>
-                    <tr class="bg-gray-100 text-left ">
-                        <td class="p-3">03-02-2025</td>
-                        <td class="p-3">Ana</td>
-                        <td class="p-3">Cuci Biasa</td>
-                        <td class="p-3">Cuci Baju</td>
-                        <td class="p-3">Rp 50.000</td>
-                    </tr>
+                    @foreach($pendapatan as $kasir)
+                        @php
+                            $ks = $kasir->kasirService->first();
+                        @endphp
+                        @if ($ks)
+                            <tr class="border-t {{ $loop->iteration % 2 == 0 ? 'bg-gray-100' : '' }}">
+                                <td class="p-3">{{ \Carbon\Carbon::parse($kasir->date)->format('d-m-Y') }}</td>
+                                <td class="p-3">{{ $kasir->customer }}</td>
+                                <td class="p-3">{{ $ks->service->name_service ?? '-' }}</td>
+                                <td class="p-3">{{ $ks->service->category->name_category ?? '-' }}</td>
+                                <td class="p-3">Rp {{ number_format($kasir->grand_total, 0, ',', '.') }}</td>
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
+                
+                
             </table>
+            <div class="mt-4">
+                {{ $pendapatan->links() }}
+            </div>
         </div>
 
         <div class="bg-white p-4 rounded-lg shadow mt-6">
@@ -111,17 +102,21 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach ($expenses as $expense)
-                        <tr>
-                            <td>{{ $expense->date }}</td>
-                            <td>{{ $expense->requirement->requirement_name }}</td>
-                            <td>{{ $expense->requirement->need->name_category }}</td> <!-- Kategori dari tabel needs -->
-                            <td>Rp {{ number_format($expense->grand_total, 2, ',', '.') }}</td>
+                        <tr class="{{ $loop->iteration % 2 == 0 ? 'bg-gray-100' : 'bg-white' }}">
+                            <td class="p-3">{{ $expense->date }}</td>
+                            <td class="p-3">{{ $expense->requirement_name }}</td>
+                            <td class="p-3">{{ $expense->category }}</td>
+                            <td class="p-3">Rp {{ number_format($expense->grand_total, 2, ',', '.') }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
+                
                     
             </table>
+            <div class="mt-4">
+                {{ $expenses->links() }}
+            </div>
         </div>
 
     </div>
