@@ -1,4 +1,10 @@
 <x-layout.default>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <ul class="flex space-x-2 rtl:space-x-reverse">
         <li class="ltr:before:mr-1 rtl:before:ml-1">
             <span>Gudang</span>

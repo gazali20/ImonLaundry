@@ -85,9 +85,9 @@
                 
                 
             </table>
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 {{ $pendapatan->links() }}
-            </div>
+            </div> --}}
         </div>
 
         <div class="bg-white p-4 rounded-lg shadow mt-6">
@@ -114,9 +114,9 @@
                 
                     
             </table>
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 {{ $expenses->links() }}
-            </div>
+            </div> --}}
         </div>
 
     </div>

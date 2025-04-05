@@ -56,7 +56,14 @@
 
         <div class="mt-6 flex justify-start">
             {{-- <a href="{{ route('services.index') }}" class="btn btn-secondary mr-2">Kembali</a> --}}
-            <a href="{{ route('services.edit', $service->id) }}" class="btn bg-purple-600 hover:bg-purple-700 text-white">Edit layanan</a>
+            <a href="{{ route('services.edit', $service->id) }}" class="btn bg-purple-600 hover:bg-purple-700 text-white mr-4">Edit layanan</a>
+
+            {{-- Hapus layanan --}}
+            <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn bg-red-600 hover:bg-red-700 text-white">hapus</button>
+            </form>
         </div>
     </div>
     </div>

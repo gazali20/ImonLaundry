@@ -113,14 +113,14 @@ public function getServices()
     {
         $service = Service::findOrFail($id);
 
-        if ($service->image && file_exists(public_path('images/services/'.$service->image))) {
-            unlink(public_path('images/services/'.$service->image));
+        // Hapus gambar jika ada
+        if ($service->image && file_exists(public_path('images/services/' . $service->image))) {
+            unlink(public_path('images/services/' . $service->image));
         }
 
         $service->delete();
 
-        if(request()->header('Content-Type') === "application/json") {
-            return response()->json($services);
-        }
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('services.index')->with('success', 'Layanan berhasil dihapus.');
     }
 }

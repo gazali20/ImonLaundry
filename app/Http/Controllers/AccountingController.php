@@ -23,9 +23,10 @@ class AccountingController extends Controller
                                         ->count();
 
                                         $pendapatan = Kasir::with('kasirService.service')
-                                        ->latest()->paginate(5);
-                                        // ->take(5)
-                                        // ->get();
+                                        ->latest()
+                                        ->take(5)
+                                        ->get();
+                                        // ->paginate(5);
                                 
                                     return view('Accounting.index', compact(
                                         'expenses',
