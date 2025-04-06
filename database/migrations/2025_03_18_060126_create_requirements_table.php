@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('id_need')->constrained('needs')->onDelete('cascade');            
             $table->string('requirement_name');
             $table->string('stock')->nullable();
-            $table->decimal('price');
-            $table->decimal('grand_total');
+            $table->decimal('price', 15, 2);
+            $table->decimal('grand_total', 15, 2);
             $table->string('image')->nullable();
             $table->timestamps();
         });

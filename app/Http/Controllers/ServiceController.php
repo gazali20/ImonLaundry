@@ -121,6 +121,6 @@ public function getServices()
         $service->delete();
 
         // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('services.index')->with('success', 'Layanan berhasil dihapus.');
+        return redirect()->route('services.index');
     }
 }

@@ -1,5 +1,5 @@
 <x-layout.default>
-    <div class="p-6">
+    {{-- <div class="p-6"> --}}
         <ul>
         <li>
             <h5 class="font-semibold text-lg dark:text-white-light">Akutansi</h5>
@@ -119,5 +119,5 @@
             </div> --}}
         </div>
 
-    </div>
+    {{-- </div> --}}
 </x-layout.default>

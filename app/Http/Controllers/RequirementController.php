@@ -25,8 +25,8 @@ class RequirementController extends Controller
     $request->validate([
         'id_need' => 'required',
         'requirement_name' => 'required|string|max:255',
-        'stock' => 'required|integer',
-        'price' => 'required|numeric',
+        'stock' => 'required|integer|min:0', 
+        'price' => 'required|numeric|min:0', 
         'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
     ]);
 
@@ -61,12 +61,12 @@ public function update(Request $request, Requirement $requirement)
     $request->validate([
         'id_need' => 'required',
         'requirement_name' => 'required|string|max:255',
-        'stock' => 'required|integer',
-        'price' => 'required|numeric',
+        'stock' => 'required|integer|min:0', 
+        'price' => 'required|numeric|min:0', 
         'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
     ]);
 
-    $imageName = null;
+    $imageName = $requirement->image;
     if ($request->hasFile('image')) {
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images/services'), $imageName);
@@ -83,6 +83,7 @@ public function update(Request $request, Requirement $requirement)
         'image' => $imageName,
     ]);
 
+    return redirect()->route('requirement.index')->with('success', 'Kebutuhan berhasil diperbarui.');
 }
 
 public function detail(Requirement $requirement)
@@ -99,28 +100,9 @@ public function destroy(Requirement $requirement)
 
     $requirement->delete();
 
-    if (request()->expectsJson()) {
-        return response()->json(['message' => 'Kebutuhan berhasil dihapus.']);
-    }
+    return redirect()->route('requirement.index');
 
 }
 
-// public function saveToAccounting($id)
-// {
-//     // Ambil data requirement berdasarkan ID
-//     $requirement = Requirement::findOrFail($id);
-
-//     // Proses data untuk disimpan ke pengeluaran (contoh: simpan ke tabel lain atau update status)
-//     // Misalnya, tambahkan data ke tabel pengeluaran
-//     \DB::table('`expenses`')->insert([
-//         'requirement_id' => $requirement->id,
-//         'amount' => $requirement->price * $requirement->stock,
-//         'created_at' => now(),
-//         'updated_at' => now(),
-//     ]);
-
-//     // Redirect ke halaman Accounting.index dengan pesan sukses
-//     return redirect()->route('accounting.index')->with('success', 'Data berhasil disimpan ke pengeluaran.');
-// }
 
 }

@@ -75,9 +75,38 @@
                     <form action="{{ route('expenses.store', $requirement->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn bg-purple-600 hover:bg-purple-700 text-white">Simpan ke Pengeluaran</button>
-                    </form>                    
+                    </form>
+                    {{-- Hapus layanan --}}
+            <form id="form-hapus-{{ $requirement->id }}" action="{{ route('requirement.destroy', $requirement->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="confirmDelete({{ $requirement->id }})"
+                    class="btn bg-red-600 hover:bg-red-700 text-white">
+                    Hapus
+                </button>
+            </form>                    
             </div>
         </div>
     </div>
+
+    <script>
+        function confirmDelete(serviceId) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data yang dihapus tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'YHapus!',
+                cancelButtonText: 'Tidak',
+                reverseButtons: true,
+                focusCancel: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit form jika user klik YES
+                    document.getElementById(`form-hapus-${serviceId}`).submit();
+                }
+            });
+        }
+    </script>
 
 </x-layout.default>
