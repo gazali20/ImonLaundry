@@ -1,17 +1,7 @@
 <x-layout.default>
 
-
-    <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
-        <li>
-            <a href="/services" class="text-primary hover:underline">Layanan</a>
-        </li>
-        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-            <span>Edit layanan</span>
-        </li>
-    </ul>
-
  
-    <div class="pt-5" x-data="formService">
+    <div class="pt-3" x-data="formService">
         <div class="panel">
             <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <a href="/services" class="inline-flex items-center">

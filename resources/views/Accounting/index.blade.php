@@ -1,10 +1,9 @@
 <x-layout.default>
     {{-- <div class="p-6"> --}}
-        <ul>
-        <li>
-            <h5 class="font-semibold text-lg dark:text-white-light">Akutansi</h5>
-        </li>
-    </ul>
+        <div class="flex justify-between px-3 ml-3">
+            <h1 class=" text-lg font-semibold">Akutansi</h1>
+        </div>
+
         <div class="grid grid-cols-3 gap-4 my-4">
             <div class="p-4 bg-white rounded-lg shadow flex justify-between items-center">
                 <div class="flex flex-col justify-center items-center">

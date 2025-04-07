@@ -1,10 +1,10 @@
 <x-layout.default>
     <div class=" flex justify-between px-3 ">
-        <h1 class=" text-xl">Kategori Layanan</h1> 
+        <h1 class="text-lg font-semibold">Kategori Layanan</h1> 
         <a href="/category/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Kategori</a>
     </div>
 
-    <div x-data="striped" class="panel mt-6 pl-3">
+    <div x-data="striped" class="panel mt-5 pl-3">
         <div class="flex justify-between mb-6">
             <h5 class="font-semibold text-lg pl-2 dark:text-white-light"> List Kategori layanan</h5> 
         </div>

@@ -27,8 +27,8 @@ class DashboardController extends Controller
             ->orderBy('month')
             ->pluck('total', 'month');
 
-        $monthlyExpenses = DB::table('services')
-            ->selectRaw('MONTH(created_at) as month, SUM(price) as total')
+        $monthlyExpenses = DB::table('expenses')
+            ->selectRaw('MONTH(created_at) as month, SUM(grand_total) as total')
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('total', 'month');

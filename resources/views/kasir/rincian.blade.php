@@ -1,46 +1,46 @@
 <x-layout.default>
     <div class="bg-white p-4 rounded-lg shadow ">
-        <div class="flex items-center justify-between mb-5">
-            <h3 class="flex items-center font-semibold text-xl dark:text-white-light gap-x-2">
-                <a href="/kasir/detail">
+        <div class="grid items-center justify-between mb-5">
+            <h5 class="font-bold text-lg dark:text-white-light flex items-center">
+                <a href="/kasir/detail" class="flex items-center">
                     <svg class="mr-2" width="10" height="21" viewBox="0 0 12 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M10.9415 1.72298C11.387 2.07117 11.4386 2.68275 11.0567 3.08897L3.14939 11.5002L11.0567 19.9114C11.4386 20.3176 11.387 20.9292 10.9415 21.2774C10.4959 21.6256 9.82518 21.5785 9.44329 21.1723L0.94329 12.1306C0.602237 11.7678 0.602237 11.2325 0.94329 10.8697L9.44329 1.82806C9.82518 1.42184 10.4959 1.37479 10.9415 1.72298Z"
                             fill="#1C274C" stroke="#1C274C" stroke-linecap="round" />
                     </svg>
+                    Detail Pesanan
                 </a>
-             Detail Pesanan</h3>
-            
+            </h5>
         </div>
+        
 
-        <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 mb-6">
             <div>
-                <label class="block font-medium">Nama Pelanggan</label>
-                <p>{{ $kasir->customer }}</p>
+                <p class="text-gray-500 text-sm">Nama Pelanggan</p>
+                <p class="text-base font-medium text-gray-800">{{ $kasir->customer }}</p>
             </div>
             <div>
-                <label class="block font-medium">No HP</label>
-                <p>{{ $kasir->no_handphone }}</p>
+                <p class="text-gray-500 text-sm">No HP</p>
+                <p class="text-base font-medium text-gray-800">{{ $kasir->no_handphone }}</p>
             </div>
             <div>
-                <label class="block font-medium">Tanggal</label>
-                <p>{{ $kasir->date }}</p>
+                <p class="text-gray-500 text-sm">Tanggal</p>
+                <p class="text-base font-medium text-gray-800">{{ $kasir->date }}</p>
             </div>
             <div>
-                <label class="block font-medium">Pembayaran</label>
-                <p>{{ $kasir->payment }}</p>
+                <p class="text-gray-500 text-sm">Pembayaran</p>
+                <p class="text-base font-medium text-gray-800 capitalize">{{ $kasir->payment }}</p>
+            </div>
+            <div>
+                <p class="text-gray-500 text-sm">Status Pesanan</p>
+                <p class="text-base font-medium text-gray-800 capitalize">{{ str_replace('_', ' ', $kasir->status) }}</p>
             </div>
         </div>
-
-        <div class="mb-4">
-            <label class="block font-medium mb-1">Status Pesanan</label>
-            <p class="mb-2 capitalize">{{ str_replace('_', ' ', $kasir->status) }}</p>
-
-        </div>
+        
 
         {{-- Daftar Pesanan --}}
-        <h4 class="text-md font-semibold mb-2">Layanan yang Dipesan</h4>
+        <h4 class="font-bold text-lg dark:text-white-light flex items-center mb-3">Layanan Yang Dipesan</h4>
         @if ($kasir->kasirService->count() > 0)
             <table class="w-full border-collapse items-center">
                 <thead>

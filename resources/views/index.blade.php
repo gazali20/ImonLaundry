@@ -4,14 +4,9 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
 
     <div x-data="sales">
-        <ul class="flex space-x-2 rtl:space-x-reverse">
-            <li>
-                <a href="javascript:;" class="text-primary hover:underline">Dashboard</a>
-            </li>
-            <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-                <span>Sales</span>
-            </li>
-        </ul>
+        <div class="flex justify-between px-3 ">
+            <h1 class=" text-lg font-semibold">Dashboard</h1>
+        </div>
 
 
         <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6 pt-5">
@@ -375,8 +370,16 @@
                         },
                         yaxis: {
                             tickAmount: 7,
+                            max: 1000000, // batas maksimum 9 juta
                             labels: {
-                                formatter: value => value / 1000 + 'K',
+                                formatter: value => {
+                                    if (value >= 1000000) {
+                                        return (value / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+                                    } else if (value >= 1000) {
+                                        return (value / 1000).toFixed(0) + 'K';
+                                    }
+                                    return value;
+                                },
                                 offsetX: isRtl ? -30 : -10,
                                 offsetY: 0,
                                 style: {

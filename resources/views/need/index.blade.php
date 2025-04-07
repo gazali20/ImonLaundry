@@ -1,9 +1,8 @@
 <x-layout.default>
     <div class="flex justify-between px-3 ">
-        <h1 class=" text-lg font-semibold">Kategori Layanan</h1>
-        <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Layanan</a>
+        <h1 class=" text-lg font-semibold">Kategori Kebutuhan</h1>
+        <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Kategori</a>
     </div>
-
     <div x-data="striped" class="panel mt-3">
         <table id="tableHover" class="table-hover"></table>
     </div>

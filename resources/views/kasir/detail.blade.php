@@ -9,9 +9,9 @@
     </style>
 
     <div class="flex justify-between items-center w-full px-3">
-        <div>
-            <h1 class=" text-xl ">Status Layanan</h1>
-        </div>
+            <div class="flex justify-between px-3 ">
+                <h1 class=" text-lg font-semibold">Status Pesanan</h1>
+            </div>
         <div class="flex">
             <a href="/kasir"
                 class="btn mr-3 bg-white font-semibold hover:bg-purple-500 hover:text-white text-black shadow-none">Kasir</a>
