@@ -115,11 +115,11 @@ class DashboardController extends Controller
             }
 
 //Total Pengeluaran
-            $totalPengeluaran = DB::table('requirements')
+            $totalPengeluaran = DB::table('expenses')
             ->whereYear('created_at', Carbon::now()->year)
             ->sum('grand_total');
 
-            $pengeluaranTahunLalu = DB::table('requirements')
+            $pengeluaranTahunLalu = DB::table('expenses')
             ->whereYear('created_at', Carbon::now()->subYear()->year)
             ->sum('grand_total');
 
