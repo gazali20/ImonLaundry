@@ -1,22 +1,10 @@
 <x-layout.default>
-    <ul class="flex space-x-2 rtl:space-x-reverse">
-        <li class="ltr:before:mr-1 rtl:before:ml-1">
-            <span>Kebutuhan</span>
-        </li>
-        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-            <span>List Kebutuhan</span>
-        </li>
-        <li>
-            <a href="/category"
-                class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1 text-primary hover:underline">Layanan</a>
-        </li>
+    <div class="flex justify-between px-3 ">
+        <h1 class=" text-lg font-semibold">Kategori Layanan</h1>
+        <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Layanan</a>
+    </div>
 
-    </ul>
-    <div x-data="striped" class="panel">
-        <div class="flex justify-between mb-6">
-            <h5 class="font-semibold text-lg dark:text-white-light">Kategori Kebutuhan</h5>
-            <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah</a>
-        </div>
+    <div x-data="striped" class="panel mt-3">
         <table id="tableHover" class="table-hover"></table>
     </div>
     <script>
@@ -65,7 +53,12 @@
                             perPage: "{select}"
                         },
                         layout: {
-                            top: "{search}",
+                            top: `
+        <div class="flex justify-between items-center mb-4 w-full">
+            <h5 class="font-bold text-lg dark:text-white-light">List Kategori Layanan</h5>
+            <div class="ml-auto" style="max-width: 300px;">{search}</div>
+        </div>
+    `,
                             bottom: "{info}{select}{pager}",
                         },
                     };

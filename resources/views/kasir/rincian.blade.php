@@ -1,7 +1,7 @@
 <x-layout.default>
     <div class="bg-white p-4 rounded-lg shadow ">
         <div class="flex items-center justify-between mb-5">
-            <h5 class="flex items-center font-semibold text-xl dark:text-white-light gap-x-2">
+            <h3 class="flex items-center font-semibold text-xl dark:text-white-light gap-x-2">
                 <a href="/kasir/detail">
                     <svg class="mr-2" width="10" height="21" viewBox="0 0 12 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -10,8 +10,8 @@
                             fill="#1C274C" stroke="#1C274C" stroke-linecap="round" />
                     </svg>
                 </a>
-                Lengkapi Profile
-            </h5>
+             Detail Pesanan</h3>
+            
         </div>
 
         <div class="grid grid-cols-2 gap-4 mb-4">

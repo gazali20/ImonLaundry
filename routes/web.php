@@ -10,12 +10,16 @@ use App\Http\Controllers\NeedController;
 use App\Http\Controllers\KasirController;
 use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/', function () {
+//     return view('index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 Route::get('/login', function () {

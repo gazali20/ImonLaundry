@@ -1,5 +1,5 @@
 <x-layout.default>
-    <div class="flex justify-between items-center ps w-full px-3">
+    <div class="flex justify-between items-center w-full px-3">
         <div>
             <h1 class=" text-xl ">Kasir transaksi</h1>
         </div>
@@ -9,7 +9,7 @@
                 class="btn  bg-white font-semibold hover:bg-purple-500 hover:text-white text-black shadow-none">Pesanan</a>
         </div>
     </div>
-    <div x-data="kasirApp()" x-init="init()" class=" pt-5">
+    <div x-data="kasirApp()" x-init="init()" class=" pt-4">
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
             <!-- KIRI - KERANJANG + FORM -->
             <div class="space-y-4">

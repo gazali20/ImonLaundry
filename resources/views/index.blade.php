@@ -1,5 +1,8 @@
 <x-layout.default>
     <script defer src="/assets/js/apexcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+
     <div x-data="sales">
         <ul class="flex space-x-2 rtl:space-x-reverse">
             <li>
@@ -11,7 +14,6 @@
         </ul>
 
 
-
         <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6 pt-5">
             {{-- i --}}
             <div class="panel h-36 bg-gradient-to-t from-blue-200 via-blue-400 to-blue-400">
@@ -19,8 +21,9 @@
                     <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
                         <div>
                             <h1 class="text-xl font-semibold">Total Pendapatan</h1>
-                            <h1 class="text-2xl font-extrabold py-1 font">Rp6.000.000</h1>
-                            <h1>Pertahun 25%</h1>
+                            <h1 class="text-2xl font-extrabold py-1 font">
+                                Rp{{ number_format($totalPendapatan, 0, ',', '.') }}</h1>
+                            <h1>Pertahun {{ number_format($persenPertumbuhan, 1) }}%</h1>
                         </div>
                     </div>
                     <div class=" flex justify-center items-center ">
@@ -36,7 +39,6 @@
                             </svg>
                         </a>
                     </div>
-
                 </div>
             </div>
             {{-- o --}}
@@ -45,8 +47,10 @@
                     <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
                         <div>
                             <h1 class="text-xl font-semibold">Total Pengeluaran</h1>
-                            <h1 class="text-2xl font-extrabold py-1">Rp6.000.000</h1>
-                            <h1>Pertahun 25%</h1>
+                            <h1 class="text-2xl font-extrabold py-1">
+                                Rp{{ number_format($totalPengeluaran, 0, ',', '.') }}
+                            </h1>
+                            <h1>Pertahun {{ number_format($pertumbuhanPengeluaran, 1) }}%</h1>
                         </div>
                     </div>
                     <div class="flex justify-center items-center">
@@ -66,8 +70,8 @@
                     <div class=" sm:grid-cols-3 xl:grid-cols-1  text-white pt-1 justify-center items-center">
                         <div>
                             <h1 class="text-xl font-semibold">Total Pencucian</h1>
-                            <h1 class="text-2xl font-extrabold py-1">2.000 Pesanan</h1>
-                            <h1>Pertahun 25%</h1>
+                            <h1 class="text-2xl font-extrabold py-1">{{ number_format($totalPencucian) }} Pesanan</h1>
+                            <h1>Pertahun {{ round($pertumbuhanPencucian) }}%</h1>
                         </div>
                     </div>
                     <div class="flex justify-center items-center">
@@ -87,29 +91,44 @@
                 <div class="panel h-full xl:col-span-2">
                     <div class="flex items-center dark:text-white-light mb-5">
                         <h5 class="font-semibold text-lg">Pendapatan</h5>
-                        <div x-data="dropdown" @click.outside="open = false"
-                            class="dropdown ltr:ml-auto rtl:mr-auto">
-                            <a href="javascript:;" @click="toggle">
-                                <svg class="w-5 h-5 text-black/70 dark:text-white/70 hover:!text-primary"
-                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                    <circle opacity="0.5" cx="12" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                    <circle cx="19" cy="12" r="2" stroke="currentColor"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </a>
-                            <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
-                                class="ltr:right-0 rtl:left-0">
-                                <li><a href="javascript:;" @click="toggle">Perminggu</a></li>
-                                <li><a href="javascript:;" @click="toggle">Perbulan</a></li>
-                                <li><a href="javascript:;" @click="toggle">Pertahun</a></li>
-                            </ul>
-                        </div>
+                        <form method="GET" id="filterForm">
+                            <div x-data="{ open: false }" class="dropdown ltr:ml-auto rtl:mr-auto relative">
+                                <a href="#" @click.prevent="open = !open">
+                                    <!-- Icon -->
+                                    <svg class="w-5 h-5 text-black/70 dark:text-white/70 hover:!text-primary"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <circle cx="5" cy="12" r="2" stroke="currentColor"
+                                            stroke-width="1.5" />
+                                        <circle opacity="0.5" cx="12" cy="12" r="2" stroke="currentColor"
+                                            stroke-width="1.5" />
+                                        <circle cx="19" cy="12" r="2" stroke="currentColor"
+                                            stroke-width="1.5" />
+                                    </svg>
+                                </a>
+                                <ul x-show="open" @click.outside="open = false" x-transition
+                                    class="absolute z-10 w-32 mt-2 bg-white shadow rounded">
+                                    <li><button type="submit" name="filter" value="daily"
+                                            class="block w-full text-left px-4 py-2 hover:bg-gray-100">Perhari</button>
+                                    </li>
+                                    <li><button type="submit" name="filter" value="weekly"
+                                            class="block w-full text-left px-4 py-2 hover:bg-gray-100">Perminggu</button>
+                                    </li>
+                                    <li><button type="submit" name="filter" value="monthly"
+                                            class="block w-full text-left px-4 py-2 hover:bg-gray-100">Perbulan</button>
+                                    </li>
+                                    <li><button type="submit" name="filter" value="yearly"
+                                            class="block w-full text-left px-4 py-2 hover:bg-gray-100">Pertahun</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
                     </div>
-                    <p class="text-lg dark:text-white-light/90">Total Keuntungan <span
-                            class="text-primary ml-2">Rp.16.000.000</span></p>
+                    <p class="text-lg dark:text-white-light/90">
+                        Total Keuntungan
+                        <span class="text-primary ml-2">
+                            Rp.{{ number_format($totalPendapatan, 0, ',', '.') }}
+                        </span>
+                    </p>
                     <div class="relative overflow-hidden">
                         <div x-ref="revenueChart" class="bg-white dark:bg-black rounded-lg">
                             <!-- loader -->
@@ -156,49 +175,26 @@
                                     <th class="text-white bg-purple-500">Jasa</th>
                                     <th class="text-white bg-purple-500">Kategori</th>
                                     <th class="text-white bg-purple-500">Pesanan</th>
-                                    <th class="ltr:rounded-r-md rtl:rounded-l-md text-white bg-purple-500">Keuntungan</th>
+                                    <th class="ltr:rounded-r-md rtl:rounded-l-md text-white bg-purple-500">Keuntungan
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">1</td>
-                                    <td>Cuci Kering</td>
-                                    <td>Cuci Baju</td>
-                                    <td>60</td>
-                                    <td>Rp1.000.000</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">2</td>
-                                    <td>Cuci Kering</td>
-                                    <td>Cuci Baju</td>
-                                    <td>60</td>
-                                    <td>Rp1.000.000</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">3</td>
-                                    <td>Cuci Kering</td>
-                                    <td>Cuci Baju</td>
-                                    <td>60</td>
-                                    <td>Rp1.000.000</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">4</td>
-                                    <td>Cuci Kering</td>
-                                    <td>Cuci Baju</td>
-                                    <td>60</td>
-                                    <td>Rp1.000.000</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">5</td>
-                                    <td>Cuci Kering</td>
-                                    <td>Cuci Baju</td>
-                                    <td>60</td>
-                                    <td>Rp1.000.000</td>
-                                </tr>
+                                @foreach ($topPesananJasa as $index => $pesanan)
+                                    <tr class="text-black">
+                                        <td class="text-black dark:text-white">{{ $index + 1 }}</td>
+                                        <td>{{ $pesanan->service_name }}</td>
+                                        <td>{{ $pesanan->category_name }}</td>
+                                        <td>{{ $pesanan->order_count }}</td>
+                                        <td>Rp.{{ number_format($pesanan->profit, 0, ',', '.') }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+
 
                 <div class="panel h-full w-full">
                     <div class="flex items-center justify-between mb-5">
@@ -216,48 +212,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">1</td>
-                                    <td>Wahyu</td>
-                                    <td>20-01-2025</td>
-                                    <td>Rp1.000.000</td>
-                                    <td>30x</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">2</td>
-                                    <td>Ramosudin</td>
-                                    <td>30-01-2025</td>
-                                    <td>Rp950.000</td>
-                                    <td>28x</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">3</td>
-                                    <td>Randawir</td>
-                                    <td>20-02-2025</td>
-                                    <td>Rp900.000</td>
-                                    <td>21x</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">4</td>
-                                    <td>EWijaya</td>
-                                    <td>21-02-2025</td>
-                                    <td>Rp800.000</td>
-                                    <td>18x</td>
-                                </tr>
-                                <tr class="text-black ">
-                                    <td class=" text-black dark:text-white">5</td>
-                                    <td>Gayus</td>
-                                    <td>30-02-2025</td>
-                                    <td>Rp700.000</td>
-                                    <td>14x</td>
-                                </tr>
+                                @foreach ($topCustomers as $index => $cust)
+                                    <tr class="text-black">
+                                        <td class="text-black dark:text-white">{{ $index + 1 }}</td>
+                                        <td>{{ $cust->customer }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($cust->last_order)->format('d-m-Y') }}</td>
+                                        <td>Rp{{ number_format($cust->total_spent, 0, ',', '.') }}</td>
+                                        <td>{{ $cust->transaction_count }}x</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
+
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const incomeData = @json($incomeData);
+        const expenseData = @json($expenseData);
+    </script>
+
     <script>
         document.addEventListener("alpine:init", () => {
             Alpine.data("sales", () => ({
@@ -270,6 +246,7 @@
                     const salesByCategory = null;
                     const dailySales = null;
                     const totalOrders = null;
+
 
                     // revenue
                     setTimeout(() => {
@@ -316,18 +293,17 @@
 
                 // revenue
                 get revenueChartOptions() {
+                    const pendapatanMaxIndex = incomeData.indexOf(Math.max(...incomeData));
+                    const pengeluaranMaxIndex = expenseData.indexOf(Math.max(...expenseData));
+
                     return {
                         series: [{
                                 name: 'Pendapatan',
-                                data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000,
-                                    15000, 17000, 14000, 17000
-                                ]
+                                data: incomeData
                             },
                             {
                                 name: 'Pengeluaran',
-                                data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000,
-                                    16000, 19000, 18000, 19000
-                                ]
+                                data: expenseData
                             }
                         ],
                         chart: {
@@ -339,7 +315,7 @@
                             },
                             toolbar: {
                                 show: false
-                            },
+                            }
                         },
                         dataLabels: {
                             enabled: false
@@ -361,19 +337,19 @@
                         markers: {
                             discrete: [{
                                     seriesIndex: 0,
-                                    dataPointIndex: 6,
+                                    dataPointIndex: pendapatanMaxIndex,
                                     fillColor: '#1b55e2',
                                     strokeColor: 'transparent',
                                     size: 7
                                 },
                                 {
                                     seriesIndex: 1,
-                                    dataPointIndex: 5,
+                                    dataPointIndex: pengeluaranMaxIndex,
                                     fillColor: '#e7515a',
                                     strokeColor: 'transparent',
                                     size: 7
-                                },
-                            ],
+                                }
+                            ]
                         },
                         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep',
                             'Okt', 'Nov', 'Des'
@@ -395,22 +371,20 @@
                                     fontSize: '12px',
                                     cssClass: 'apexcharts-xaxis-title'
                                 }
-                            },
+                            }
                         },
                         yaxis: {
                             tickAmount: 7,
                             labels: {
-                                formatter: (value) => {
-                                    return value / 1000 + 'K';
-                                },
+                                formatter: value => value / 1000 + 'K',
                                 offsetX: isRtl ? -30 : -10,
                                 offsetY: 0,
                                 style: {
                                     fontSize: '12px',
                                     cssClass: 'apexcharts-yaxis-title'
-                                },
+                                }
                             },
-                            opposite: isRtl ? true : false,
+                            opposite: isRtl
                         },
                         grid: {
                             borderColor: isDark ? '#191e3a' : '#e0e6ed',
@@ -439,12 +413,12 @@
                             markers: {
                                 width: 10,
                                 height: 10,
-                                offsetX: -2,
+                                offsetX: -2
                             },
                             itemMargin: {
                                 horizontal: 10,
                                 vertical: 5
-                            },
+                            }
                         },
                         tooltip: {
                             marker: {
@@ -458,19 +432,20 @@
                             type: 'gradient',
                             gradient: {
                                 shadeIntensity: 1,
-                                inverseColors: !1,
+                                inverseColors: false,
                                 opacityFrom: isDark ? 0.19 : 0.28,
                                 opacityTo: 0.05,
-                                stops: isDark ? [100, 100] : [45, 100],
-                            },
-                        },
+                                stops: isDark ? [100, 100] : [45, 100]
+                            }
+                        }
                     }
                 },
+
 
                 // sales by category
                 get salesByCategoryOptions() {
                     return {
-                        series: [985, 737, 270],
+                        series: @json(array_values($salesByCategory->toArray())),
                         chart: {
                             type: 'donut',
                             height: 460,
@@ -484,8 +459,8 @@
                             width: 25,
                             colors: isDark ? '#0e1726' : '#fff'
                         },
-                        colors: isDark ? ['#5c1ac3', '#e2a03f', '#e7515a', '#e2a03f'] : ['#e2a03f',
-                            '#5c1ac3', '#e7515a'
+                        colors: isDark ? ['#5c1ac3', '#e2a03f', '#e7515a'] : ['#e2a03f', '#5c1ac3',
+                            '#e7515a'
                         ],
                         legend: {
                             position: 'bottom',
@@ -517,7 +492,7 @@
                                             color: isDark ? '#bfc9d4' : undefined,
                                             offsetY: 16,
                                             formatter: (val) => {
-                                                return val;
+                                                return val.toLocaleString();
                                             },
                                         },
                                         total: {
@@ -529,14 +504,14 @@
                                                 return w.globals.seriesTotals.reduce(function(a,
                                                     b) {
                                                     return a + b;
-                                                }, 0);
+                                                }, 0).toLocaleString();
                                             },
                                         },
                                     },
                                 },
                             },
                         },
-                        labels: ['Cuci Baju', 'Cuci Karpet', 'Cuci Gorden'],
+                        labels: @json(array_keys($salesByCategory->toArray())),
                         states: {
                             hover: {
                                 filter: {
@@ -553,6 +528,8 @@
                         }
                     }
                 },
+
+
 
                 // daily sales
                 get dailySalesOptions() {
