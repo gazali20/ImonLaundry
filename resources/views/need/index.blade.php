@@ -3,7 +3,6 @@
         <h1 class=" text-lg font-semibold">Kategori Kebutuhan</h1>
         <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Kategori</a>
     </div>
-
     <div x-data="striped" class="panel mt-3">
         <div class="flex justify-between mb-6">
             <h5 class="font-bold text-lg pl-2 dark:text-white-light"> List Kategori Kebutuhan</h5> 

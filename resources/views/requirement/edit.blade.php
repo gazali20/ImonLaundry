@@ -1,15 +1,7 @@
 <x-layout.default>
 
-    <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
-        <li>
-            <a href="/requirement/detail" class="text-primary hover:underline">Kebutuhan</a>
-        </li>
-        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-            <span>Edit Kebutuhan</span>
-        </li>
-    </ul>
 
-    <div class="pt-5" x-data="requirementForm">
+    <div class="pt-3" x-data="requirementForm">
         <div class="panel">
             <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <a href="/requirement" class="inline-flex items-center">
@@ -46,13 +38,12 @@
                                 @foreach($needs as $need)
                                     <option value="{{ $need->id }}">{{ $need->name_category }}</option>
                                 @endforeach
-                            </select>
-                        
+                            </select>                        
                             <template x-if="isSubmitted && form.id_need">
-                                <p class="text-success mt-1">Nama kategori sudah diisi</p>
+                                <p class="text-success mt-1">Kategori sudah diisi</p>
                             </template>
                             <template x-if="isSubmitted && !form.id_need">
-                                <p class="text-danger mt-1">Harap isi nama kategori!</p>
+                                <p class="text-danger mt-1">Harap isi kategori!</p>
                             </template>
                         </div>
                         
@@ -60,7 +51,7 @@
                             <label for="stock">Stok</label>
                             <input id="stock" type="number" placeholder="Masukkan jumlah stok" class="form-input" x-model="form.stock" />
                             <template x-if="isSubmitted && form.stock">
-                                <p class="text-success mt-1">stock sudah diisi</p>
+                                <p class="text-success mt-1">Stock sudah diisi</p>
                             </template>
                             <template x-if="isSubmitted && !form.stock">
                                 <p class="text-danger mt-1">Harap isi stock!</p>

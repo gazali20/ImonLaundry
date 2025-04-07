@@ -1,8 +1,9 @@
 <x-layout.default>
     <div class="panel w-full h-full ">
+
         <div class="table-responsive">
             <div class="flex items-center justify-between mb-5">
-                <h5 class="flex items-center font-semibold text-xl dark:text-white-light gap-x-2">
+                <h5 class="flex items-center font-semibold text-lg dark:text-white-light gap-x-2">
                     <a href="/profile">
                         <svg class="mr-2" width="10" height="21" viewBox="0 0 12 23" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +36,7 @@
                 <div class="flex items-center lg:justify-start">
                     <a href="#">
                         <img src="{{ $user->photo ? asset($user->photo) : asset('assets/images/user.png') }}"
-                            class="object-cover rounded-full border-gray-300 w-96 h-96 ml-32" id="profile-img">
+                            class="object-cover rounded-full border-gray-300 w-80 h-80 ml-32" id="profile-img">
                     </a>
 
                     <!-- Tombol Edit Foto di Kiri Bawah -->
@@ -57,32 +58,32 @@
                 <div class="mr-32">
                     <!-- Name -->
                     <div class="mt-4">
-                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nama</label>
+                        <label class="block font-medium text-gray-700 dark:text-white mb-1">Nama</label>
                         <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            class="w-full mt-1 p-1 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
                             required>
                     </div>
 
                     <!-- Email -->
                     <div class="mt-4">
-                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Email</label>
+                        <label class="block font-medium text-gray-700 dark:text-white mb-1">Email</label>
                         <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            class="w-full mt-1 p-1 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
                             required>
                     </div>
 
                     <!-- Nomor Handphone -->
                     <div class="mt-4">
-                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Nomor Handphone</label>
+                        <label class="block font-medium text-gray-700 dark:text-white mb-1">Nomor Handphone</label>
                         <input type="text" name="no_handphone"
                             value="{{ old('no_handphone', Auth::user()->no_handphone) }}"
-                            class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
+                            class="w-full mt-1 p-1 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
                             required>
                     </div>
 
                     <!-- Alamat -->
                     <div class="mt-4">
-                        <label class="block text-lg font-semibold text-gray-700 dark:text-white">Alamat</label>
+                        <label class="block font-medium text-gray-700 dark:text-white mb-1">Alamat</label>
                         <textarea name="address" class="w-full mt-1 p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white"
                             required>{{ old('address', Auth::user()->address) }}</textarea>
                     </div>

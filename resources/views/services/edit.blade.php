@@ -1,17 +1,7 @@
 <x-layout.default>
 
-
-    <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
-        <li>
-            <a href="/services" class="text-primary hover:underline">Layanan</a>
-        </li>
-        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-            <span>Edit layanan</span>
-        </li>
-    </ul>
-
  
-    <div class="pt-5" x-data="formService">
+    <div class="pt-3" x-data="formService">
         <div class="panel">
             <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <a href="/services" class="inline-flex items-center">
@@ -44,11 +34,17 @@
                         <div :class="[isSubmitForm ? (form.id_category ? 'has-success' : 'has-error') : '']">
                             <label for="id_category">Kategori</label>
                             <select id="id_category" name="id_category" class="form-input" x-model="form.id_category">
-                                <option value="">-- Pilih Kategori --</option>
+                                <option value="">Pilih Kategori</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                                 @endforeach
                             </select>
+                            <template x-if="isSubmitForm && form.id_category">
+                                <p class="text-success mt-1">Kategori sudah pilih</p>
+                            </template>
+                            <template x-if="isSubmitForm && !form.id_category">
+                                <p class="text-danger mt-1">Harap pilih kategori!</p>
+                            </template>
                         </div>
     
                        
@@ -61,6 +57,7 @@
                             <template x-if="isSubmitForm && !form.price">
                                 <p class="text-danger mt-1">Harap isi harga!</p>
                             </template>
+                            
                         </div>
     
                        

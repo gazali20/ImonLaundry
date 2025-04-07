@@ -1,10 +1,10 @@
 <x-layout.default>
     <div class="flex justify-between items-center w-full px-3">
-        <div>
-            <h1 class=" text-xl ">Kasir transaksi</h1>
+        <div class="flex justify-between px-3 ">
+            <h1 class=" text-lg font-semibold">Kasir Layanan</h1>
         </div>
         <div class="flex ">
-            <a href="" class="btn mr-3 bg-purple-600 hover:bg-purple-700  text-white">Kasir</a>
+            <a href="" class="btn mr-3 bg-purple-600 hover:bg-purple-700  text-white">Kasir </a>
             <a href="/kasir/detail"
                 class="btn  bg-white font-semibold hover:bg-purple-500 hover:text-white text-black shadow-none">Pesanan</a>
         </div>

@@ -1,8 +1,8 @@
 <x-layout.default>
 
-        <div class=" pl-3">
-            <h1 class=" text-xl ">Invoice</h1>
-        </div>
+    <div class="flex justify-between px-3 ">
+        <h1 class=" text-lg font-semibold">Invoice</h1>
+    </div>
     
     <div class="panel mt-6">
         <h5 class="font-bold text-lg dark:text-white-light">Daftar Invoice</h5>

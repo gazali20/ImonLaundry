@@ -1,15 +1,6 @@
 <x-layout.default>
 
-    <ul class="flex space-x-2 rtl:space-x-reverse">
-        <li>
-            <a href="/requirement" class="text-primary hover:underline">List kebutuhan</a>
-        </li>
-        <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
-            <span>Detail kebutuhan</span>
-        </li>
-    </ul>
-
-    <div class="pt-5">
+    <div class="pt-3">
         <div class="panel">
             <h2 class="text-lg font-semibold mb-4 flex items-center space-x-2">
                 <a href="/requirement" class="inline-flex items-center">
@@ -69,7 +60,6 @@
             </div>
 
             <div class="mt-6 flex justify-start gap-x-3">
-                {{-- <a href="{{ route('services.index') }}" class="btn btn-secondary mr-2">Kembali</a> --}}
                 <a href="{{ route('requirement.edit', $requirement->id) }}"
                     class="btn bg-purple-600 hover:bg-purple-700 text-white">Edit kebutuhan</a>
                     <form action="{{ route('expenses.store', $requirement->id) }}" method="POST">
@@ -90,20 +80,20 @@
     </div>
 
     <script>
-        function confirmDelete(serviceId) {
+        function confirmDelete(requirementId) {
             Swal.fire({
                 title: 'Apakah Anda yakin?',
                 text: "Data yang dihapus tidak bisa dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'YHapus!',
+                confirmButtonText: 'Hapus!',
                 cancelButtonText: 'Tidak',
                 reverseButtons: true,
                 focusCancel: true
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Submit form jika user klik YES
-                    document.getElementById(`form-hapus-${serviceId}`).submit();
+                    document.getElementById(`form-hapus-${requirementId}`).submit();
                 }
             });
         }

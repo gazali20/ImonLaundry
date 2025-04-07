@@ -29,11 +29,17 @@
                         <div :class="[isSubmitForm ? (form.id_category ? 'has-success' : 'has-error') : '']">
                             <label for="id_category">Kategori</label>
                             <select id="id_category" name="id_category" class="form-input" x-model="form.id_category">
-                                <option value="">-- Pilih Kategori --</option>
+                                <option value="">Pilih Kategori</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                                 @endforeach
                             </select>
+                            <template x-if="isSubmitForm && form.id_category">
+                                <p class="text-success mt-1">Kategori sudah pilih</p>
+                            </template>
+                            <template x-if="isSubmitForm && !form.id_category">
+                                <p class="text-danger mt-1">Harap pilih kategori!</p>
+                            </template>
                         </div>
     
                         <div :class="[isSubmitForm ? (form.price ? 'has-success' : 'has-error') : '']">
@@ -54,7 +60,7 @@
                                 <p class="text-success mt-1">Kode layanan sudah diisi</p>
                             </template>
                             <template x-if="isSubmitForm && !form.code">
-                                <p class="text-danger mt-1">Kode belum diisi!</p>
+                                <p class="text-danger mt-1">Harap belum diisi!</p>
                             </template>
                         </div>
                     </div>
