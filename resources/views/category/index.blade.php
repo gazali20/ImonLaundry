@@ -6,7 +6,7 @@
 
     <div x-data="striped" class="panel mt-6 pl-3">
         <div class="flex justify-between mb-6">
-            <h5 class="font-semibold text-lg pl-2 dark:text-white-light"> List Kategori layanan</h5> 
+            <h5 class="font-bold text-lg pl-2 dark:text-white-light"> List Kategori layanan</h5> 
         </div>
         <table id="tableHover" class="table-hover"></table>
     </div>

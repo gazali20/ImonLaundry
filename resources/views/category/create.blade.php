@@ -1,7 +1,7 @@
 <x-layout.default>
     <ul class="flex space-x-2 rtl:space-x-reverse mb-5">
         <li>
-            <a href="/need" class="text-primary hover:underline">list kategori layanan</a>
+            <a href="/category" class="text-primary hover:underline">list kategori layanan</a>
         </li>
         <li class="before:content-['/'] ltr:before:mr-1 rtl:before:ml-1">
             <span>Tambah Kategori Layanan</span>
@@ -9,12 +9,12 @@
     </ul>
 
     <div class="pt-5" x-data="form">
-        <div class="panel">
+        <div class="panel max-w-xl">
             <form @submit.prevent="submitForm()">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 gap-5">
                     <div :class="[isSubmitForm ? (form.name_category ? 'has-success' : 'has-error') : '']">
                         <label for="custoName">Nama Kategori</label>
-                        <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
+                        <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input w-full"
                             x-model="form.name_category" />
                         <template x-if="isSubmitForm && form.name_category">
                             <p class="text-success mt-1">Kategori terisi</p>
@@ -24,7 +24,7 @@
                         </template>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-6">Simpan</button>
+                <button type="submit" class=" bg-purple-600 hover:bg-purple-700 mt-6 rounded-lg font-semibold text-white w-[100px] h-[40px]">Simpan</button>
             </form>
         </div>
     </div>

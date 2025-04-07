@@ -1,10 +1,13 @@
 <x-layout.default>
     <div class="flex justify-between px-3 ">
-        <h1 class=" text-lg font-semibold">Kategori Layanan</h1>
-        <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Layanan</a>
+        <h1 class=" text-lg font-semibold">Kategori Kebutuhan</h1>
+        <a href="/need/create" class="btn bg-purple-600 hover:bg-purple-700 text-white">Tambah Kategori</a>
     </div>
 
     <div x-data="striped" class="panel mt-3">
+        <div class="flex justify-between mb-6">
+            <h5 class="font-bold text-lg pl-2 dark:text-white-light"> List Kategori Kebutuhan</h5> 
+        </div>
         <table id="tableHover" class="table-hover"></table>
     </div>
     <script>
@@ -53,12 +56,7 @@
                             perPage: "{select}"
                         },
                         layout: {
-                            top: `
-        <div class="flex justify-between items-center mb-4 w-full">
-            <h5 class="font-bold text-lg dark:text-white-light">List Kategori Layanan</h5>
-            <div class="ml-auto" style="max-width: 300px;">{search}</div>
-        </div>
-    `,
+                            top: "{search}",
                             bottom: "{info}{select}{pager}",
                         },
                     };

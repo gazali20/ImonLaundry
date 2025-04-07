@@ -10,15 +10,15 @@
     </ul>
 
     <div class="pt-5" x-data="form">
-        <div class="panel">
+        <div class="panel max-w-xl">
 
             <form @submit.prevent="submitForm()" x-ref="form">
                 @csrf
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 gap-5">
 
                     <div :class="[isSubmitForm ? (form.name_category ? 'has-success' : 'has-error') : '']">
                         <label for="custoName">Nama Kategori Kebutuhan</label>
-                        <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input"
+                        <input id="custoName" type="text" placeholder="Masukan Kategori Layanan" class="form-input w-full"
                             x-model="form.name_category" />
                         
                         <template x-if="isSubmitForm && form.name_category">
